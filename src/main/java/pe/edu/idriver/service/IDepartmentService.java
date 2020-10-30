@@ -1,8 +1,16 @@
-package pe.edu.idriver.entity;
+package pe.edu.idriver.service;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+import java.util.Optional;
+
+import pe.edu.idriver.entity.Department;
+
+public interface IDepartmentService {
+	
+	public boolean insertar(Department department);
+	public boolean modificar(Department department);
+	public void eliminar(int idDepartment);
+	public Optional<Department> listarId(int idDepartment);
+	List<Department> listar();
+	List<Department> buscarNombre(String nameDepartment);
+}
