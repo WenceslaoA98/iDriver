@@ -1,8 +1,78 @@
-package pe.edu.idriver.entity;
+package pe.edu.idriver.serviceimpl;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import pe.edu.idriver.entity.Polarizado;
+import pe.edu.idriver.repository.IPolarizadoRepository;
+import pe.edu.idriver.service.IPolarizadoService;
+
+@Service
+public class PolarizadoServiceImpl implements IPolarizadoService {
+
+	@Autowired
+	private IPolarizadoRepository dPolarizado;
+
+	@Override
+	@Transactional
+	public boolean insertar(Polarizado polarizado) {
+		
+		Polarizado objPolarizado = dPolarizado.save(polarizado);
+		if (objPolarizado == null)
+			return false;
+		else return true;
+	}
+
+	@Override
+	@Transactional
+	public boolean modificar(Polarizado polarizado) {
+		
+		boolean flag = false;
+		try {
+			dPolarizado.save(polarizado);
+			flag = true;
+		} catch (Exception e) {
+			System.out.println("Sucedio un roche...");
+		}
+		return flag;
+	}
+
+	@Override
+	@Transactional
+	public void eliminar(int idPolarizado) {
+		
+		dPolarizado.deleteById(idPolarizado);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Optional<Polarizado> listarId(int idPolarizado) {
+		
+		return dPolarizado.findById(idPolarizado);
+	}
+
+	@Override
+	@Transactional
+	public List<Polarizado> listar() {
+		
+		return dPolarizado.findAll();
+	}
+
+	@Override
+	@Transactional
+	public List<Polarizado> buscarNombre(int idPolarizado) {
+		
+		return dPolarizado.buscarNombre(idPolarizado);
+	}
+	
+	@Override
+	@Transactional
+	public List<Polarizado> buscarVehiculo(String placaVehiculo) {
+
+		return dPolarizado.buscarVehiculo(placaVehiculo);
+	}
+}
