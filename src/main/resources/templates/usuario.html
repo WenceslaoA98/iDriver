@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		
+		<meta charset="ISO-8859-1"></meta>
+		
+		<title>Usuario</title>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		
+		<link 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+				rel="stylesheet" id="bootstrap-css">
+		</link>
+
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+
+	</head>
+	
+	<body>
+	
+		<div th:replace="fragments/headerusuario :: header"></div>
+		
+		<div class="container">
+			<form th:action="@{/usuario/registrar}" method="post" th:object="${usuario}">
+				<div class="form-group">
+					
+					<label for="idusuario">ID:</label> 
+					<input type="text" class="form-control" th:field="*{idUsuario}"></input>
+					
+					<div class="form-group">
+					
+						<label 	for="nombre">NOMBRES:</label> 
+						<input type="text" th:field="*{nameUsuario}" class="form-control" id="nombre"></input>
+	
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('nameUsuario')}" 
+							th:errors="*{nameUsuario}">
+						</div>
+						
+						<label 	for="apellido">APELLIDOS:</label> 
+						<input type="text" th:field="*{lastnameUsuario}" class="form-control" id="nombre"></input>
+	
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('lastnameUsuario')}" 
+							th:errors="*{lastnameUsuario}">
+						</div>
+						
+						<label 	for="correo">CORREO:</label> 
+						<input type="text" th:field="*{emailUsuario}" class="form-control" id="nombre"></input>
+	
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('emailUsuario')}" 
+							th:errors="*{emailUsuario}">
+						</div>
+						
+						<label for="fechaNacimiento">FECHA DE NACIMIENTO:</label> <input
+						type="date" th:field="*{birthDateUsuario}" class="form-control"
+						id="fechaNacimiento"></input>
+						<!-- th:errors Se encarga del manejo de errores -->
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('birthDateUsuario')}"
+						th:errors="*{birthDateUsuario}"></div>
+						
+						<label 	for="direccion">DIRECCION:</label> 
+						<input type="text" th:field="*{addressUsuario}" class="form-control" id="nombre"></input>
+	
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('addressUsuario')}" 
+							th:errors="*{addressUsuario}">
+						</div>
+
+						
+						<label for="distrito" class=" col-sm-2 col-form-label">DISTRITO: </label>
+					<select
+						class="form-control" th:field="*{district.idDistrict}">
+						<!-- th:each Itera los elementos de un arreglo -->
+						<!-- sintaxis th:each="Variable: ${Lista}" -->
+						<!-- th:value Establece el value de la seleccion -->
+						<!-- sintaxis th:value="${Variable.Atributo}" -->
+						<option th:each="di: ${listaDistritos}" th:value="${di.idDistrict}"
+							th:text="${di.nameDistrict}"
+							th:selected="(${di.idDistrict} == *{district.idDistrict})"></option>
+					</select>
+						
+					</div>
+					
+				</div>
+				
+				<button type="submit" class="btn btn-success"> <span
+							class="glyphicon glyphicon-floppy-saved" ></span>  Aceptar</button>
+				<a href="/usuario/listar" class="btn btn-danger"><span
+							class="glyphicon glyphicon-floppy-remove" ></span>  Cancelar</a>
+			</form>
+		</div>
+	
+		<div th:replace="fragments/footer :: footer"></div>
+
+	</body>
+	
+</html>

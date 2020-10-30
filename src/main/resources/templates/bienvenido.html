@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+	
+		<meta charset="UTF-8"></meta>
+		<title>iDriver</title>
+		
+		<script type="text/javascript"
+				src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js">
+		</script>
+		
+		<link
+			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+			rel="stylesheet" id="bootstrap-css">
+		</link>
+		
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+		
+		<script src="//code.jquery.com/jquery-1.11.1.min.js">
+		</script>
+		
+	</head>
+	
+	<body>
+	
+		<div th:replace="fragments/headerusuario :: header"></div>
+		<div class="row">
+		<STYLE type="text/css">
+				h1 { text-align: center}
+				h1 { font-size: 40px}
+				h1 { color:red;}
+				h2 { text-align: center}
+				h2 { font-style: italic}
+  				h4 { text-align: center}
+  				p { text-align: center}
+  				a { text-align: center}
+  				img { align-content: center;}
+  				img { align-items: center;}
+  				img { align-self: center;}
+  				div { align-content: center;}
+  				div { align-items: center;}
+  				div { align-self: center;}
+</STYLE>
+<h1> iDriver </h1>
+<h2> Todos tus documentos seguros y al alcance de tu celular </h2>
+<div class="col-md-4">
+<div class="card">
+<img class="card-img-top" th:src="@{/imagenes/DNI.png}" width="300" height="300" alt="DNI">
+<div class="card-body">
+<h4 class="card-title">DNI</h4>
+<p class="card-text">Nunca olvides tu DNI</p> 
+<a href="/usuario/listar" class="btn btn-primary center-block">Ir a …</a>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<img class="card-img-top" th:src="@{/imagenes/DRIVERLICENCE.png}" width="300" height="300"alt="Licencia">
+<div class="card-body">
+<h4 class="card-title">Licencia</h4>
+<p class="card-text">Nunca olvides tu Licencia</p>
+<a href="/licencia/listar" class="btn btn-primary center-block">Ir a …</a>
+</div>
+</div> </div>
+<div class="col-md-4">
+<div class="card">
+<img class="card-img-top" th:src="@{/imagenes/SOAT.png}" width="300" height="300" alt="SOAT">
+<div class="card-body">
+<h4 class="card-title">SOAT</h4>
+<p class="card-text">Nunca olvides tu SOAT</p>
+<a href="/soat/listar" class="btn btn-primary center-block">Ir a …</a>
+
+</div>
+</div> </div>
+</div>
+
+</div>
+		<div class="container">
+		<div th:replace="fragments/footer :: footer"></div>
+
+	</body>
+
+</html>

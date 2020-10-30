@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		
+		<meta charset="ISO-8859-1"></meta>
+		
+		<title>Documento</title>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		
+		<link 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+				rel="stylesheet" id="bootstrap-css">
+		</link>
+
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+
+	</head>
+	
+	<body>
+	
+		<div th:replace="fragments/headeradmin :: header"></div>
+		
+		<div class="container">
+			<form th:action="@{/documento/registrar}" method="post" th:object="${documento}">
+				<div class="form-group">
+					
+					<label for="iddocumento">ID:</label> 
+					<input type="text" class="form-control" th:field="*{idDocumento}"></input>
+					
+					<div class="form-group">
+						
+						<label for="usuario" class=" col-sm-2 col-form-label">USUARIO: </label>
+					<select
+						class="form-control" th:field="*{usuario.idUsuario}">
+						<!-- th:each Itera los elementos de un arreglo -->
+						<!-- sintaxis th:each="Variable: ${Lista}" -->
+						<!-- th:value Establece el value de la seleccion -->
+						<!-- sintaxis th:value="${Variable.Atributo}" -->
+						<option th:each="u: ${listaUsuarios}" th:value="${u.idUsuario}"
+							th:text="${u.nameUsuario}"
+							th:selected="(${u.idUsuario} == *{usuario.idUsuario})"></option>
+					</select>
+					
+						<label for="vehiculo" class=" col-sm-2 col-form-label">VEHICULO: </label>
+					<select
+						class="form-control" th:field="*{vehiculo.idVehiculo}">
+						<!-- th:each Itera los elementos de un arreglo -->
+						<!-- sintaxis th:each="Variable: ${Lista}" --
+						<!-- th:value Establece el value de la seleccion -->
+						<!-- sintaxis th:value="${Variable.Atributo}" -->
+						<option th:each="v: ${listaVehiculos}" th:value="${v.idVehiculo}"
+							th:text="${v.placaVehiculo}"
+							th:selected="(${v.idVehiculo} == *{vehiculo.idVehiculo})"></option>
+					</select>
+					
+						<label for="licencia" class=" col-sm-2 col-form-label">LICENCIA: </label>
+					<select
+						class="form-control" th:field="*{licencia.idLicencia}">
+						<!-- th:each Itera los elementos de un arreglo -->
+						<!-- sintaxis th:each="Variable: ${Lista}" -->
+						<!-- th:value Establece el value de la seleccion -->
+						<!-- sintaxis th:value="${Variable.Atributo}" -->
+						<option th:each="l: ${listaLicencias}" th:value="${l.idLicencia}"
+							th:text="${l.idLicencia}"
+							th:selected="(${l.idLicencia} == *{licencia.idLicencia})"></option>
+					</select>
+					
+						<label for="seguro" class=" col-sm-2 col-form-label">SEGURO: </label>
+					<select
+						class="form-control" th:field="*{seguro.idSeguro}">
+						<!-- th:each Itera los elementos de un arreglo -->
+						<!-- sintaxis th:each="Variable: ${Lista}" -->
+						<!-- th:value Establece el value de la seleccion -->
+						<!-- sintaxis th:value="${Variable.Atributo}" -->
+						<option th:each="s: ${listaSeguros}" th:value="${s.idSeguro}"
+							th:text="${s.idSeguro}"
+							th:selected="(${s.idSeguro} == *{seguro.idSeguro})"></option>
+					</select>
+					
+						<label for="soat" class=" col-sm-2 col-form-label">SOAT: </label>
+					<select
+						class="form-control" th:field="*{soat.idSoat}">
+						<!-- th:each Itera los elementos de un arreglo -->
+						<!-- sintaxis th:each="Variable: ${Lista}" -->
+						<!-- th:value Establece el value de la seleccion -->
+						<!-- sintaxis th:value="${Variable.Atributo}" -->
+						<option th:each="so: ${listaSoats}" th:value="${so.idSoat}"
+							th:text="${so.idSoat}"
+							th:selected="(${so.idSoat} == *{soat.idSoat})"></option>
+					</select>
+					
+						<label for="tarjeta" class=" col-sm-2 col-form-label">TARJETA: </label>
+					<select
+						class="form-control" th:field="*{tarjeta.idTarjeta}">
+						<!-- th:each Itera los elementos de un arreglo -->
+						<!-- sintaxis th:each="Variable: ${Lista}" -->
+						<!-- th:value Establece el value de la seleccion -->
+						<!-- sintaxis th:value="${Variable.Atributo}" -->
+						<option th:each="t: ${listaTarjetas}" th:value="${t.idTarjeta}"
+							th:text="${t.idTarjeta}"
+							th:selected="(${t.idTarjeta} == *{tarjeta.idTarjeta})"></option>
+					</select>
+					
+						<label for="polarizado" class=" col-sm-2 col-form-label">POLARIZADO: </label>
+					<select
+						class="form-control" th:field="*{polarizado.idPolarizado}">
+						<!-- th:each Itera los elementos de un arreglo -->
+						<!-- sintaxis th:each="Variable: ${Lista}" -->
+						<!-- th:value Establece el value de la seleccion -->
+						<!-- sintaxis th:value="${Variable.Atributo}" -->
+						<option th:each="po: ${listaPolarizados}" th:value="${po.idPolarizado}"
+							th:text="${po.idPolarizado}"
+							th:selected="(${po.idPolarizado} == *{polarizado.idPolarizado})"></option>
+					</select>
+						
+						<label for="anoDocumento">AÑO DE REGISTRO:</label> <input
+						type="date" th:field="*{DateDocumento}" class="form-control"
+						id="anoDocumento"></input>
+						<!-- th:errors Se encarga del manejo de errores -->
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('DateDocumento')}"
+						th:errors="DateDocumento"></div>
+						
+					</div>
+					
+				</div>
+				
+				<button type="submit" class="btn btn-primary">Aceptar</button>
+				<a href="/documento/listar" class="btn btn-danger">Cancelar</a>
+			</form>
+		</div>
+	
+		<div th:replace="fragments/footer :: footer"></div>
+
+	</body>
+	
+</html>

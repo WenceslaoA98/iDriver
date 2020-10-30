@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		
+		<meta charset="ISO-8859-1"></meta>
+		
+		<title>Seguro</title>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		
+		<link 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+				rel="stylesheet" id="bootstrap-css">
+		</link>
+
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+
+	</head>
+	
+	<body>
+	
+		<div th:replace="fragments/headerusuario :: header"></div>
+		
+		<div class="container">
+			<form th:action="@{/seguro/registrar}" method="post" th:object="${seguro}">
+				<div class="form-group">
+					
+					<label for="idseguro">ID:</label> 
+					<input type="text" class="form-control" th:field="*{idSeguro}"></input>
+					
+					<div class="form-group">
+					
+						<label for="usuario" class=" col-sm-2 col-form-label">USUARIO: </label>
+					<select
+						class="form-control" th:field="*{usuario.idUsuario}">
+						<!-- th:each Itera los elementos de un arreglo -->
+						<!-- sintaxis th:each="Variable: ${Lista}" --
+						<!-- th:value Establece el value de la seleccion -->
+						<!-- sintaxis th:value="${Variable.Atributo}" -->
+						<option th:each="u: ${listaUsuarios}" th:value="${u.idUsuario}"
+							th:text="${u.nameUsuario}"
+							th:selected="(${u.idUsuario} == *{usuario.idUsuario})"></option>
+					</select>
+					
+						<label for="vehiculo" class=" col-sm-2 col-form-label">VEHICULO: </label>
+					<select
+						class="form-control" th:field="*{vehiculo.idVehiculo}">
+						<!-- th:each Itera los elementos de un arreglo -->
+						<!-- sintaxis th:each="Variable: ${Lista}" --
+						<!-- th:value Establece el value de la seleccion -->
+						<!-- sintaxis th:value="${Variable.Atributo}" -->
+						<option th:each="v: ${listaVehiculos}" th:value="${v.idVehiculo}"
+							th:text="${v.placaVehiculo}"
+							th:selected="(${v.idVehiculo} == *{vehiculo.idVehiculo})"></option>
+					</select>
+						
+						<label 	for="monto">MONTO:</label> 
+						<input type="text" th:field="*{montoSeguro}" class="form-control" id="monto"></input>
+	
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('montoSeguro')}" 
+							th:errors="*{montoSeguro}">
+						</div>
+						
+						<label for="fechaExpedicion">EXPEDICION:</label> <input
+						type="date" th:field="*{expedicionSeguro}" class="form-control"
+						id="fechaExpedicion"></input>
+						<!-- th:errors Se encarga del manejo de errores -->
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('expedicionSeguro')}"
+						th:errors="*{expedicionSeguro}"></div>
+						
+						<label for="fechaExpiracion">EXPIRACION:</label> <input
+						type="date" th:field="*{expiracionSeguro}" class="form-control"
+						id="fechaExpiracion"></input>
+						<!-- th:errors Se encarga del manejo de errores -->
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('expiracionSeguro')}"
+						th:errors="*{expiracionSeguro}"></div>
+
+						
+						
+						
+					</div>
+					
+				</div>
+				
+				<button type="submit" class="btn btn-success"> <span
+							class="glyphicon glyphicon-floppy-saved" ></span>  Aceptar</button>
+				<a href="/seguro/listar" class="btn btn-danger"><span
+							class="glyphicon glyphicon-floppy-remove" ></span>  Cancelar</a>
+			</form>
+		</div>
+	
+		<div th:replace="fragments/footer :: footer"></div>
+
+	</body>
+	
+</html>

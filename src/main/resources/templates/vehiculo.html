@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		
+		<meta charset="ISO-8859-1"></meta>
+		
+		<title>Vehiculo</title>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		
+		<link 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+				rel="stylesheet" id="bootstrap-css">
+		</link>
+
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+
+	</head>
+	
+	<body>
+	
+		<div th:replace="fragments/headerusuario :: header"></div>
+		
+		<div class="container">
+			<form th:action="@{/vehiculo/registrar}" method="post" th:object="${vehiculo}">
+				<div class="form-group">
+					
+					<label for="idvehiculo">ID:</label> 
+					<input type="text" class="form-control" th:field="*{idVehiculo}"></input>
+					
+					<div class="form-group">
+					
+						<label 	for="placa">PLACA:</label> 
+						<input type="text" th:field="*{placaVehiculo}" class="form-control" id="placa"></input>
+	
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('placaVehiculo')}" 
+							th:errors="*{placaVehiculo}">
+						</div>
+						
+						<label for="modelo" class=" col-sm-2 col-form-label">MODELO: </label>
+					<select
+						class="form-control" th:field="*{carmodel.idCarModel}">
+						<!-- th:each Itera los elementos de un arreglo -->
+						<!-- sintaxis th:each="Variable: ${Lista}" -->
+						<!-- th:value Establece el value de la seleccion -->
+						<!-- sintaxis th:value="${Variable.Atributo}" -->
+						<option th:each="cm: ${listaModelos}" th:value="${cm.idCarModel}"
+							th:text="${cm.nameCarModel}"
+							th:selected="(${cm.idCarModel} == *{carmodel.idCarModel})"></option>
+					</select>
+					
+						<label for="color" class=" col-sm-2 col-form-label">COLOR: </label>
+					<select
+						class="form-control" th:field="*{color.idColor}">
+						<!-- th:each Itera los elementos de un arreglo -->
+						<!-- sintaxis th:each="Variable: ${Lista}" -->
+						<!-- th:value Establece el value de la seleccion -->
+						<!-- sintaxis th:value="${Variable.Atributo}" -->
+						<option th:each="co: ${listaColores}" th:value="${co.idColor}"
+							th:text="${co.nameColor}"
+							th:selected="(${co.idColor} == *{color.idColor})"></option>
+					</select>
+						
+						<label for="anoVehiculo">AÑO DEL VEHICULO:</label> <input
+						type="date" th:field="*{DateVehiculo}" class="form-control"
+						id="anoVehiculo"></input>
+						<!-- th:errors Se encarga del manejo de errores -->
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('DateVehiculo')}"
+						th:errors="DateVehiculo"></div>
+						
+					</div>
+					
+				</div>
+				
+				<button type="submit" class="btn btn-primary">Aceptar</button>
+				<a href="/vehiculo/listar" class="btn btn-danger">Cancelar</a>
+			</form>
+		</div>
+	
+		<div th:replace="fragments/footer :: footer"></div>
+
+	</body>
+	
+</html>

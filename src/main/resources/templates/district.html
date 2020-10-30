@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		
+		<meta charset="ISO-8859-1"></meta>
+		
+		<title>Distrito</title>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		
+		<link 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+				rel="stylesheet" id="bootstrap-css">
+		</link>
+
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+
+	</head>
+	
+	<body>
+	
+		<div th:replace="fragments/header :: header"></div>
+		
+		<div class="container">
+			<form th:action="@{/district/registrar}" method="post" th:object="${district}">
+				<div class="form-group">
+					
+					<label for="idprovince">ID:</label> 
+					<input type="text" class="form-control" th:field="*{idDistrict}"></input>
+					
+					<div class="form-group">
+					
+						<label 	for="nombre">NOMBRE:</label> 
+						<input type="text" th:field="*{nameDistrict}" class="form-control" id="nombre"></input>
+	
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('nameDistrict')}" 
+							th:errors="*{nameDistrict}">
+						</div>
+						
+						<label for="provincia" class=" col-sm-2 col-form-label">Provincia: </label>
+					<select
+						class="form-control" th:field="*{province.idProvince}">
+						<!-- th:each Itera los elementos de un arreglo -->
+						<!-- sintaxis th:each="Variable: ${Lista}" -->
+						<!-- th:value Establece el value de la seleccion -->
+						<!-- sintaxis th:value="${Variable.Atributo}" -->
+						<option th:each="p: ${listaProvincias}" th:value="${p.idProvince}"
+							th:text="${p.nameProvince}"
+							th:selected="(${p.idProvince} == *{province.idProvince})"></option>
+					</select>
+						
+					</div>
+					
+				</div>
+				
+				<button type="submit" class="btn btn-success"> <span
+							class="glyphicon glyphicon-floppy-saved" ></span>  Aceptar</button>
+				<a href="/district/listar" class="btn btn-danger"><span
+							class="glyphicon glyphicon-floppy-remove" ></span>  Cancelar</a>
+			</form>
+		</div>
+	
+		<div th:replace="fragments/footer :: footer"></div>
+
+	</body>
+	
+</html>
