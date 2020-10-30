@@ -1,8 +1,16 @@
-package pe.edu.idriver.entity;
+package pe.edu.idriver.service;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+import java.util.Optional;
+
+import pe.edu.idriver.entity.Brand;
+
+public interface IBrandService {
+	
+	public boolean insertar(Brand brand);
+	public boolean modificar(Brand brand);
+	public void eliminar(int idBrand);
+	public Optional<Brand> listarId(int idBrand);
+	List<Brand> listar();
+	List<Brand> buscarNombre(String nameBrand);
+}
