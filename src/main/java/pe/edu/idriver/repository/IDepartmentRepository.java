@@ -1,8 +1,18 @@
-package pe.edu.idriver.entity;
+package pe.edu.idriver.repository;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import pe.edu.idriver.entity.Department;
+
+@Repository
+public interface IDepartmentRepository extends JpaRepository<Department, Integer>{
+
+	@Query("from Department d where d.nameDepartment like %:nameDepartment%")
+	List<Department> buscarNombre(@Param("nameDepartment") String nameDepartment);
+}
+e;
