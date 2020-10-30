@@ -1,8 +1,16 @@
-package pe.edu.idriver.entity;
+package pe.edu.idriver.service;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+import java.util.Optional;
+
+import pe.edu.idriver.entity.Color;
+
+public interface IColorService {
+	
+	public boolean insertar(Color color);
+	public boolean modificar(Color color);
+	public void eliminar(int idColor);
+	public Optional<Color> listarId(int idColor);
+	List<Color> listar();
+	List<Color> buscarNombre(String nameColor);
+}

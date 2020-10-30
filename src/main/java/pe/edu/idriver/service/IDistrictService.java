@@ -1,8 +1,17 @@
-package pe.edu.idriver.entity;
+package pe.edu.idriver.service;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+import java.util.Optional;
+
+import pe.edu.idriver.entity.District;
+
+public interface IDistrictService {
+	
+	public boolean insertar(District district);
+	public boolean modificar(District district);
+	public void eliminar(int idDistrict);
+	public Optional<District> listarId(int idDistrict);
+	List<District> listar();
+	List<District> buscarNombre(String nameDistrict);
+	List<District> buscarProvince(String nameProvince);
+}
