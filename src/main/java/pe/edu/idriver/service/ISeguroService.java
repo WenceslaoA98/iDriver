@@ -1,8 +1,18 @@
-package pe.edu.idriver.entity;
+package pe.edu.idriver.service;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+import java.util.Optional;
+
+import pe.edu.idriver.entity.Seguro;
+
+public interface ISeguroService {
+	
+	public boolean insertar(Seguro soat);
+	public boolean modificar(Seguro soat);
+	public void eliminar(int idSeguro);
+	public Optional<Seguro> listarId(int idSeguro);
+	List<Seguro> listar();
+	List<Seguro> buscarNombre(int idSeguro);
+	List<Seguro> buscarUsuario(String nameUsuario);
+	List<Seguro> buscarVehiculo(String placaVehiculo);
+}
