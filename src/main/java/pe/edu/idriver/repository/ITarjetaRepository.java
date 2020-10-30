@@ -1,8 +1,21 @@
-package pe.edu.idriver.entity;
+package pe.edu.idriver.repository;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import pe.edu.idriver.entity.Tarjeta;
+
+@Repository
+public interface ITarjetaRepository extends JpaRepository<Tarjeta, Integer>{
+
+	@Query("from Tarjeta t where t.idTarjeta like %:idTarjeta%")
+	List<Tarjeta> buscarNombre(@Param("idTarjeta") int idTarjeta);
+	
+	@Query("from Tarjeta t where t.vehiculo.placaVehiculo like %:placaVehiculo%")
+	List<Tarjeta> buscarVehiculo(@Param("placaVehiculo") String placaVehiculo);
+	
+}
