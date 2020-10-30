@@ -39,5 +39,5 @@ public class Color {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
+//
 }
