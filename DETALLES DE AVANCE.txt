@@ -1,0 +1,17 @@
+iDriver Proyecto 
+Wenceslao Arrascue
+Valeria Collazos
+--------------------
+TB03
+*********Tenemos listas
+Eliminar 
+Modificar
+Y many to one
+*********Falta
+Buscar
+Login
+Mas estetica
+
+TB04
+********Otro grupo tenia el buscar
+********El profe hara el login
