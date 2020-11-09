@@ -106,14 +106,6 @@ public class DepartmentController {
 		dService.listarId(department.getIdDepartment());
 		return "listDepartment";
 	}
-/*
-	@RequestMapping("/irBuscar")
-	public String irBuscar(Model model) {
-		model.("department", new Department());
-		return "department";
-	}
-	
-	*/
 	
 	@RequestMapping("/buscar") /*se recupera el nombre de la raza. Del objeto race*/ 
 	public String buscar(Map<String , Object> model, @ModelAttribute Department department)
@@ -121,20 +113,20 @@ public class DepartmentController {
 	{
 		List<Department> listaDepartamentos;
 		department.setNameDepartment(department.getNameDepartment());
-		listaDepartamentos = dService.buscarNombre(department.getNameDepartment());
+		listaDepartamentos = dService.findByName(department.getNameDepartment());
 		
 		if(listaDepartamentos.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{
 			model.put("mensaje", "No se encontro");
 		}
 		model.put("listaDepartamentos", listaDepartamentos);
-		return "buscar";
+		return "listDepartment";
 	}
 	
 	@RequestMapping("/irBuscar")
 	public String irBuscar(Model model) {
 		model.addAttribute("department", new Department());
-		return "buscar";
+		return "buscarDepartamento";
 	}
 	
 }

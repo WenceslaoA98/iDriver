@@ -118,19 +118,20 @@ public class ProvinceController {
 	{
 		List<Province> listaProvincias;
 		province.setNameProvince(province.getNameProvince());
-		listaProvincias = pService.buscarNombre(province.getNameProvince());
+		listaProvincias = pService.findByName(province.getNameProvince());
 		
 		if(listaProvincias.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{
 			model.put("mensaje", "No se encontro");
 		}
 		model.put("listaProvincias", listaProvincias);
-		return "buscar";
+		return "listProvince";
 	}
 	
 	@RequestMapping("/irBuscar")
 	public String irBuscar(Model model) {
 		model.addAttribute("province", new Province());
-		return "buscar";
+		return "buscarProvincia";
 	}
+
 }

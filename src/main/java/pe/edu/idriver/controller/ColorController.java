@@ -109,19 +109,19 @@ public class ColorController {
 	{
 		List<Color> listaColores;
 		color.setNameColor(color.getNameColor());
-		listaColores = coService.buscarNombre(color.getNameColor());
+		listaColores = coService.findByName(color.getNameColor());
 		
 		if(listaColores.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{
 			model.put("mensaje", "No se encontro");
 		}
 		model.put("listaColores", listaColores);
-		return "buscar";
+		return "listColor";
 	}
 	
 	@RequestMapping("/irBuscar")
 	public String irBuscar(Model model) {
 		model.addAttribute("color", new Color());
-		return "buscar";
+		return "buscarColor";
 	}
 }

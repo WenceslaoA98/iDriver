@@ -118,19 +118,19 @@ public class DistrictController {
 	{
 		List<District> listaDistritos;
 		district.setNameDistrict(district.getNameDistrict());
-		listaDistritos = diService.buscarNombre(district.getNameDistrict());
+		listaDistritos = diService.findByName(district.getNameDistrict());
 		
 		if(listaDistritos.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{
 			model.put("mensaje", "No se encontro");
 		}
 		model.put("listaDistritos", listaDistritos);
-		return "buscar";
+		return "listDistrict";
 	}
 	
 	@RequestMapping("/irBuscar")
 	public String irBuscar(Model model) {
 		model.addAttribute("district", new District());
-		return "buscar";
+		return "buscarDistrito";
 	}
 }
