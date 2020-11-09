@@ -15,4 +15,3 @@ public interface IDepartmentRepository extends JpaRepository<Department, Integer
 	@Query("from Department d where d.nameDepartment like %:nameDepartment%")
 	List<Department> buscarNombre(@Param("nameDepartment") String nameDepartment);
 }
-e;

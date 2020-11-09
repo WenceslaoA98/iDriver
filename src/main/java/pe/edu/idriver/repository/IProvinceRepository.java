@@ -17,6 +17,6 @@ public interface IProvinceRepository extends JpaRepository<Province, Integer>{
 	List<Province> buscarNombre(@Param("nameProvince") String nameProvince);
 	
 	@Query("from Province p where p.department.nameDepartment like %:nameDepartment%")
-	List<Province> buscarDepartment(@Param("nameDepartment") String nameDepartment);
+	List<Province> buscarNombreDepartment(@Param("nameDepartment") String nameDepartment);
 	
 }
