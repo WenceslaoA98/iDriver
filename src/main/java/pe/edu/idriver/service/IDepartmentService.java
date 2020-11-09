@@ -12,5 +12,5 @@ public interface IDepartmentService {
 	public void eliminar(int idDepartment);
 	public Optional<Department> listarId(int idDepartment);
 	List<Department> listar();
-	List<Department> buscarNombre(String nameDepartment);
+	List<Department> findByName(String nameDepartment);
 }

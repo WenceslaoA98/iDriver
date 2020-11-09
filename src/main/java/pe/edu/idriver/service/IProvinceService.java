@@ -12,6 +12,5 @@ public interface IProvinceService {
 	public void eliminar(int idProvince);
 	public Optional<Province> listarId(int idProvince);
 	List<Province> listar();
-	List<Province> buscarNombre(String nameProvince);
-	List<Province> buscarDepartment(String nameDepartment);
+	List<Province> findByName(String nameProvince);
 }

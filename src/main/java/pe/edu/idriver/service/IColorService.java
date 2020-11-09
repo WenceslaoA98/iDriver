@@ -12,5 +12,5 @@ public interface IColorService {
 	public void eliminar(int idColor);
 	public Optional<Color> listarId(int idColor);
 	List<Color> listar();
-	List<Color> buscarNombre(String nameColor);
+	List<Color> findByName(String nameColor);
 }

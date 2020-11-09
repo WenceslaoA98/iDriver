@@ -12,6 +12,5 @@ public interface IDistrictService {
 	public void eliminar(int idDistrict);
 	public Optional<District> listarId(int idDistrict);
 	List<District> listar();
-	List<District> buscarNombre(String nameDistrict);
-	List<District> buscarProvince(String nameProvince);
+	List<District> findByName(String nameDistrict);
 }
