@@ -2,7 +2,7 @@ iDriver Proyecto
 Wenceslao Arrascue
 Valeria Collazos
 --------------------
-TB03
+TB03  NOTA 18
 *********Tenemos listas
 Eliminar 
 Modificar
@@ -13,5 +13,16 @@ Login
 Mas estetica
 
 TB04
-********Otro grupo tenia el buscar
 ********El profe hara el login
+Ya tenemos el buscar en:
+Department
+Province
+District
+Color
+Brand
+CarModel
+Comenzaremos un login simple con contraseñas que agregaremos al pg
+
+*********
+Nos falta buscar en algunas clases
+Login propio
