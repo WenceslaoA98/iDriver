@@ -64,7 +64,7 @@ public class ColorServiceImpl implements IColorService {
 
 	@Override
 	@Transactional
-	public List<Color> buscarNombre(String nameColor) {
+	public List<Color> findByName(String nameColor) {
 		
 		return dColor.buscarNombre(nameColor);
 	}

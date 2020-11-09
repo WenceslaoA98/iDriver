@@ -66,7 +66,7 @@ public class DepartmentServiceImpl implements IDepartmentService {
 
 	@Override
 	@Transactional
-	public List<Department> buscarNombre(String nameDepartment) {
+	public List<Department> findByName(String nameDepartment) {
 		
 		return dDepartment.buscarNombre(nameDepartment);
 	}

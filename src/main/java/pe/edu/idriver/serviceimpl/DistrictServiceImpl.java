@@ -64,15 +64,9 @@ public class DistrictServiceImpl implements IDistrictService {
 
 	@Override
 	@Transactional
-	public List<District> buscarNombre(String nameDistrict) {
+	public List<District> findByName(String nameDistrict) {
 		
 		return dDistrict.buscarNombre(nameDistrict);
 	}
-	
-	@Override
-	@Transactional
-	public List<District> buscarProvince(String nameProvince) {
 
-		return dDistrict.buscarProvince(nameProvince);
-	}
 }

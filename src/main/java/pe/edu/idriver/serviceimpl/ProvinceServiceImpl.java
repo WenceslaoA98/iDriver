@@ -69,15 +69,8 @@ public class ProvinceServiceImpl implements IProvinceService {
 
 	@Override
 	@Transactional
-	public List<Province> buscarNombre(String nameProvince) {
+	public List<Province> findByName(String nameProvince) {
 		
 		return dProvince.buscarNombre(nameProvince);
-	}
-	
-	@Override
-	@Transactional
-	public List<Province> buscarDepartment(String nameDepartment) {
-
-		return dProvince.buscarDepartment(nameDepartment);
 	}
 }
