@@ -26,3 +26,6 @@ Comenzaremos un login simple con contraseñas que agregaremos al pg
 *********
 Nos falta buscar en algunas clases
 Login propio
+*********
+Tenemos todas las búsquedas.
+OJO: CAMBIAR MANY TO ONE -> ONE TO ONE
