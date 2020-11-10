@@ -10,12 +10,12 @@ import org.springframework.stereotype.Repository;
 import pe.edu.idriver.entity.Polarizado;
 
 @Repository
-public interface IPolarizadoRepository extends JpaRepository<Polarizado, Integer>{
+public interface IPolarizadoRepository extends JpaRepository<Polarizado, String>{
 
 	@Query("from Polarizado po where po.idPolarizado like %:idPolarizado%")
-	List<Polarizado> buscarNombre(@Param("idPolarizado") int idPolarizado);
+	List<Polarizado> buscarId(@Param("idPolarizado") String idPolarizado);
 	
 	@Query("from Polarizado po where po.vehiculo.placaVehiculo like %:placaVehiculo%")
-	List<Polarizado> buscarVehiculo(@Param("placaVehiculo") String placaVehiculo);
+	List<Polarizado> buscarPlacaVehiculo(@Param("placaVehiculo") String placaVehiculo);
 	
 }

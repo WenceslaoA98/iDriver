@@ -16,6 +16,6 @@ public interface ICarModelRepository extends JpaRepository<CarModel, Integer>{
 	List<CarModel> buscarNombre(@Param("nameCarModel") String nameCarModel);
 	
 	@Query("from CarModel cm where cm.brand.nameBrand like %:nameBrand%")
-	List<CarModel> buscarBrand(@Param("nameBrand") String nameBrand);
+	List<CarModel> buscarNombreBrand(@Param("nameBrand") String nameBrand);
 	
 }

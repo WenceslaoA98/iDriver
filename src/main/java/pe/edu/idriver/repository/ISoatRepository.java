@@ -10,15 +10,15 @@ import org.springframework.stereotype.Repository;
 import pe.edu.idriver.entity.Soat;
 
 @Repository
-public interface ISoatRepository extends JpaRepository<Soat, Integer>{
+public interface ISoatRepository extends JpaRepository<Soat, String>{
 
 	@Query("from Soat s where s.idSoat like %:idSoat%")
-	List<Soat> buscarNombre(@Param("idSoat") int idSoat);
+	List<Soat> buscarId(@Param("idSoat") String idSoat);
 	
 	@Query("from Soat s where s.usuario.nameUsuario like %:nameUsuario%")
-	List<Soat> buscarUsuario(@Param("nameUsuario") String nameUsuario);
+	List<Soat> buscarNombreUsuario(@Param("nameUsuario") String nameUsuario);
 	
 	@Query("from Soat s where s.vehiculo.placaVehiculo like %:placaVehiculo%")
-	List<Soat> buscarVehiculo(@Param("placaVehiculo") String placaVehiculo);
+	List<Soat> buscarPlacaVehiculo(@Param("placaVehiculo") String placaVehiculo);
 	
 }

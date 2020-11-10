@@ -16,7 +16,7 @@ public interface IDistrictRepository extends JpaRepository<District, Integer>{
 	@Query("from District d where d.nameDistrict like %:nameDistrict%")
 	List<District> buscarNombre(@Param("nameDistrict") String nameDistrict);
 	
-	@Query("from District d where d.province.nameProvince like %:nameProvince%")
-	List<District> buscarProvince(@Param("nameProvince") String nameProvince);
+	@Query("from District d where d.province.department.nameDepartment like %:nameDepartment%")
+	List<District> buscarNombreDepartment(@Param("nameDepartment") String nameDepartment);
 	
 }

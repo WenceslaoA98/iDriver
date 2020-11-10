@@ -10,12 +10,12 @@ import org.springframework.stereotype.Repository;
 import pe.edu.idriver.entity.Tarjeta;
 
 @Repository
-public interface ITarjetaRepository extends JpaRepository<Tarjeta, Integer>{
+public interface ITarjetaRepository extends JpaRepository<Tarjeta, String>{
 
 	@Query("from Tarjeta t where t.idTarjeta like %:idTarjeta%")
-	List<Tarjeta> buscarNombre(@Param("idTarjeta") int idTarjeta);
+	List<Tarjeta> buscarId(@Param("idTarjeta") String idTarjeta);
 	
 	@Query("from Tarjeta t where t.vehiculo.placaVehiculo like %:placaVehiculo%")
-	List<Tarjeta> buscarVehiculo(@Param("placaVehiculo") String placaVehiculo);
+	List<Tarjeta> buscarPlacaVehiculo(@Param("placaVehiculo") String placaVehiculo);
 	
 }

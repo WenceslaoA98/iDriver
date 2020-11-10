@@ -10,15 +10,15 @@ import org.springframework.stereotype.Repository;
 import pe.edu.idriver.entity.Seguro;
 
 @Repository
-public interface ISeguroRepository extends JpaRepository<Seguro, Integer>{
+public interface ISeguroRepository extends JpaRepository<Seguro, String>{
 
 	@Query("from Seguro se where se.idSeguro like %:idSeguro%")
-	List<Seguro> buscarNombre(@Param("idSeguro") int idSeguro);
+	List<Seguro> buscarId(@Param("idSeguro") String idSeguro);
 	
 	@Query("from Seguro se where se.usuario.nameUsuario like %:nameUsuario%")
-	List<Seguro> buscarUsuario(@Param("nameUsuario") String nameUsuario);
+	List<Seguro> buscarNombreUsuario(@Param("nameUsuario") String nameUsuario);
 	
 	@Query("from Seguro se where se.vehiculo.placaVehiculo like %:placaVehiculo%")
-	List<Seguro> buscarVehiculo(@Param("placaVehiculo") String placaVehiculo);
+	List<Seguro> buscarPlacaVehiculo(@Param("placaVehiculo") String placaVehiculo);
 	
 }

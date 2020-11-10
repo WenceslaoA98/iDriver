@@ -11,12 +11,9 @@ import pe.edu.idriver.entity.Usuario;
 
 
 @Repository
-public interface IUsuarioRepository extends JpaRepository<Usuario, Integer>{
+public interface IUsuarioRepository extends JpaRepository<Usuario, String>{
 
-	@Query("from Usuario u where u.nameUsuario like %:nameUsuario%")
-	List<Usuario> buscarNombre(@Param("nameUsuario") String nameUsuario);
-	
-	@Query("from Usuario u where u.district.nameDistrict like %:nameDistrict%")
-	List<Usuario> buscarDistrict(@Param("nameDistrict") String nameDistrict);
+	@Query("from Usuario u where u.idUsuario like %:idUsuario%")
+	List<Usuario> buscarId(@Param("idUsuario") String idUsuario);
 	
 }

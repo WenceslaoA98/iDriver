@@ -14,12 +14,6 @@ import pe.edu.idriver.entity.Vehiculo;
 public interface IVehiculoRepository extends JpaRepository<Vehiculo, Integer>{
 
 	@Query("from Vehiculo v where v.placaVehiculo like %:placaVehiculo%")
-	List<Vehiculo> buscarNombre(@Param("placaVehiculo") String placaVehiculo);
-	
-	@Query("from Vehiculo v where v.carmodel.nameCarModel like %:nameCarModel%")
-	List<Vehiculo> buscarCarModel(@Param("nameCarModel") String nameCarModel);
-	
-	@Query("from Vehiculo v where v.color.nameColor like %:nameColor%")
-	List<Vehiculo> buscarColor(@Param("nameColor") String nameColor);
+	List<Vehiculo> buscarPlaca(@Param("placaVehiculo") String placaVehiculo);
 	
 }

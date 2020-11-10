@@ -10,12 +10,12 @@ import org.springframework.stereotype.Repository;
 import pe.edu.idriver.entity.Licencia;
 
 @Repository
-public interface ILicenciaRepository extends JpaRepository<Licencia, Integer>{
+public interface ILicenciaRepository extends JpaRepository<Licencia, String>{
 
-	@Query("from Licencia l where l.claseLicencia like %:claseLicencia%")
-	List<Licencia> buscarNombre(@Param("claseLicencia") String claseLicencia);
+	@Query("from Licencia l where l.idLicencia like %:idLicencia%")
+	List<Licencia> buscarId(@Param("idLicencia") String idLicencia);
 	
 	@Query("from Licencia l where l.usuario.nameUsuario like %:nameUsuario%")
-	List<Licencia> buscarUsuario(@Param("nameUsuario") String nameUsuario);
+	List<Licencia> buscarNombreUsuario(@Param("nameUsuario") String nameUsuario);
 	
 }
