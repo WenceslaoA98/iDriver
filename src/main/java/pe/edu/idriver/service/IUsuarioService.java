@@ -9,9 +9,8 @@ public interface IUsuarioService {
 	
 	public boolean insertar(Usuario usuario);
 	public boolean modificar(Usuario usuario);
-	public void eliminar(int idUsuario);
-	public Optional<Usuario> listarId(int idUsuario);
+	public void eliminar(String idUsuario);
+	public Optional<Usuario> listarId(String idUsuario);
 	List<Usuario> listar();
-	List<Usuario> buscarNombre(String nameUsuario);
-	List<Usuario> buscarDistrict(String nameDistrict);
+	List<Usuario> findById(String idUsuario);
 }

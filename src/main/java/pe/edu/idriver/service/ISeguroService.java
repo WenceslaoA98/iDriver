@@ -9,10 +9,10 @@ public interface ISeguroService {
 	
 	public boolean insertar(Seguro soat);
 	public boolean modificar(Seguro soat);
-	public void eliminar(int idSeguro);
-	public Optional<Seguro> listarId(int idSeguro);
+	public void eliminar(String idSeguro);
+	public Optional<Seguro> listarId(String idSeguro);
 	List<Seguro> listar();
-	List<Seguro> buscarNombre(int idSeguro);
-	List<Seguro> buscarUsuario(String nameUsuario);
-	List<Seguro> buscarVehiculo(String placaVehiculo);
+	List<Seguro> findById(String idSeguro);
+	List<Seguro> findByNombreUsuario(String nameUsuario);
+	List<Seguro> findByPlacaVehiculo(String placaVehiculo);
 }

@@ -9,9 +9,9 @@ public interface IPolarizadoService {
 	
 	public boolean insertar(Polarizado polarizado);
 	public boolean modificar(Polarizado polarizado);
-	public void eliminar(int idPolarizado);
-	public Optional<Polarizado> listarId(int idPolarizado);
+	public void eliminar(String idPolarizado);
+	public Optional<Polarizado> listarId(String idPolarizado);
 	List<Polarizado> listar();
-	List<Polarizado> buscarNombre(int idPolarizado);
-	List<Polarizado> buscarVehiculo(String placaVehiculo);
+	List<Polarizado> findById(String idPolarizado);
+	List<Polarizado> findByPlacaVehiculo(String placaVehiculo);
 }

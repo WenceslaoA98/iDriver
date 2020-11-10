@@ -9,9 +9,9 @@ public interface ILicenciaService {
 	
 	public boolean insertar(Licencia licencia);
 	public boolean modificar(Licencia licencia);
-	public void eliminar(int idLicencia);
-	public Optional<Licencia> listarId(int idLicencia);
+	public void eliminar(String idLicencia);
+	public Optional<Licencia> listarId(String idLicencia);
 	List<Licencia> listar();
-	List<Licencia> buscarNombre(String claseLicencia);
-	List<Licencia> buscarUsuario(String nameUsuario);
+	List<Licencia> findById(String idLicencia);
+	List<Licencia> findByNameUsuario(String nameUsuario);
 }

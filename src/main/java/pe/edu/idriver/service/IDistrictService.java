@@ -13,4 +13,5 @@ public interface IDistrictService {
 	public Optional<District> listarId(int idDistrict);
 	List<District> listar();
 	List<District> findByName(String nameDistrict);
+	List<District> findByNameDepartment(String nameDepartment);
 }

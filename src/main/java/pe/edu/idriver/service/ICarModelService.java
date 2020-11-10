@@ -12,6 +12,6 @@ public interface ICarModelService {
 	public void eliminar(int idCarModel);
 	public Optional<CarModel> listarId(int idCarModel);
 	List<CarModel> listar();
-	List<CarModel> buscarNombre(String nameCarModel);
-	List<CarModel> buscarBrand(String nameBrand);
+	List<CarModel> findByName(String nameCarModel);
+	List<CarModel> findByNameBrand(String nameBrand);
 }

@@ -9,9 +9,9 @@ public interface ITarjetaService {
 	
 	public boolean insertar(Tarjeta tarjeta);
 	public boolean modificar(Tarjeta tarjeta);
-	public void eliminar(int idTarjeta);
-	public Optional<Tarjeta> listarId(int idTarjeta);
+	public void eliminar(String idTarjeta);
+	public Optional<Tarjeta> listarId(String idTarjeta);
 	List<Tarjeta> listar();
-	List<Tarjeta> buscarNombre(int idTarjeta);
-	List<Tarjeta> buscarVehiculo(String placaVehiculo);
+	List<Tarjeta> findById(String idTarjeta);
+	List<Tarjeta> findByPlacaVehiculo(String placaVehiculo);
 }

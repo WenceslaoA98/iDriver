@@ -13,7 +13,6 @@ public interface IVehiculoService {
 	public void eliminar(int idVehiculo);
 	public Optional<Vehiculo> listarId(int idVehiculo);
 	List<Vehiculo> listar();
-	List<Vehiculo> buscarNombre(String placaVehiculo);
-	List<Vehiculo> buscarCarModel(String nameCarModel);
-	List<Vehiculo> buscarColor(String nameColor);
+	List<Vehiculo> findByName(String placaVehiculo);
+
 }

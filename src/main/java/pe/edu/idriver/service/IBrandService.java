@@ -12,5 +12,5 @@ public interface IBrandService {
 	public void eliminar(int idBrand);
 	public Optional<Brand> listarId(int idBrand);
 	List<Brand> listar();
-	List<Brand> buscarNombre(String nameBrand);
+	List<Brand> findByName(String nameBrand);
 }
