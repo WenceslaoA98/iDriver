@@ -64,58 +64,58 @@ public class DocumentoServiceImpl implements IDocumentoService {
 
 	@Override
 	@Transactional
-	public List<Documento> buscarNombre(int idDocumento) {
+	public List<Documento> findById(int idDocumento) {
 		
-		return dDocumento.buscarNombre(idDocumento);
+		return dDocumento.buscarId(idDocumento);
 	}
 	
 	@Override
 	@Transactional
-	public List<Documento> buscarUsuario(String nameUsuario) {
+	public List<Documento> findByNameUsuario(String nameUsuario) {
 
-		return dDocumento.buscarUsuario(nameUsuario);
+		return dDocumento.buscarNombreUsuario(nameUsuario);
 	}
 	
 	@Override
 	@Transactional
-	public List<Documento> buscarVehiculo(String placaVehiculo) {
+	public List<Documento> findByPlacaVehiculo(String placaVehiculo) {
 
-		return dDocumento.buscarVehiculo(placaVehiculo);
+		return dDocumento.buscarPlacaVehiculo(placaVehiculo);
 	}
 	
 	@Override
 	@Transactional
-	public List<Documento> buscarLicencia(int idLicencia) {
+	public List<Documento> findByIdLicencia(String idLicencia) {
 
-		return dDocumento.buscarLicencia(idLicencia);
+		return dDocumento.buscarIdLicencia(idLicencia);
 	}
 	
 	@Override
 	@Transactional
-	public List<Documento> buscarSeguro(int idSeguro) {
+	public List<Documento> findByIdSeguro(String idSeguro) {
 
-		return dDocumento.buscarSeguro(idSeguro);
+		return dDocumento.buscarIdSeguro(idSeguro);
 	}
 	
 	@Override
 	@Transactional
-	public List<Documento> buscarSoat(int idSoat) {
+	public List<Documento> findByIdSoat(String idSoat) {
 
-		return dDocumento.buscarSoat(idSoat);
+		return dDocumento.buscarIdSoat(idSoat);
 	}
 	
 	@Override
 	@Transactional
-	public List<Documento> buscarTarjeta(int idTarjeta) {
+	public List<Documento> findByIdTarjeta(String idTarjeta) {
 
-		return dDocumento.buscarTarjeta(idTarjeta);
+		return dDocumento.buscarIdTarjeta(idTarjeta);
 	}
 	
 	@Override
 	@Transactional
-	public List<Documento> buscarPolarizado(int idPolarizado) {
+	public List<Documento> findByIdPolarizado(String idPolarizado) {
 
-		return dDocumento.buscarPolarizado(idPolarizado);
+		return dDocumento.buscarIdPolarizado(idPolarizado);
 	}
 	
 	

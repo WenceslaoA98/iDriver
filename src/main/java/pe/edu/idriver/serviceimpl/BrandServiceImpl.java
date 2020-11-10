@@ -64,7 +64,7 @@ public class BrandServiceImpl implements IBrandService {
 
 	@Override
 	@Transactional
-	public List<Brand> buscarNombre(String nameBrand) {
+	public List<Brand> findByName(String nameBrand) {
 		
 		return dBrand.buscarNombre(nameBrand);
 	}

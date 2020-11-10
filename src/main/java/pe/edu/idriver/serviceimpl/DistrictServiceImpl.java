@@ -69,4 +69,11 @@ public class DistrictServiceImpl implements IDistrictService {
 		return dDistrict.buscarNombre(nameDistrict);
 	}
 
+	@Override
+	@Transactional
+	public List<District> findByNameDepartment(String nameDepartment) {
+		
+		return dDistrict.buscarNombreDepartment(nameDepartment);
+	}
+
 }

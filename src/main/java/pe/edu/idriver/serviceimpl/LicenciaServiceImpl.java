@@ -43,14 +43,14 @@ public class LicenciaServiceImpl implements ILicenciaService {
 
 	@Override
 	@Transactional
-	public void eliminar(int idLicencia) {
+	public void eliminar(String idLicencia) {
 		
 		dLicencia.deleteById(idLicencia);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Optional<Licencia> listarId(int idLicencia) {
+	public Optional<Licencia> listarId(String idLicencia) {
 		
 		return dLicencia.findById(idLicencia);
 	}
@@ -64,15 +64,15 @@ public class LicenciaServiceImpl implements ILicenciaService {
 
 	@Override
 	@Transactional
-	public List<Licencia> buscarNombre(String claseLicencia) {
+	public List<Licencia> findById(String idLicencia) {
 		
-		return dLicencia.buscarNombre(claseLicencia);
+		return dLicencia.buscarId(idLicencia);
 	}
 	
 	@Override
 	@Transactional
-	public List<Licencia> buscarUsuario(String nameUsuario) {
-
-		return dLicencia.buscarUsuario(nameUsuario);
+	public List<Licencia> findByNameUsuario(String nameUsuario) {
+		
+		return dLicencia.buscarNombreUsuario(nameUsuario);
 	}
 }

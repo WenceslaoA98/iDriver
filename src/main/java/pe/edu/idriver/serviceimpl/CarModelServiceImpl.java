@@ -65,15 +65,15 @@ public class CarModelServiceImpl implements ICarModelService {
 
 	@Override
 	@Transactional
-	public List<CarModel> buscarNombre(String nameCarModel) {
+	public List<CarModel> findByName(String nameCarModel) {
 		
 		return dCarModel.buscarNombre(nameCarModel);
 	}
 	
 	@Override
 	@Transactional
-	public List<CarModel> buscarBrand(String nameBrand) {
+	public List<CarModel> findByNameBrand(String nameBrand) {
 
-		return dCarModel.buscarBrand(nameBrand);
+		return dCarModel.buscarNombreBrand(nameBrand);
 	}
 }
