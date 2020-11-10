@@ -19,7 +19,7 @@ public class Tarjeta {
 
 	@Id
 	@Column(name = "idTarjeta", nullable = false, length = 11)
-	private int idTarjeta;
+	private String idTarjeta;
 	
 	@ManyToOne
 	@JoinColumn(name="idVehiculo", nullable = false)
@@ -38,11 +38,11 @@ public class Tarjeta {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date expiracionTarjeta;
 
-	public int getIdTarjeta() {
+	public String getIdTarjeta() {
 		return idTarjeta;
 	}
 
-	public void setIdTarjeta(int idTarjeta) {
+	public void setIdTarjeta(String idTarjeta) {
 		this.idTarjeta = idTarjeta;
 	}
 

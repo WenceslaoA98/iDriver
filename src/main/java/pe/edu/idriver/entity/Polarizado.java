@@ -19,7 +19,7 @@ public class Polarizado {
 
 	@Id
 	@Column(name = "idPolarizado", nullable = false, length = 11)
-	private int idPolarizado;
+	private String idPolarizado;
 	
 	@ManyToOne
 	@JoinColumn(name="idVehiculo", nullable = false)
@@ -41,11 +41,11 @@ public class Polarizado {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date expiracionPolarizado;
 
-	public int getIdPolarizado() {
+	public String getIdPolarizado() {
 		return idPolarizado;
 	}
 
-	public void setIdPolarizado(int idPolarizado) {
+	public void setIdPolarizado(String idPolarizado) {
 		this.idPolarizado = idPolarizado;
 	}
 

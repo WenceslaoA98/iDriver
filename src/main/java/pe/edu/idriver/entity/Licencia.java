@@ -18,8 +18,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Licencia {
 
 	@Id
-	@Column(name = "idLicencia", nullable = false, length = 11)
-	private int idLicencia;
+	@Column(name = "idLicencia", nullable = false, length = 10)
+	private String idLicencia;
 	
 	@ManyToOne
 	@JoinColumn(name="idUsuario", nullable = false)
@@ -44,11 +44,11 @@ public class Licencia {
 	@Column(name="restriccionLicencia", length=60, nullable=false)
 	private String restriccionLicencia;
 
-	public int getIdLicencia() {
+	public String getIdLicencia() {
 		return idLicencia;
 	}
 
-	public void setIdLicencia(int idLicencia) {
+	public void setIdLicencia(String idLicencia) {
 		this.idLicencia = idLicencia;
 	}
 

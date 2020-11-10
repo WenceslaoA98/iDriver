@@ -19,7 +19,7 @@ public class Seguro {
 
 	@Id
 	@Column(name = "idSeguro", nullable = false, length = 11)
-	private int idSeguro;
+	private String idSeguro;
 	
 	@ManyToOne
 	@JoinColumn(name="idUsuario", nullable = false)
@@ -42,11 +42,11 @@ public class Seguro {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date expiracionSeguro;
 
-	public int getIdSeguro() {
+	public String getIdSeguro() {
 		return idSeguro;
 	}
 
-	public void setIdSeguro(int idSeguro) {
+	public void setIdSeguro(String idSeguro) {
 		this.idSeguro = idSeguro;
 	}
 

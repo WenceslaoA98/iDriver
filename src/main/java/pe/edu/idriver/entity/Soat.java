@@ -18,8 +18,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Soat {
 
 	@Id
-	@Column(name = "idSoat", nullable = false, length = 11)
-	private int idSoat;
+	@Column(name = "idSoat", nullable = false, length = 9)
+	private String idSoat;
 	
 	@ManyToOne
 	@JoinColumn(name="idUsuario", nullable = false)
@@ -39,11 +39,11 @@ public class Soat {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date expiracionSoat;
 
-	public int getIdSoat() {
+	public String getIdSoat() {
 		return idSoat;
 	}
 
-	public void setIdSoat(int idSoat) {
+	public void setIdSoat(String idSoat) {
 		this.idSoat = idSoat;
 	}
 

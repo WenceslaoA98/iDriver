@@ -18,7 +18,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Vehiculo {
 
 	@Id
-	@Column(name = "idVehiculo", nullable = false, length = 9)
+	@Column(name = "idVehiculo", nullable = false, length = 12)
 	private int idVehiculo;
 	
 	@Column(name="placaVehiculo", length=60, nullable=false)

@@ -19,7 +19,7 @@ public class Usuario {
 
 	@Id
 	@Column(name = "idUsuario", nullable = false, length = 9)
-	private int idUsuario;
+	private String idUsuario;
 	
 	@Column(name="nombreUsuario", length=60, nullable=false)
 	private String nameUsuario;
@@ -42,11 +42,12 @@ public class Usuario {
 	@JoinColumn(name="idDistrict", nullable = false)
 	private District district;
 
-	public int getIdUsuario() {
+	
+	public String getIdUsuario() {
 		return idUsuario;
 	}
 
-	public void setIdUsuario(int idUsuario) {
+	public void setIdUsuario(String idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 
