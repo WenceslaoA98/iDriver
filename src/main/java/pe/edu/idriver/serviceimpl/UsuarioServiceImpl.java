@@ -43,18 +43,18 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
 	@Override
 	@Transactional
-	public void eliminar(int idUsuario) {
+	public void eliminar(String idUsuario) {
 		
 		dUsuario.deleteById(idUsuario);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Optional<Usuario> listarId(int idUsuario) {
+	public Optional<Usuario> listarId(String idUsuario) {
 		
 		return dUsuario.findById(idUsuario);
 	}
-
+	
 	@Override
 	@Transactional
 	public List<Usuario> listar() {
@@ -64,15 +64,9 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
 	@Override
 	@Transactional
-	public List<Usuario> buscarNombre(String nameUsuario) {
+	public List<Usuario> findById(String idUsuario) {
 		
-		return dUsuario.buscarNombre(nameUsuario);
+		return dUsuario.buscarId(idUsuario);
 	}
 	
-	@Override
-	@Transactional
-	public List<Usuario> buscarDistrict(String nameDistrict) {
-
-		return dUsuario.buscarDistrict(nameDistrict);
-	}
 }

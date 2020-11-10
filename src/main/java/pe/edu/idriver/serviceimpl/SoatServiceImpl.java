@@ -43,14 +43,14 @@ public class SoatServiceImpl implements ISoatService {
 
 	@Override
 	@Transactional
-	public void eliminar(int idSoat) {
+	public void eliminar(String idSoat) {
 		
 		dSoat.deleteById(idSoat);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Optional<Soat> listarId(int idSoat) {
+	public Optional<Soat> listarId(String idSoat) {
 		
 		return dSoat.findById(idSoat);
 	}
@@ -64,22 +64,22 @@ public class SoatServiceImpl implements ISoatService {
 
 	@Override
 	@Transactional
-	public List<Soat> buscarNombre(int idSoat) {
+	public List<Soat> findById(String idSoat) {
 		
-		return dSoat.buscarNombre(idSoat);
+		return dSoat.buscarId(idSoat);
 	}
 	
 	@Override
 	@Transactional
-	public List<Soat> buscarUsuario(String nameUsuario) {
+	public List<Soat> findByNombreUsuario(String nameUsuario) {
 
-		return dSoat.buscarUsuario(nameUsuario);
+		return dSoat.buscarNombreUsuario(nameUsuario);
 	}
 	
 	@Override
 	@Transactional
-	public List<Soat> buscarVehiculo(String placaVehiculo) {
+	public List<Soat> findByPlacaVehiculo(String placaVehiculo) {
 
-		return dSoat.buscarVehiculo(placaVehiculo);
+		return dSoat.buscarPlacaVehiculo(placaVehiculo);
 	}
 }

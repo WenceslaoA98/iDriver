@@ -43,14 +43,14 @@ public class SeguroServiceImpl implements ISeguroService {
 
 	@Override
 	@Transactional
-	public void eliminar(int idSeguro) {
+	public void eliminar(String idSeguro) {
 		
 		dSeguro.deleteById(idSeguro);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Optional<Seguro> listarId(int idSeguro) {
+	public Optional<Seguro> listarId(String idSeguro) {
 		
 		return dSeguro.findById(idSeguro);
 	}
@@ -64,22 +64,22 @@ public class SeguroServiceImpl implements ISeguroService {
 
 	@Override
 	@Transactional
-	public List<Seguro> buscarNombre(int idSeguro) {
+	public List<Seguro> findById(String idSeguro) {
 		
-		return dSeguro.buscarNombre(idSeguro);
+		return dSeguro.buscarId(idSeguro);
 	}
 	
 	@Override
 	@Transactional
-	public List<Seguro> buscarUsuario(String nameUsuario) {
+	public List<Seguro> findByNombreUsuario(String nameUsuario) {
 
-		return dSeguro.buscarUsuario(nameUsuario);
+		return dSeguro.buscarNombreUsuario(nameUsuario);
 	}
 	
 	@Override
 	@Transactional
-	public List<Seguro> buscarVehiculo(String placaVehiculo) {
+	public List<Seguro> findByPlacaVehiculo(String placaVehiculo) {
 
-		return dSeguro.buscarVehiculo(placaVehiculo);
+		return dSeguro.buscarPlacaVehiculo(placaVehiculo);
 	}
 }

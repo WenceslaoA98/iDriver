@@ -64,22 +64,9 @@ public class VehiculoServiceImpl implements IVehiculoService {
 
 	@Override
 	@Transactional
-	public List<Vehiculo> buscarNombre(String placaVehiculo) {
+	public List<Vehiculo> findByName(String placaVehiculo) {
 		
-		return dVehiculo.buscarNombre(placaVehiculo);
+		return dVehiculo.buscarPlaca(placaVehiculo);
 	}
 	
-	@Override
-	@Transactional
-	public List<Vehiculo> buscarCarModel(String nameCarModel) {
-
-		return dVehiculo.buscarCarModel(nameCarModel);
-	}
-	
-	@Override
-	@Transactional
-	public List<Vehiculo> buscarColor(String nameColor) {
-
-		return dVehiculo.buscarColor(nameColor);
-	}
 }

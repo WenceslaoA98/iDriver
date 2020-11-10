@@ -43,14 +43,14 @@ public class TarjetaServiceImpl implements ITarjetaService {
 
 	@Override
 	@Transactional
-	public void eliminar(int idTarjeta) {
+	public void eliminar(String idTarjeta) {
 		
 		dTarjeta.deleteById(idTarjeta);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Optional<Tarjeta> listarId(int idTarjeta) {
+	public Optional<Tarjeta> listarId(String idTarjeta) {
 		
 		return dTarjeta.findById(idTarjeta);
 	}
@@ -64,15 +64,15 @@ public class TarjetaServiceImpl implements ITarjetaService {
 
 	@Override
 	@Transactional
-	public List<Tarjeta> buscarNombre(int idTarjeta) {
+	public List<Tarjeta> findById(String idTarjeta) {
 		
-		return dTarjeta.buscarNombre(idTarjeta);
+		return dTarjeta.buscarId(idTarjeta);
 	}
 	
 	@Override
 	@Transactional
-	public List<Tarjeta> buscarVehiculo(String placaVehiculo) {
+	public List<Tarjeta> findByPlacaVehiculo(String placaVehiculo) {
 
-		return dTarjeta.buscarVehiculo(placaVehiculo);
+		return dTarjeta.buscarPlacaVehiculo(placaVehiculo);
 	}
 }

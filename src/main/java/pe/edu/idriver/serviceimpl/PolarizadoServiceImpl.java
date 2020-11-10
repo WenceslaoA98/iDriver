@@ -43,14 +43,14 @@ public class PolarizadoServiceImpl implements IPolarizadoService {
 
 	@Override
 	@Transactional
-	public void eliminar(int idPolarizado) {
+	public void eliminar(String idPolarizado) {
 		
 		dPolarizado.deleteById(idPolarizado);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Optional<Polarizado> listarId(int idPolarizado) {
+	public Optional<Polarizado> listarId(String idPolarizado) {
 		
 		return dPolarizado.findById(idPolarizado);
 	}
@@ -64,15 +64,15 @@ public class PolarizadoServiceImpl implements IPolarizadoService {
 
 	@Override
 	@Transactional
-	public List<Polarizado> buscarNombre(int idPolarizado) {
+	public List<Polarizado> findById(String idPolarizado) {
 		
-		return dPolarizado.buscarNombre(idPolarizado);
+		return dPolarizado.buscarId(idPolarizado);
 	}
 	
 	@Override
 	@Transactional
-	public List<Polarizado> buscarVehiculo(String placaVehiculo) {
+	public List<Polarizado> findByPlacaVehiculo(String placaVehiculo) {
 
-		return dPolarizado.buscarVehiculo(placaVehiculo);
+		return dPolarizado.buscarPlacaVehiculo(placaVehiculo);
 	}
 }
