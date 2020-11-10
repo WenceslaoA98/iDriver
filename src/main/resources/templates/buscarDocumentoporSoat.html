@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="ISO-8859-1"></meta>
+
+<title>Documento</title>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+</link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+
+<script type="text/javascript" th:src="@{/js/department.js}"></script>
+
+</head>
+<style type="text/css">
+h2 {
+	text-align: center
+}
+
+div {
+	text-align: center
+}
+
+form {
+	text-align: center
+}
+</style>
+</head>
+
+<body>
+	<h2>Encontrar Documento</h2>
+
+	<form th:object="${soat}" th:action="@{/documento/buscarporSoat}"
+		method="get" class="form-inline" id="search-owner-form">
+		<div class="form-group mb-2">
+
+			<label for="id">SOAT:</label> <input type="text"
+				th:field="*{idSoat}" class="form-group mx-sm-3 mb-2" id="id"></input>
+
+			<div class="alert alert-danger"
+				th:if="${#fields.hasErrors('idSoat')}"
+				th:errors="*{idSoat}"></div>
+
+			<button type="submit" class="btn btn-success"> <span
+							class="glyphicon glyphicon-search" ></span>  Buscar</button>
+	</form>
+
+
+	<br />
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
