@@ -1,8 +1,18 @@
-package pe.edu.idriver.entity;
+package pe.edu.idriver.service;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+import java.util.Optional;
+
+import pe.edu.idriver.entity.Soat;
+
+public interface ISoatService {
+	
+	public boolean insertar(Soat soat);
+	public boolean modificar(Soat soat);
+	public void eliminar(String idSoat);
+	public Optional<Soat> listarId(String idSoat);
+	List<Soat> listar();
+	List<Soat> findById(String idSoat);
+	List<Soat> findByNombreUsuario(String nameUsuario);
+	List<Soat> findByPlacaVehiculo(String placaVehiculo);
+}

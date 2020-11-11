@@ -1,8 +1,16 @@
-package pe.edu.idriver.entity;
+package pe.edu.idriver.service;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+import java.util.Optional;
+
+import pe.edu.idriver.entity.Usuario;
+
+public interface IUsuarioService {
+	
+	public boolean insertar(Usuario usuario);
+	public boolean modificar(Usuario usuario);
+	public void eliminar(String idUsuario);
+	public Optional<Usuario> listarId(String idUsuario);
+	List<Usuario> listar();
+	List<Usuario> findById(String idUsuario);
+}

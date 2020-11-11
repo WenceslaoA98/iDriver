@@ -64,7 +64,10 @@ public class LicenciaController {
 	}
 	
 	@RequestMapping("/modificar/{id}") // el pathvariable le dice que id modificara 
+
 	public String modificar (@PathVariable String id, Model model, RedirectAttributes objRedir) 
+	public String modificar (@PathVariable int id, Model model, RedirectAttributes objRedir) 
+
 	throws ParseException {
 		
 		Optional<Licencia> objLicencia = lService.listarId(id);
@@ -82,10 +85,17 @@ public class LicenciaController {
 	}
 	
 	@RequestMapping("/eliminar")
+
 	public String eliminar (Map<String, Object> model, @RequestParam(value="id") String id) {
 		
 		try {
 			if(id != null) {
+
+	public String eliminar (Map<String, Object> model, @RequestParam(value="id") Integer id) {
+		
+		try {
+			if(id != null && id>0) {
+
 				lService.eliminar(id);
 				model.put("listaLicencias", lService.listar());
 			}
@@ -108,7 +118,11 @@ public class LicenciaController {
 	public String listar(Map<String, Object> model, @ModelAttribute Licencia licencia)
 	throws ParseException
 	{
+
 		lService.listarId(licencia.getIdLicencia());
+
+		uService.listarId(licencia.getIdLicencia());
+
 		return "listLicencia";
 	}
 
@@ -117,14 +131,20 @@ public class LicenciaController {
 	throws ParseException 
 	{
 		List<Licencia> listaLicencias;
+
 		licencia.setIdLicencia(licencia.getIdLicencia());
 		listaLicencias = lService.findById(licencia.getIdLicencia());
+
+		licencia.setClaseLicencia(licencia.getClaseLicencia());
+		listaLicencias = lService.buscarNombre(licencia.getClaseLicencia());
+
 		
 		if(listaLicencias.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{
 			model.put("mensaje", "No se encontro");
 		}
 		model.put("listaLicencias", listaLicencias);
+
 		return "listLicencia";
 	}
 	
@@ -148,11 +168,15 @@ public class LicenciaController {
 	public String comoBuscar(Model model) {
 		model.addAttribute("licencia", new Licencia());
 		return "QuebuscaLicencia";
+
+		return "buscar";
+
 	}
 	
 	@RequestMapping("/irBuscar")
 	public String irBuscar(Model model) {
 		model.addAttribute("licencia", new Licencia());
+
 		return "buscarLicencia";
 	}
 	
@@ -160,5 +184,8 @@ public class LicenciaController {
 	public String irBuscarporUsuario(Model model) {
 		model.addAttribute("usuario", new Usuario());
 		return "buscarLicenciaporUsuario";
+
+		return "buscar";
+
 	}
 }

@@ -173,13 +173,17 @@ public class DocumentoController {
 	{
 		List<Documento> listaDocumentos;
 		documento.setIdDocumento(documento.getIdDocumento());
+
 		listaDocumentos = doService.findById(documento.getIdDocumento());
+		listaDocumentos = doService.buscarNombre(documento.getIdDocumento());
+
 		
 		if(listaDocumentos.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{
 			model.put("mensaje", "No se encontro");
 		}
 		model.put("listaDocumentos", listaDocumentos);
+
 		return "listDocumento";
 	}
 	
@@ -299,11 +303,15 @@ public class DocumentoController {
 	public String comoBuscar(Model model) {
 		model.addAttribute("documento", new Documento());
 		return "QuebuscaDocumento";
+
+		return "buscar";
+
 	}
 	
 	@RequestMapping("/irBuscar")
 	public String irBuscar(Model model) {
 		model.addAttribute("documento", new Documento());
+
 		return "buscarDocumento";
 	}
 	
@@ -347,5 +355,8 @@ public class DocumentoController {
 	public String irBuscarporPolarizado(Model model) {
 		model.addAttribute("polarizado", new Polarizado());
 		return "buscarDocumentoporPolarizado";
+
+		return "buscar";
+
 	}
 }

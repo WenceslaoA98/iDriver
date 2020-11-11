@@ -1,8 +1,21 @@
-package pe.edu.idriver.entity;
+package pe.edu.idriver.repository;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import pe.edu.idriver.entity.CarModel;
+
+@Repository
+public interface ICarModelRepository extends JpaRepository<CarModel, Integer>{
+
+	@Query("from CarModel cm where cm.nameCarModel like %:nameCarModel%")
+	List<CarModel> buscarNombre(@Param("nameCarModel") String nameCarModel);
+	
+	@Query("from CarModel cm where cm.brand.nameBrand like %:nameBrand%")
+	List<CarModel> buscarNombreBrand(@Param("nameBrand") String nameBrand);
+	
+}

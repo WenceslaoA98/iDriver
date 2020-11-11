@@ -72,7 +72,11 @@ public class SeguroController {
 	}
 	
 	@RequestMapping("/modificar/{id}") // el pathvariable le dice que id modificara 
+
 	public String modificar (@PathVariable String id, Model model, RedirectAttributes objRedir) 
+
+	public String modificar (@PathVariable int id, Model model, RedirectAttributes objRedir) 
+
 	throws ParseException {
 		
 		Optional<Seguro> objSeguro = seService.listarId(id);
@@ -91,10 +95,17 @@ public class SeguroController {
 	}
 	
 	@RequestMapping("/eliminar")
+
 	public String eliminar (Map<String, Object> model, @RequestParam(value="id") String id) {
 		
 		try {
 			if(id != null) {
+
+	public String eliminar (Map<String, Object> model, @RequestParam(value="id") Integer id) {
+		
+		try {
+			if(id != null && id>0) {
+
 				seService.eliminar(id);
 				model.put("listaSeguros", seService.listar());
 			}
@@ -127,13 +138,17 @@ public class SeguroController {
 	{
 		List<Seguro> listaSeguros;
 		seguro.setIdSeguro(seguro.getIdSeguro());
+
 		listaSeguros = seService.findById(seguro.getIdSeguro());
+		listaSeguros = seService.buscarNombre(seguro.getIdSeguro());
+
 		
 		if(listaSeguros.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{
 			model.put("mensaje", "No se encontro");
 		}
 		model.put("listaSeguros", listaSeguros);
+
 		return "listSeguro";
 	}
 	
@@ -173,11 +188,15 @@ public class SeguroController {
 	public String comoBuscar(Model model) {
 		model.addAttribute("seguro", new Seguro());
 		return "QuebuscaSeguro";
+
+		return "buscar";
+
 	}
 	
 	@RequestMapping("/irBuscar")
 	public String irBuscar(Model model) {
 		model.addAttribute("seguro", new Seguro());
+
 		return "buscarSeguro";
 	}
 	
@@ -191,5 +210,8 @@ public class SeguroController {
 	public String irBuscarporPlaca(Model model) {
 		model.addAttribute("vehiculo", new Vehiculo());
 		return "buscarSeguroporPlaca";
+
+		return "buscar";
+
 	}
 }

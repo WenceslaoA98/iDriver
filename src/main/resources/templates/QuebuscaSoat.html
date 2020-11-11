@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="ISO-8859-1"></meta>
+
+<title>Soat</title>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+</link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+
+<script type="text/javascript" th:src="@{/js/department.js}"></script>
+
+</head>
+<style type="text/css">
+h2 {
+	text-align: center
+}
+
+div {
+	text-align: center
+}
+
+form {
+	text-align: center
+}
+a { text-align: center}
+</style>
+</head>
+
+<body>
+	<h2>¿Como quiere buscar?</h2>
+	<div class="col text-center">
+	<a th:href="@{/soat/irBuscar}" class="btn btn-primary btn-lg"> <span
+							class="glyphicon glyphicon-qrcode" ></span> SOAT</a>
+	
+	
+	<a th:href="@{/soat/irBuscarporUsuario}" class="btn btn-info btn-lg"> <span
+							class="glyphicon glyphicon-user" ></span> Usuario</a>
+	
+	<a th:href="@{/soat/irBuscarporPlaca}" class="btn btn-info btn-lg"> <span
+							class="glyphicon glyphicon-list-alt" ></span> Placa</a>
+	</div>
+
+	<br />
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

@@ -108,19 +108,29 @@ public class BrandController {
 	{
 		List<Brand> listaMarcas;
 		brand.setNameBrand(brand.getNameBrand());
+
 		listaMarcas = bService.findByName(brand.getNameBrand());
-		
+    
+		listaMarcas = bService.buscarNombre(brand.getNameBrand());
+
 		if(listaMarcas.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{
 			model.put("mensaje", "No se encontro");
 		}
 		model.put("listaMarcas", listaMarcas);
+
 		return "listBrand";
+  	return "buscar";
+
 	}
 	
 	@RequestMapping("/irBuscar")
 	public String irBuscar(Model model) {
 		model.addAttribute("brand", new Brand());
+
 		return "buscarMarca";
+
+		return "buscar";
+
 	}
 }

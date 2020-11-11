@@ -1,8 +1,17 @@
-package pe.edu.idriver.entity;
+package pe.edu.idriver.service;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+import java.util.Optional;
+
+import pe.edu.idriver.entity.Polarizado;
+
+public interface IPolarizadoService {
+	
+	public boolean insertar(Polarizado polarizado);
+	public boolean modificar(Polarizado polarizado);
+	public void eliminar(String idPolarizado);
+	public Optional<Polarizado> listarId(String idPolarizado);
+	List<Polarizado> listar();
+	List<Polarizado> findById(String idPolarizado);
+	List<Polarizado> findByPlacaVehiculo(String placaVehiculo);
+}

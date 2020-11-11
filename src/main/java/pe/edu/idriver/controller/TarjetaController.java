@@ -64,7 +64,11 @@ public class TarjetaController {
 	}
 	
 	@RequestMapping("/modificar/{id}") // el pathvariable le dice que id modificara 
+
 	public String modificar (@PathVariable String id, Model model, RedirectAttributes objRedir) 
+
+	public String modificar (@PathVariable int id, Model model, RedirectAttributes objRedir) 
+
 	throws ParseException {
 		
 		Optional<Tarjeta> objTarjeta = tService.listarId(id);
@@ -82,10 +86,17 @@ public class TarjetaController {
 	}
 	
 	@RequestMapping("/eliminar")
+
 	public String eliminar (Map<String, Object> model, @RequestParam(value="id") String id) {
 		
 		try {
 			if(id != null) {
+
+	public String eliminar (Map<String, Object> model, @RequestParam(value="id") Integer id) {
+		
+		try {
+			if(id != null && id>0) {
+
 				tService.eliminar(id);
 				model.put("listaTarjetas", tService.listar());
 			}
@@ -118,13 +129,18 @@ public class TarjetaController {
 	{
 		List<Tarjeta> listaTarjetas;
 		tarjeta.setIdTarjeta(tarjeta.getIdTarjeta());
+
 		listaTarjetas = tService.findById(tarjeta.getIdTarjeta());
+
+		listaTarjetas = tService.buscarNombre(tarjeta.getIdTarjeta());
+
 		
 		if(listaTarjetas.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{
 			model.put("mensaje", "No se encontro");
 		}
 		model.put("listaTarjetas", listaTarjetas);
+
 		return "listTarjeta";
 	}
 	
@@ -148,11 +164,15 @@ public class TarjetaController {
 	public String comoBuscar(Model model) {
 		model.addAttribute("tarjeta", new Tarjeta());
 		return "QuebuscaTarjeta";
+
+		return "buscar";
+
 	}
 	
 	@RequestMapping("/irBuscar")
 	public String irBuscar(Model model) {
 		model.addAttribute("tarjeta", new Tarjeta());
+
 		return "buscarTarjeta";
 	}
 	
@@ -160,5 +180,7 @@ public class TarjetaController {
 	public String irBuscarporPlaca(Model model) {
 		model.addAttribute("vehiculo", new Vehiculo());
 		return "buscarTarjetaporPlaca";
+		return "buscar";
+
 	}
 }

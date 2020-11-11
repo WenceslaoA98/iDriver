@@ -1,8 +1,17 @@
-package pe.edu.idriver.entity;
+package pe.edu.idriver.service;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+import java.util.Optional;
+
+import pe.edu.idriver.entity.Licencia;
+
+public interface ILicenciaService {
+	
+	public boolean insertar(Licencia licencia);
+	public boolean modificar(Licencia licencia);
+	public void eliminar(String idLicencia);
+	public Optional<Licencia> listarId(String idLicencia);
+	List<Licencia> listar();
+	List<Licencia> findById(String idLicencia);
+	List<Licencia> findByNameUsuario(String nameUsuario);
+}

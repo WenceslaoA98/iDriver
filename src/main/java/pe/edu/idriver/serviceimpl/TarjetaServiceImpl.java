@@ -1,8 +1,78 @@
-package pe.edu.idriver.entity;
+package pe.edu.idriver.serviceimpl;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import pe.edu.idriver.entity.Tarjeta;
+import pe.edu.idriver.repository.ITarjetaRepository;
+import pe.edu.idriver.service.ITarjetaService;
+
+@Service
+public class TarjetaServiceImpl implements ITarjetaService {
+
+	@Autowired
+	private ITarjetaRepository dTarjeta;
+
+	@Override
+	@Transactional
+	public boolean insertar(Tarjeta tarjeta) {
+		
+		Tarjeta objTarjeta = dTarjeta.save(tarjeta);
+		if (objTarjeta == null)
+			return false;
+		else return true;
+	}
+
+	@Override
+	@Transactional
+	public boolean modificar(Tarjeta tarjeta) {
+		
+		boolean flag = false;
+		try {
+			dTarjeta.save(tarjeta);
+			flag = true;
+		} catch (Exception e) {
+			System.out.println("Sucedio un roche...");
+		}
+		return flag;
+	}
+
+	@Override
+	@Transactional
+	public void eliminar(String idTarjeta) {
+		
+		dTarjeta.deleteById(idTarjeta);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Optional<Tarjeta> listarId(String idTarjeta) {
+		
+		return dTarjeta.findById(idTarjeta);
+	}
+
+	@Override
+	@Transactional
+	public List<Tarjeta> listar() {
+		
+		return dTarjeta.findAll();
+	}
+
+	@Override
+	@Transactional
+	public List<Tarjeta> findById(String idTarjeta) {
+		
+		return dTarjeta.buscarId(idTarjeta);
+	}
+	
+	@Override
+	@Transactional
+	public List<Tarjeta> findByPlacaVehiculo(String placaVehiculo) {
+
+		return dTarjeta.buscarPlacaVehiculo(placaVehiculo);
+	}
+}

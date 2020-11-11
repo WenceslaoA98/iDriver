@@ -112,6 +112,7 @@ public class CarModelController {
 		return "listCarModel";
 	}
 
+
 	@RequestMapping("/buscar") 
 	public String buscar(Map<String , Object> model, @ModelAttribute CarModel carmodel, @ModelAttribute Brand brand)
 	throws ParseException 
@@ -119,19 +120,36 @@ public class CarModelController {
 		List<CarModel> listaModelos;
 		brand.setNameBrand(brand.getNameBrand());
 		listaModelos = cmService.findByNameBrand(brand.getNameBrand());
+
+	@RequestMapping("/buscar") /*se recupera el nombre de la raza. Del objeto race*/ 
+	public String buscar(Map<String , Object> model, @ModelAttribute CarModel carmodel)
+	throws ParseException 
+	{
+		List<CarModel> listaModelos;
+		carmodel.setNameCarModel(carmodel.getNameCarModel());
+		listaModelos = cmService.buscarNombre(carmodel.getNameCarModel());
+
 		
 		if(listaModelos.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{
 			model.put("mensaje", "No se encontro");
 		}
 		model.put("listaModelos", listaModelos);
+
 		return "listCarModel";
+
+		return "buscar";
+
 	}
 	
 	@RequestMapping("/irBuscar")
 	public String irBuscar(Model model) {
 		model.addAttribute("carmodel", new CarModel());
+
 		model.addAttribute("brand", new Brand());
 		return "buscarCarModel";
+
+		return "buscar";
+
 	}
 }
