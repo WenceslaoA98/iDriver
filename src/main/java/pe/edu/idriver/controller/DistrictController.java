@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
+import pe.edu.idriver.entity.Department;
+
+
 import pe.edu.idriver.entity.District;
 import pe.edu.idriver.entity.Province;
 import pe.edu.idriver.service.IDistrictService;
@@ -112,6 +116,15 @@ public class DistrictController {
 		return "listDistrict";
 	}
 
+
+	@RequestMapping("/buscar") 
+	public String buscar(Map<String , Object> model, @ModelAttribute District district, @ModelAttribute Department department)
+	throws ParseException 
+	{
+		List<District> listaDistritos;
+		department.setNameDepartment(department.getNameDepartment());
+		listaDistritos = diService.findByNameDepartment(department.getNameDepartment());
+
 	@RequestMapping("/buscar") /*se recupera el nombre de la raza. Del objeto race*/ 
 	public String buscar(Map<String , Object> model, @ModelAttribute District district)
 	throws ParseException 
@@ -119,6 +132,7 @@ public class DistrictController {
 		List<District> listaDistritos;
 		district.setNameDistrict(district.getNameDistrict());
 		listaDistritos = diService.findByName(district.getNameDistrict());
+
 		
 		if(listaDistritos.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{
@@ -131,6 +145,8 @@ public class DistrictController {
 	@RequestMapping("/irBuscar")
 	public String irBuscar(Model model) {
 		model.addAttribute("district", new District());
+
+		model.addAttribute("department", new Department());
 		return "buscarDistrito";
 	}
 }

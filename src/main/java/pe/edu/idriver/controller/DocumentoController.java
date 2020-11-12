@@ -173,19 +173,190 @@ public class DocumentoController {
 	{
 		List<Documento> listaDocumentos;
 		documento.setIdDocumento(documento.getIdDocumento());
+
+		listaDocumentos = doService.findById(documento.getIdDocumento());
 		listaDocumentos = doService.buscarNombre(documento.getIdDocumento());
+
 		
 		if(listaDocumentos.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{
 			model.put("mensaje", "No se encontro");
 		}
 		model.put("listaDocumentos", listaDocumentos);
+
+		return "listDocumento";
+	}
+	
+	@RequestMapping("/buscarporUsuario") /*se recupera el nombre de la raza. Del objeto race*/ 
+	public String buscarporUsuario(Map<String , Object> model, @ModelAttribute Documento documento, @ModelAttribute Usuario usuario)
+	throws ParseException 
+	{
+		List<Documento> listaDocumentos;
+		usuario.setNameUsuario(usuario.getNameUsuario());
+		listaDocumentos = doService.findByNameUsuario(usuario.getNameUsuario());
+		
+		if(listaDocumentos.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
+		{
+			model.put("mensaje", "No se encontro");
+		}
+		model.put("listaDocumentos", listaDocumentos);
+		return "listDocumento";
+	}
+	
+	@RequestMapping("/buscarporPlaca") /*se recupera el nombre de la raza. Del objeto race*/ 
+	public String buscarporPlaca(Map<String , Object> model, @ModelAttribute Documento documento, @ModelAttribute Vehiculo vehiculo)
+	throws ParseException 
+	{
+		List<Documento> listaDocumentos;
+		vehiculo.setPlacaVehiculo(vehiculo.getPlacaVehiculo());
+		listaDocumentos = doService.findByPlacaVehiculo(vehiculo.getPlacaVehiculo());
+		
+		if(listaDocumentos.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
+		{
+			model.put("mensaje", "No se encontro");
+		}
+		model.put("listaDocumentos", listaDocumentos);
+		return "listDocumento";
+	}
+	
+	@RequestMapping("/buscarporLicencia") /*se recupera el nombre de la raza. Del objeto race*/ 
+	public String buscarporLicencia(Map<String , Object> model, @ModelAttribute Documento documento, @ModelAttribute Licencia licencia)
+	throws ParseException 
+	{
+		List<Documento> listaDocumentos;
+		licencia.setIdLicencia(licencia.getIdLicencia());
+		listaDocumentos = doService.findByIdLicencia(licencia.getIdLicencia());
+		
+		if(listaDocumentos.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
+		{
+			model.put("mensaje", "No se encontro");
+		}
+		model.put("listaDocumentos", listaDocumentos);
+		return "listDocumento";
+	}
+	
+	@RequestMapping("/buscarporSeguro") /*se recupera el nombre de la raza. Del objeto race*/ 
+	public String buscarporSeguro(Map<String , Object> model, @ModelAttribute Documento documento, @ModelAttribute Seguro seguro)
+	throws ParseException 
+	{
+		List<Documento> listaDocumentos;
+		seguro.setIdSeguro(seguro.getIdSeguro());
+		listaDocumentos = doService.findByIdSeguro(seguro.getIdSeguro());
+		
+		if(listaDocumentos.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
+		{
+			model.put("mensaje", "No se encontro");
+		}
+		model.put("listaDocumentos", listaDocumentos);
+		return "listDocumento";
+	}
+	
+	@RequestMapping("/buscarporSoat") /*se recupera el nombre de la raza. Del objeto race*/ 
+	public String buscarporSoat(Map<String , Object> model, @ModelAttribute Documento documento, @ModelAttribute Soat soat)
+	throws ParseException 
+	{
+		List<Documento> listaDocumentos;
+		soat.setIdSoat(soat.getIdSoat());
+		listaDocumentos = doService.findByIdSoat(soat.getIdSoat());
+		
+		if(listaDocumentos.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
+		{
+			model.put("mensaje", "No se encontro");
+		}
+		model.put("listaDocumentos", listaDocumentos);
+		return "listDocumento";
+	}
+	
+	@RequestMapping("/buscarporTarjeta") /*se recupera el nombre de la raza. Del objeto race*/ 
+	public String buscarporTarjeta(Map<String , Object> model, @ModelAttribute Documento documento, @ModelAttribute Tarjeta tarjeta)
+	throws ParseException 
+	{
+		List<Documento> listaDocumentos;
+		tarjeta.setIdTarjeta(tarjeta.getIdTarjeta());
+		listaDocumentos = doService.findByIdTarjeta(tarjeta.getIdTarjeta());
+		
+		if(listaDocumentos.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
+		{
+			model.put("mensaje", "No se encontro");
+		}
+		model.put("listaDocumentos", listaDocumentos);
+		return "listDocumento";
+	}
+	
+	@RequestMapping("/buscarporPolarizado") /*se recupera el nombre de la raza. Del objeto race*/ 
+	public String buscarporPolarizado(Map<String , Object> model, @ModelAttribute Documento documento, @ModelAttribute Polarizado polarizado)
+	throws ParseException 
+	{
+		List<Documento> listaDocumentos;
+		polarizado.setIdPolarizado(polarizado.getIdPolarizado());
+		listaDocumentos = doService.findByIdPolarizado(polarizado.getIdPolarizado());
+		
+		if(listaDocumentos.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
+		{
+			model.put("mensaje", "No se encontro");
+		}
+		model.put("listaDocumentos", listaDocumentos);
+		return "listDocumento";
+	}
+	
+	@RequestMapping("/comoBuscar")
+	public String comoBuscar(Model model) {
+		model.addAttribute("documento", new Documento());
+		return "QuebuscaDocumento";
+
 		return "buscar";
+
 	}
 	
 	@RequestMapping("/irBuscar")
 	public String irBuscar(Model model) {
 		model.addAttribute("documento", new Documento());
+
+		return "buscarDocumento";
+	}
+	
+	@RequestMapping("/irBuscarporUsuario")
+	public String irBuscarporUsuario(Model model) {
+		model.addAttribute("usuario", new Usuario());
+		return "buscarDocumentoporUsuario";
+	}
+	
+	@RequestMapping("/irBuscarporPlaca")
+	public String irBuscarporPlaca(Model model) {
+		model.addAttribute("vehiculo", new Vehiculo());
+		return "buscarDocumentoporPlaca";
+	}
+	
+	@RequestMapping("/irBuscarporLicencia")
+	public String irBuscarporLicencia(Model model) {
+		model.addAttribute("licencia", new Licencia());
+		return "buscarDocumentoporLicencia";
+	}
+	
+	@RequestMapping("/irBuscarporSeguro")
+	public String irBuscarporSeguro(Model model) {
+		model.addAttribute("seguro", new Seguro());
+		return "buscarDocumentoporSeguro";
+	}
+	
+	@RequestMapping("/irBuscarporSoat")
+	public String irBuscarporSoat(Model model) {
+		model.addAttribute("soat", new Soat());
+		return "buscarDocumentoporSoat";
+	}
+	
+	@RequestMapping("/irBuscarporTarjeta")
+	public String irBuscarporTarjeta(Model model) {
+		model.addAttribute("tarjeta", new Tarjeta());
+		return "buscarDocumentoporTarjeta";
+	}
+	
+	@RequestMapping("/irBuscarporPolarizado")
+	public String irBuscarporPolarizado(Model model) {
+		model.addAttribute("polarizado", new Polarizado());
+		return "buscarDocumentoporPolarizado";
+
 		return "buscar";
+
 	}
 }

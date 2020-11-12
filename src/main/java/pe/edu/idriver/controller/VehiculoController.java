@@ -126,19 +126,31 @@ public class VehiculoController {
 	{
 		List<Vehiculo> listaVehiculos;
 		vehiculo.setPlacaVehiculo(vehiculo.getPlacaVehiculo());
+
+		listaVehiculos = vService.findByName(vehiculo.getPlacaVehiculo());
+
 		listaVehiculos = vService.buscarNombre(vehiculo.getPlacaVehiculo());
+
 		
 		if(listaVehiculos.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{
 			model.put("mensaje", "No se encontro");
 		}
 		model.put("listaVehiculos", listaVehiculos);
+
+		return "listVehiculo";
+
 		return "buscar";
+
 	}
 	
 	@RequestMapping("/irBuscar")
 	public String irBuscar(Model model) {
 		model.addAttribute("vehiculo", new Vehiculo());
+
+		return "buscarVehiculo";
+
 		return "buscar";
+
 	}
 }

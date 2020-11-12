@@ -72,7 +72,11 @@ public class SoatController {
 	}
 	
 	@RequestMapping("/modificar/{id}") // el pathvariable le dice que id modificara 
+
+	public String modificar (@PathVariable String id, Model model, RedirectAttributes objRedir) 
+
 	public String modificar (@PathVariable int id, Model model, RedirectAttributes objRedir) 
+
 	throws ParseException {
 		
 		Optional<Soat> objSoat = sService.listarId(id);
@@ -91,10 +95,17 @@ public class SoatController {
 	}
 	
 	@RequestMapping("/eliminar")
+
+	public String eliminar (Map<String, Object> model, @RequestParam(value="id") String id) {
+		
+		try {
+			if(id != null ) {
+
 	public String eliminar (Map<String, Object> model, @RequestParam(value="id") Integer id) {
 		
 		try {
 			if(id != null && id>0) {
+
 				sService.eliminar(id);
 				model.put("listaSoats", sService.listar());
 			}
@@ -127,19 +138,80 @@ public class SoatController {
 	{
 		List<Soat> listaSoats;
 		soat.setIdSoat(soat.getIdSoat());
+
+		listaSoats = sService.findById(soat.getIdSoat());
 		listaSoats = sService.buscarNombre(soat.getIdSoat());
+
 		
 		if(listaSoats.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{
 			model.put("mensaje", "No se encontro");
 		}
 		model.put("listaSoats", listaSoats);
+
+		return "listSoat";
+	}
+	
+	@RequestMapping("/buscarporUsuario") /*se recupera el nombre de la raza. Del objeto race*/ 
+	public String buscarporUsuario(Map<String , Object> model, @ModelAttribute Soat soat, @ModelAttribute Usuario usuario)
+	throws ParseException 
+	{
+		List<Soat> listaSoats;
+		usuario.setNameUsuario(usuario.getNameUsuario());
+		listaSoats = sService.findByNombreUsuario(usuario.getNameUsuario());
+		
+		if(listaSoats.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
+		{
+			model.put("mensaje", "No se encontro");
+		}
+		model.put("listaSoats", listaSoats);
+		return "listSoat";
+	}
+	
+	@RequestMapping("/buscarporPlaca") /*se recupera el nombre de la raza. Del objeto race*/ 
+	public String buscarporPlaca(Map<String , Object> model, @ModelAttribute Soat soat, @ModelAttribute Vehiculo vehiculo)
+	throws ParseException 
+	{
+		List<Soat> listaSoats;
+		vehiculo.setPlacaVehiculo(vehiculo.getPlacaVehiculo());
+		listaSoats = sService.findByPlacaVehiculo(vehiculo.getPlacaVehiculo());
+		
+		if(listaSoats.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
+		{
+			model.put("mensaje", "No se encontro");
+		}
+		model.put("listaSoats", listaSoats);
+		return "listSoat";
+	}
+	
+	@RequestMapping("/comoBuscar")
+	public String comoBuscar(Model model) {
+		model.addAttribute("soat", new Soat());
+		return "QuebuscaSoat";
+
 		return "buscar";
+
 	}
 	
 	@RequestMapping("/irBuscar")
 	public String irBuscar(Model model) {
 		model.addAttribute("soat", new Soat());
+
+		return "buscarSoat";
+	}
+	
+	@RequestMapping("/irBuscarporUsuario")
+	public String irBuscarporUsuario(Model model) {
+		model.addAttribute("usuario", new Usuario());
+		return "buscarSoatporUsuario";
+	}
+	
+	@RequestMapping("/irBuscarporPlaca")
+	public String irBuscarporPlaca(Model model) {
+		model.addAttribute("vehiculo", new Vehiculo());
+		return "buscarSoatporPlaca";
+
 		return "buscar";
+
 	}
 }
