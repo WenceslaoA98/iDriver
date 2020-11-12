@@ -10,6 +10,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -19,9 +23,12 @@ public class Vehiculo {
 
 	@Id
 	@Column(name = "idVehiculo", nullable = false, length = 12)
-	private int idVehiculo;
+	private String idVehiculo;
 	
-	@Column(name="placaVehiculo", length=60, nullable=false)
+	@NotEmpty(message = "El campo no puede estar vacío")
+	@NotBlank(message = "Ingrese la placa del Vehiculo")
+	@Size(min=6,max=6,message = "El codigo debe tener 6 digitos")
+	@Column(name="placaVehiculo", length=6, nullable=false)
 	private String placaVehiculo;
 	
 	@ManyToOne
@@ -32,16 +39,17 @@ public class Vehiculo {
 	@JoinColumn(name="idColor", nullable = false)
 	private Color color;
 	
+	@Past(message = "La fecha debe ser pasada")
+	@Column(name="anoVehiculo", length=30, nullable=false)
 	@Temporal(TemporalType.DATE)
-	@Column(name="anoVehiculo")
 	@DateTimeFormat(pattern="yyyy")
 	private Date DateVehiculo;
 
-	public int getIdVehiculo() {
+	public String getIdVehiculo() {
 		return idVehiculo;
 	}
 
-	public void setIdVehiculo(int idVehiculo) {
+	public void setIdVehiculo(String idVehiculo) {
 		this.idVehiculo = idVehiculo;
 	}
 

@@ -10,6 +10,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -18,6 +23,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Polarizado {
 
 	@Id
+	@NotEmpty(message = "El campo no puede estar vacío")
+	@NotBlank(message = "Ingrese el Polarizado")
+	@Size(min=11,max=11,message = "El Polarizado debe tener 11 digitos")
 	@Column(name = "idPolarizado", nullable = false, length = 11)
 	private String idPolarizado;
 	
@@ -25,17 +33,25 @@ public class Polarizado {
 	@JoinColumn(name="idVehiculo", nullable = false)
 	private Vehiculo vehiculo;
 	
+	@NotEmpty(message = "El campo no puede estar vacío")
+	@NotBlank(message = "Ingrese el monto")
+	@Size(min=10,max=10,message = "Motor invalido")
 	@Column(name="motorPolarizado", length=10, nullable=false)
 	private String motorPolarizado;
 	
+	@NotEmpty(message = "El campo no puede estar vacío")
+	@NotBlank(message = "Ingrese el monto")
+	@Size(min=10,max=10,message = "Serie invalido")
 	@Column(name="seriePolarizado", length=10, nullable=false)
 	private String seriePolarizado;
 	
+	@Past(message="La fecha debe ser pasada")
 	@Temporal(TemporalType.DATE)
 	@Column(name="fechaExpedicion")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date expedicionPolarizado;
 	
+	@Future(message="La fecha debe ser futura")
 	@Temporal(TemporalType.DATE)
 	@Column(name="fechaExpiracion")
 	@DateTimeFormat(pattern="yyyy-MM-dd")

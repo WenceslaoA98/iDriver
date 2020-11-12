@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="Distrito")
@@ -19,9 +22,12 @@ public class District {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int idDistrict;
 	
-	@Column(name="nombreDistrito", length=60, nullable=false)
+	@NotEmpty(message = "El campo no puede estar vacío")
+	@NotBlank(message = "Ingrese el nombre del distrito")
+	@Size(min=3,message = "El distrito debe tener mas de 3 caracteres")
+	@Column(name="nombreDistrito", length=30, nullable=false)
 	private String nameDistrict;
-
+	
 	@ManyToOne
 	@JoinColumn(name="idProvince", nullable = false)
 	private Province province;

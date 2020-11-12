@@ -2,14 +2,22 @@ package pe.edu.idriver.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -18,23 +26,36 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Usuario {
 
 	@Id
-	@Column(name = "idUsuario", nullable = false, length = 9)
+	@NotEmpty(message = "El campo no puede estar vacío")
+	@NotBlank(message = "Ingrese el DNI")
+	@Size(min=8,max=8,message = "El DNI debe tener 8 digitos")
+	@Column(name = "idUsuario", nullable = false, length = 8)
 	private String idUsuario;
 	
-	@Column(name="nombreUsuario", length=60, nullable=false)
+	@NotEmpty(message = "El campo no puede estar vacío")
+	@NotBlank(message = "Ingrese el Nombre")
+	@Column(name="nombreUsuario", length=40, nullable=false)
 	private String nameUsuario;
 	
+	@NotEmpty(message = "El campo no puede estar vacío")
+	@NotBlank(message = "Ingrese el Apellido")
 	@Column(name="apellidoUsuario", length=60, nullable=false)
 	private String lastnameUsuario;
 	
-	@Temporal(TemporalType.DATE)
-	@Column(name="fechaNacMascota")
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date birthDateUsuario;
-	
+	@Email
+	@NotEmpty(message = "El campo no puede estar vacío")
+	@NotBlank(message = "Ingrese el Nombre")
 	@Column(name="correoUsuario", length=60, nullable=false)
 	private String emailUsuario;
 	
+	@Past(message = "La fecha debe ser pasada")
+	@Column(name="fechaNacUsuario", length=30, nullable=false)
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date birthDateUsuario;
+	
+	@NotEmpty(message = "El campo no puede estar vacío")
+	@NotBlank(message = "Ingrese la Direccion")
 	@Column(name="direccionUsuario", length=60, nullable=false)
 	private String addressUsuario;
 	
@@ -42,6 +63,9 @@ public class Usuario {
 	@JoinColumn(name="idDistrict", nullable = false)
 	private District district;
 
+	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	private Licencia licencia;
+	
 	
 	public String getIdUsuario() {
 		return idUsuario;
@@ -97,6 +121,14 @@ public class Usuario {
 
 	public void setDistrict(District district) {
 		this.district = district;
+	}
+
+	public Licencia getLicencia() {
+		return licencia;
+	}
+
+	public void setLicencia(Licencia licencia) {
+		this.licencia = licencia;
 	}
 
 	

@@ -10,6 +10,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -18,6 +23,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Tarjeta {
 
 	@Id
+	@NotEmpty(message = "El campo no puede estar vacío")
+	@NotBlank(message = "Ingrese el numero de tarjeta")
+	@Size(min=11,max=11,message = "La tarjeta debe tener 11 digitos")
 	@Column(name = "idTarjeta", nullable = false, length = 11)
 	private String idTarjeta;
 	
@@ -25,14 +33,19 @@ public class Tarjeta {
 	@JoinColumn(name="idVehiculo", nullable = false)
 	private Vehiculo vehiculo;
 	
-	@Column(name="partidaTarjeta", length=10, nullable=false)
+	@NotEmpty(message = "El campo no puede estar vacío")
+	@NotBlank(message = "Ingrese la partida")
+	@Size(min=11,max=11,message = "La partida debe tener 11 digitos")
+	@Column(name="partidaTarjeta", length=11, nullable=false)
 	private String partidaTarjeta;
 	
+	@Past(message = "La fecha debe ser pasada")
 	@Temporal(TemporalType.DATE)
 	@Column(name="fechaExpedicion")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date expedicionTarjeta;
 	
+	@Future(message = "La fecha debe ser futura")
 	@Temporal(TemporalType.DATE)
 	@Column(name="fechaExpiracion")
 	@DateTimeFormat(pattern="yyyy-MM-dd")

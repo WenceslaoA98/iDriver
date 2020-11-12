@@ -10,6 +10,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -18,31 +23,36 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Licencia {
 
 	@Id
-	@Column(name = "idLicencia", nullable = false, length = 10)
+	@NotEmpty(message = "El campo no puede estar vacío")
+	@NotBlank(message = "Ingrese la licencia")
+	@Size(min=11,max=11,message = "La licencia debe tener 10 digitos")
+	@Column(name = "idLicencia", nullable = false, length = 11)
 	private String idLicencia;
 	
 	@ManyToOne
 	@JoinColumn(name="idUsuario", nullable = false)
 	private Usuario usuario;
 	
-	@Column(name="claseLicencia", length=5, nullable=false)
+	@NotBlank(message = "Ingrese clase de licencia")
+	@Column(name = "clase_licencia", length = 10, nullable = false)
 	private String claseLicencia;
 	
-	@Column(name="categoriaLicencia", length=5, nullable=false)
-	private String categoriaLicencia;
-	
+	@PastOrPresent(message = "La fecha debe ser pasada")
 	@Temporal(TemporalType.DATE)
 	@Column(name="fechaExpedicion")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date expedicionLicencia;
 	
+	@Future(message = "La fecha debe ser futura")
 	@Temporal(TemporalType.DATE)
 	@Column(name="fechaExpiracion")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date expiracionLicencia;
 	
-	@Column(name="restriccionLicencia", length=60, nullable=false)
+	@NotBlank(message = "Ingrese restricción de licencia")
+	@Column(name = "restriccion_licencia", length = 10, nullable = false)
 	private String restriccionLicencia;
+	
 
 	public String getIdLicencia() {
 		return idLicencia;
@@ -58,22 +68,6 @@ public class Licencia {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-
-	public String getClaseLicencia() {
-		return claseLicencia;
-	}
-
-	public void setClaseLicencia(String claseLicencia) {
-		this.claseLicencia = claseLicencia;
-	}
-
-	public String getCategoriaLicencia() {
-		return categoriaLicencia;
-	}
-
-	public void setCategoriaLicencia(String categoriaLicencia) {
-		this.categoriaLicencia = categoriaLicencia;
 	}
 
 	public Date getExpedicionLicencia() {
@@ -92,6 +86,14 @@ public class Licencia {
 		this.expiracionLicencia = expiracionLicencia;
 	}
 
+	public String getClaseLicencia() {
+		return claseLicencia;
+	}
+
+	public void setClaseLicencia(String claseLicencia) {
+		this.claseLicencia = claseLicencia;
+	}
+
 	public String getRestriccionLicencia() {
 		return restriccionLicencia;
 	}
@@ -99,6 +101,7 @@ public class Licencia {
 	public void setRestriccionLicencia(String restriccionLicencia) {
 		this.restriccionLicencia = restriccionLicencia;
 	}
+
 	
 }
 
