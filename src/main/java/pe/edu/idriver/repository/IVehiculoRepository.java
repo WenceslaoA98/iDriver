@@ -11,7 +11,7 @@ import pe.edu.idriver.entity.Vehiculo;
 
 
 @Repository
-public interface IVehiculoRepository extends JpaRepository<Vehiculo, Integer>{
+public interface IVehiculoRepository extends JpaRepository<Vehiculo, String>{
 
 	@Query("from Vehiculo v where v.placaVehiculo like %:placaVehiculo%")
 	List<Vehiculo> buscarPlaca(@Param("placaVehiculo") String placaVehiculo);
