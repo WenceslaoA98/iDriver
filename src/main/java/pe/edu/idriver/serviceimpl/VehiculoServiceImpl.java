@@ -43,14 +43,14 @@ public class VehiculoServiceImpl implements IVehiculoService {
 
 	@Override
 	@Transactional
-	public void eliminar(int idVehiculo) {
+	public void eliminar(String idVehiculo) {
 		
 		dVehiculo.deleteById(idVehiculo);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Optional<Vehiculo> listarId(int idVehiculo) {
+	public Optional<Vehiculo> listarId(String idVehiculo) {
 		
 		return dVehiculo.findById(idVehiculo);
 	}

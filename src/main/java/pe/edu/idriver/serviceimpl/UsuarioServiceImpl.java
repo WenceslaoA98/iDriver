@@ -48,6 +48,13 @@ public class UsuarioServiceImpl implements IUsuarioService {
 		dUsuario.deleteById(idUsuario);
 	}
 
+	@Transactional(readOnly = true)
+	public List<Usuario> readAll() throws Exception {
+		// TODO Auto-generated method stub
+		return dUsuario.findAll();
+	}
+	
+	
 	@Override
 	@Transactional(readOnly = true)
 	public Optional<Usuario> listarId(String idUsuario) {
