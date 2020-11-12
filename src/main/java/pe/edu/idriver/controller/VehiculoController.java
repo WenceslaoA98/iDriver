@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,7 +54,7 @@ public class VehiculoController {
 	}
 	
 	@RequestMapping("/registrar")
-	public String registrar(@ModelAttribute Vehiculo objVehiculo, BindingResult binRes, Model model) 
+	public String registrar(@ModelAttribute @Valid Vehiculo objVehiculo, BindingResult binRes, Model model) 
 	throws ParseException {
 		
 		if(binRes.hasErrors()) {
@@ -72,7 +74,7 @@ public class VehiculoController {
 	}
 	
 	@RequestMapping("/modificar/{id}") // el pathvariable le dice que id modificara 
-	public String modificar (@PathVariable int id, Model model, RedirectAttributes objRedir) 
+	public String modificar (@PathVariable String id, Model model, RedirectAttributes objRedir) 
 	throws ParseException {
 		
 		Optional<Vehiculo> objVehiculo = vService.listarId(id);
@@ -90,10 +92,10 @@ public class VehiculoController {
 	}
 	
 	@RequestMapping("/eliminar")
-	public String eliminar (Map<String, Object> model, @RequestParam(value="id") Integer id) {
+	public String eliminar (Map<String, Object> model, @RequestParam(value="id") String id) {
 		
 		try {
-			if(id != null && id>0) {
+			if(id != null) {
 				vService.eliminar(id);
 				model.put("listaVehiculos", vService.listar());
 			}
@@ -126,31 +128,19 @@ public class VehiculoController {
 	{
 		List<Vehiculo> listaVehiculos;
 		vehiculo.setPlacaVehiculo(vehiculo.getPlacaVehiculo());
-
 		listaVehiculos = vService.findByName(vehiculo.getPlacaVehiculo());
-
-		listaVehiculos = vService.buscarNombre(vehiculo.getPlacaVehiculo());
-
 		
 		if(listaVehiculos.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{
 			model.put("mensaje", "No se encontro");
 		}
 		model.put("listaVehiculos", listaVehiculos);
-
 		return "listVehiculo";
-
-		return "buscar";
-
 	}
 	
 	@RequestMapping("/irBuscar")
 	public String irBuscar(Model model) {
 		model.addAttribute("vehiculo", new Vehiculo());
-
 		return "buscarVehiculo";
-
-		return "buscar";
-
 	}
 }

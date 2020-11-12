@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,7 +47,7 @@ public class PolarizadoController {
 	}
 	
 	@RequestMapping("/registrar")
-	public String registrar(@ModelAttribute Polarizado objPolarizado, BindingResult binRes, Model model) 
+	public String registrar(@ModelAttribute @Valid Polarizado objPolarizado, BindingResult binRes, Model model) 
 	throws ParseException {
 		
 		if(binRes.hasErrors()) {
@@ -64,11 +66,7 @@ public class PolarizadoController {
 	}
 	
 	@RequestMapping("/modificar/{id}") // el pathvariable le dice que id modificara 
-
 	public String modificar (@PathVariable String id, Model model, RedirectAttributes objRedir) 
-
-	public String modificar (@PathVariable int id, Model model, RedirectAttributes objRedir) 
-
 	throws ParseException {
 		
 		Optional<Polarizado> objPolarizado = poService.listarId(id);
@@ -86,17 +84,10 @@ public class PolarizadoController {
 	}
 	
 	@RequestMapping("/eliminar")
-
 	public String eliminar (Map<String, Object> model, @RequestParam(value="id") String id) {
 		
 		try {
 			if(id != null ) {
-
-	public String eliminar (Map<String, Object> model, @RequestParam(value="id") Integer id) {
-		
-		try {
-			if(id != null && id>0) {
-
 				poService.eliminar(id);
 				model.put("listaPolarizados", poService.listar());
 			}
@@ -129,18 +120,13 @@ public class PolarizadoController {
 	{
 		List<Polarizado> listaPolarizados;
 		polarizado.setIdPolarizado(polarizado.getIdPolarizado());
-
 		listaPolarizados = poService.findById(polarizado.getIdPolarizado());
-
-		listaPolarizados = poService.buscarNombre(polarizado.getIdPolarizado());
-
 		
 		if(listaPolarizados.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{
 			model.put("mensaje", "No se encontro");
 		}
 		model.put("listaPolarizados", listaPolarizados);
-
 		return "listPolarizado";
 	}
 	
@@ -164,15 +150,11 @@ public class PolarizadoController {
 	public String comoBuscar(Model model) {
 		model.addAttribute("polarizado", new Polarizado());
 		return "QuebuscaPolarizado";
-
-		return "buscar";
-
 	}
 	
 	@RequestMapping("/irBuscar")
 	public String irBuscar(Model model) {
 		model.addAttribute("polarizado", new Polarizado());
-
 		return "buscarPolarizado";
 	}
 	
@@ -180,8 +162,5 @@ public class PolarizadoController {
 	public String irBuscarporPlaca(Model model) {
 		model.addAttribute("vehiculo", new Vehiculo());
 		return "buscarPolarizadoporPlaca";
-
-		return "buscar";
-
 	}
 }

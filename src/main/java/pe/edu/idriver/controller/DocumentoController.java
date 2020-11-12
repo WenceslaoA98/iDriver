@@ -167,27 +167,23 @@ public class DocumentoController {
 		return "listDocumento";
 	}
 
-	@RequestMapping("/buscar") /*se recupera el nombre de la raza. Del objeto race*/ 
+	@RequestMapping("/buscar") /*se recupera el id del documento. Del objeto documento*/ 
 	public String buscar(Map<String , Object> model, @ModelAttribute Documento documento)
 	throws ParseException 
 	{
 		List<Documento> listaDocumentos;
 		documento.setIdDocumento(documento.getIdDocumento());
-
 		listaDocumentos = doService.findById(documento.getIdDocumento());
-		listaDocumentos = doService.buscarNombre(documento.getIdDocumento());
-
 		
-		if(listaDocumentos.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
+		if(listaDocumentos.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, si se encuetra el id, me devuelve la lista con los valores cargados*/ 
 		{
 			model.put("mensaje", "No se encontro");
 		}
 		model.put("listaDocumentos", listaDocumentos);
-
 		return "listDocumento";
 	}
 	
-	@RequestMapping("/buscarporUsuario") /*se recupera el nombre de la raza. Del objeto race*/ 
+	@RequestMapping("/buscarporUsuario") /*se recupera el nombre del Usuario. Del objeto Usuario*/ 
 	public String buscarporUsuario(Map<String , Object> model, @ModelAttribute Documento documento, @ModelAttribute Usuario usuario)
 	throws ParseException 
 	{
@@ -203,7 +199,7 @@ public class DocumentoController {
 		return "listDocumento";
 	}
 	
-	@RequestMapping("/buscarporPlaca") /*se recupera el nombre de la raza. Del objeto race*/ 
+	@RequestMapping("/buscarporPlaca") /*se recupera la placa del vehiculo. Del objeto placa*/ 
 	public String buscarporPlaca(Map<String , Object> model, @ModelAttribute Documento documento, @ModelAttribute Vehiculo vehiculo)
 	throws ParseException 
 	{
@@ -219,7 +215,7 @@ public class DocumentoController {
 		return "listDocumento";
 	}
 	
-	@RequestMapping("/buscarporLicencia") /*se recupera el nombre de la raza. Del objeto race*/ 
+	@RequestMapping("/buscarporLicencia") /*se recupera el id de la licencia. Del objeto licencia*/ 
 	public String buscarporLicencia(Map<String , Object> model, @ModelAttribute Documento documento, @ModelAttribute Licencia licencia)
 	throws ParseException 
 	{
@@ -303,15 +299,11 @@ public class DocumentoController {
 	public String comoBuscar(Model model) {
 		model.addAttribute("documento", new Documento());
 		return "QuebuscaDocumento";
-
-		return "buscar";
-
 	}
 	
 	@RequestMapping("/irBuscar")
 	public String irBuscar(Model model) {
 		model.addAttribute("documento", new Documento());
-
 		return "buscarDocumento";
 	}
 	
@@ -355,8 +347,5 @@ public class DocumentoController {
 	public String irBuscarporPolarizado(Model model) {
 		model.addAttribute("polarizado", new Polarizado());
 		return "buscarDocumentoporPolarizado";
-
-		return "buscar";
-
 	}
 }

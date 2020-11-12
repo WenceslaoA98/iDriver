@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,7 +47,7 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping("/registrar")
-	public String registrar(@ModelAttribute Usuario objUsuario, BindingResult binRes, Model model) 
+	public String registrar(@ModelAttribute @Valid Usuario objUsuario, BindingResult binRes, Model model) 
 	throws ParseException {
 		
 		if(binRes.hasErrors()) {
@@ -64,11 +66,7 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping("/modificar/{id}") // el pathvariable le dice que id modificara 
-
 	public String modificar (@PathVariable String id, Model model, RedirectAttributes objRedir) 
-
-	public String modificar (@PathVariable int id, Model model, RedirectAttributes objRedir) 
-
 	throws ParseException {
 		
 		Optional<Usuario> objUsuario = uService.listarId(id);
@@ -86,17 +84,10 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping("/eliminar")
-
 	public String eliminar (Map<String, Object> model, @RequestParam(value="id") String id) {
 		
 		try {
 			if(id != null) {
-
-	public String eliminar (Map<String, Object> model, @RequestParam(value="id") Integer id) {
-		
-		try {
-			if(id != null && id>0) {
-
 				uService.eliminar(id);
 				model.put("listaUsuarios", uService.listar());
 			}
@@ -123,42 +114,25 @@ public class UsuarioController {
 		return "listUsuario";
 	}
 
-
 	@RequestMapping("/buscar") 
-
-	@RequestMapping("/buscar") /*se recupera el nombre de la raza. Del objeto race*/ 
-
 	public String buscar(Map<String , Object> model, @ModelAttribute Usuario usuario)
 	throws ParseException 
 	{
 		List<Usuario> listaUsuarios;
-
 		usuario.setIdUsuario(usuario.getIdUsuario());
 		listaUsuarios = uService.findById(usuario.getIdUsuario());
-
-		usuario.setNameUsuario(usuario.getNameUsuario());
-		listaUsuarios = uService.buscarNombre(usuario.getNameUsuario());
-
 		
 		if(listaUsuarios.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{
 			model.put("mensaje", "No se encontro");
 		}
 		model.put("listaUsuarios", listaUsuarios);
-
 		return "listUsuario";
-
-		return "buscar";
-
 	}
 	
 	@RequestMapping("/irBuscar")
 	public String irBuscar(Model model) {
 		model.addAttribute("usuario", new Usuario());
-
 		return "buscarUsuario";
-
-		return "buscar";
-
 	}
 }
