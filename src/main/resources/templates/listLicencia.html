@@ -26,8 +26,11 @@
 	</head>
 
 	<body>
-	
-		<div th:replace="fragments/headerusuario :: header"></div>
+		<STYLE type="text/css">
+  				td { text-align: center}
+  				td { text-align: center}
+		</STYLE>
+		<div th:replace="fragments/header :: header"></div>
 
 		<div class="container">
 			<form id="myform">
@@ -40,7 +43,7 @@
 							class="glyphicon glyphicon-plus" ></span> Licencia
 						</a>
 						
-						<a  style="border-bottom-color: green" th:href="@{/licencia/irBuscar}" id="add-row" 
+						<a  style="border-bottom-color: green" th:href="@{/licencia/comoBuscar}" id="add-row" 
 							type="button"
 							class="btn btn-primary btn-md left-block"> <span
 							class="glyphicon glyphicon-search" ></span> 
@@ -52,7 +55,6 @@
 									<th class="text-center">LICENCIA</th>
 									<th class="text-center">USUARIO</th>
 									<th class="text-center">CLASE</th>
-									<th class="text-center">CATEGORIA</th>
 									<th class="text-center">EXPEDICION</th>
 									<th class="text-center">EXPIRACION</th>
 									<th class="text-center">RESTRICCION</th>
@@ -65,16 +67,15 @@
 									<td th:text="${l.idLicencia}"></td>
 									<td th:text="${l.usuario.nameUsuario}"></td>
 									<td th:text="${l.claseLicencia}"></td>
-									<td th:text="${l.categoriaLicencia}"></td>
 									<td th:text="${#dates.format(l.expedicionLicencia,'dd/MM/yyyy')}"></td>
 									<td th:text="${#dates.format(l.expiracionLicencia,'dd/MM/yyyy')}"></td>
 									<td th:text="${l.restriccionLicencia}"></td>
 									
 									
 									
-									<td><a th:href="@{/licencia/eliminar?id=}+${l.idLicencia}"class="btn btn-danger btn-sm center-block"> <span
+									<td><a th:href="@{/licencia/eliminar?id=}+${l.idLicencia}"class="btn btn-danger btn-sm center"> <span
 							class="glyphicon glyphicon-remove" ></span> Eliminar </a></td> 
-									<td><a th:href="@{'/licencia/modificar/' + ${l.idLicencia}}"class="btn btn-primary btn-sm center-block"> <span
+									<td><a th:href="@{'/licencia/modificar/' + ${l.idLicencia}}"class="btn btn-primary btn-sm center"> <span
 							class="glyphicon glyphicon-pencil" ></span> Modificar </a></td> 
 								</tr>
 							</tbody>

@@ -29,17 +29,16 @@
 			<form th:action="@{/department/registrar}" method="post" th:object="${department}">
 				<div class="form-group">
 					
-					<label for="idrace">ID:</label> 
-					<input type="text" class="form-control" th:field="*{idDepartment}"></input>
+					<label for="iddepartment">ID:</label> 
+					<input type="text" class="form-control" th:field="*{idDepartment}" ></input>
 					
 					<div class="form-group">
 					
 						<label 	for="nombre">NOMBRE:</label> 
-						<input type="text" th:field="*{nameDepartment}" class="form-control" id="nombre"></input>
-	
-						<div class="alert alert-danger" th:if="${#fields.hasErrors('nameDepartment')}" 
-							th:errors="*{nameDepartment}">
-						</div>
+						<input type="text" th:field="*{nameDepartment}" class="form-control" id="nombre" placeholder="Ingrese el nombre del Departamento"
+						required minlength="3" maxlength="30" 
+									title="Ingresar nombre del Departamento">
+						</input>
 						
 					</div>
 					

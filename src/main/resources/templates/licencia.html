@@ -21,14 +21,18 @@
 	
 	<body>
 	
-		<div th:replace="fragments/headerusuario :: header"></div>
+		<div th:replace="fragments/header :: header"></div>
 		
 		<div class="container">
 			<form th:action="@{/licencia/registrar}" method="post" th:object="${licencia}">
 				<div class="form-group">
 					
 					<label for="idlicencia">ID:</label> 
-					<input type="text" class="form-control" th:field="*{idLicencia}"></input>
+					<input type="text" class="form-control" th:field="*{idLicencia}"
+					placeholder="Ingrese el ID de la Licencia"
+						required minlength="11" maxlength="11"
+									title="Ingresar ID de la Licencia">
+					</input>
 					
 					<div class="form-group">
 					
@@ -46,38 +50,45 @@
 					
 					
 						<label 	for="clase">CLASE:</label> 
-						<input type="text" th:field="*{claseLicencia}" class="form-control" id="clase"></input>
-	
+						<select
+									th:field="*{claseLicencia}" class="form-control"
+									th:errorclass="'form-control alert-danger'">
+									<option value="">Selecciona una Clase</option>
+									<option value="A1">A1</option>
+									<option value="A2">A2</option>
+									<option value="B1">B1</option>
+									<option value="B2">B2</option>
+									<option value="C1">C1</option>
+									<option value="C2">C2</option>
+									<option value="C3">C3</option>
+								</select>
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('claseLicencia')}" 
 							th:errors="*{claseLicencia}">
 						</div>
 						
-						<label 	for="categoria">CATEGORIA:</label> 
-						<input type="text" th:field="*{categoriaLicencia}" class="form-control" id="categoria"></input>
-	
-						<div class="alert alert-danger" th:if="${#fields.hasErrors('categoriaLicencia')}" 
-							th:errors="*{categoriaLicencia}">
-						</div>
-						
 						<label for="fechaExpedicion">EXPEDICION:</label> <input
 						type="date" th:field="*{expedicionLicencia}" class="form-control"
-						id="fechaExpedicion"></input>
-						<!-- th:errors Se encarga del manejo de errores -->
-					<div class="alert alert-danger"
-						th:if="${#fields.hasErrors('expedicionLicencia')}"
-						th:errors="*{expedicionLicencia}"></div>
+						placeholder="Ingrese el año de expedicion" th:classappend="${#fields.hasErrors('expedicionLicencia')} ? 'is-invalid' : ''"
+						></input>
+						<div class="invalid-feedback" th:errors="*{expedicionLicencia}"></div>
 						
 						<label for="fechaExpiracion">EXPIRACION:</label> <input
 						type="date" th:field="*{expiracionLicencia}" class="form-control"
-						id="fechaExpiracion"></input>
-						<!-- th:errors Se encarga del manejo de errores -->
-					<div class="alert alert-danger"
-						th:if="${#fields.hasErrors('expiracionLicencia')}"
-						th:errors="*{expiracionLicencia}"></div>
+						placeholder="Ingrese el año de expedicion" th:classappend="${#fields.hasErrors('expiracionLicencia')} ? 'is-invalid' : ''"
+						></input>
+						<div class="invalid-feedback" th:errors="*{expiracionLicencia}"></div>
 						
 						
 						<label 	for="restriccion">RESTRICCION:</label> 
-						<input type="text" th:field="*{restriccionLicencia}" class="form-control" id="restriccion"></input>
+						<select
+									th:field="*{restriccionLicencia}" class="form-control"
+									th:errorclass="'form-control alert-danger'">
+									<option value="">Selecciona una Restriccion</option>
+									<option value="lentes">Lentes</option>
+									<option value="compañia">Compañia</option>
+									<option value="ninguna">Ninguna</option>
+									<option value="espejos">Espejos</option>
+								</select>
 	
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('restriccionLicencia')}" 
 							th:errors="*{restriccionLicencia}">

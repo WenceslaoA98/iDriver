@@ -21,19 +21,24 @@
 	
 	<body>
 	
-		<div th:replace="fragments/headerusuario :: header"></div>
+		<div th:replace="fragments/header :: header"></div>
 		
 		<div class="container">
 			<form th:action="@{/vehiculo/registrar}" method="post" th:object="${vehiculo}">
 				<div class="form-group">
 					
 					<label for="idvehiculo">ID:</label> 
-					<input type="text" class="form-control" th:field="*{idVehiculo}"></input>
+					<input type="text" class="form-control" th:field="*{idVehiculo}" >
+					</input>
 					
 					<div class="form-group">
 					
 						<label 	for="placa">PLACA:</label> 
-						<input type="text" th:field="*{placaVehiculo}" class="form-control" id="placa"></input>
+						<input type="text" th:field="*{placaVehiculo}" class="form-control" id="placa" 
+						placeholder="Ingrese la Placa del Vehiculo"
+						required minlength="6" maxlength="6"
+									title="Ingresar la Placa del Vehiculo">
+						</input>
 	
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('placaVehiculo')}" 
 							th:errors="*{placaVehiculo}">
@@ -63,13 +68,12 @@
 							th:selected="(${co.idColor} == *{color.idColor})"></option>
 					</select>
 						
-						<label for="anoVehiculo">AÑO DEL VEHICULO:</label> <input
-						type="date" th:field="*{DateVehiculo}" class="form-control"
-						id="anoVehiculo"></input>
-						<!-- th:errors Se encarga del manejo de errores -->
-					<div class="alert alert-danger"
-						th:if="${#fields.hasErrors('DateVehiculo')}"
-						th:errors="DateVehiculo"></div>
+						<label for="anoVehiculo">AÑO DEL VEHICULO:</label> 
+						<input type="date" class="form-control" th:field="*{DateVehiculo}" 
+						placeholder="Ingrese el año del Vehiculo" th:classappend="${#fields.hasErrors('DateVehiculo')} ? 'is-invalid' : ''"
+						></input>
+						<div class="invalid-feedback" th:errors="*{DateVehiculo}"></div>
+						
 						
 					</div>
 					

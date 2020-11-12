@@ -27,13 +27,17 @@
 			<form th:action="@{/province/registrar}" method="post" th:object="${province}">
 				<div class="form-group">
 					
-					<label for="iddepartment">ID:</label> 
+					<label for="idprovince">ID:</label> 
 					<input type="text" class="form-control" th:field="*{idProvince}"></input>
 					
 					<div class="form-group">
 					
 						<label 	for="nombre">NOMBRE:</label> 
-						<input type="text" th:field="*{nameProvince}" class="form-control" id="nombre"></input>
+						<input type="text" th:field="*{nameProvince}" class="form-control" id="nombre"
+						placeholder="Ingrese el nombre de la Provincia"
+						required minlength="3" maxlength="30" 
+									title="Ingresar nombre de la Provincia">
+						</input>
 	
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('nameProvince')}" 
 							th:errors="*{nameProvince}">

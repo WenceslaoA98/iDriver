@@ -4,7 +4,7 @@
 
 <meta charset="ISO-8859-1"></meta>
 
-<title>Distrito</title>
+<title>Usuario</title>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
@@ -16,6 +16,8 @@
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
 		</script>
+
+<script type="text/javascript" th:src="@{/js/department.js}"></script>
 
 </head>
 <style type="text/css">
@@ -34,18 +36,18 @@ form {
 </head>
 
 <body>
-	<h2>Encontrar Distrito</h2>
+	<h2>Encontrar Usuario</h2>
 
-	<form th:object="${department}" th:action="@{/district/buscar}"
+	<form th:object="${usuario}" th:action="@{/usuario/buscar}"
 		method="get" class="form-inline" id="search-owner-form">
 		<div class="form-group mb-2">
 
-			<label for="nombre">DEPARTAMENTO:</label> <input type="text"
-				th:field="*{nameDepartment}" class="form-group mx-sm-3 mb-2" id="nombre"></input>
+			<label for="idusuario">USUARIO:</label> <input type="text"
+				th:field="*{idUsuario}" class="form-group mx-sm-3 mb-2" id="idusuario"></input>
 
 			<div class="alert alert-danger"
-				th:if="${#fields.hasErrors('nameDepartment')}"
-				th:errors="*{nameDepartment}"></div>
+				th:if="${#fields.hasErrors('idUsuario')}"
+				th:errors="*{idUsuario}"></div>
 
 			<button type="submit" class="btn btn-success"> <span
 							class="glyphicon glyphicon-search" ></span>  Buscar</button>

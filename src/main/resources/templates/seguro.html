@@ -21,14 +21,17 @@
 	
 	<body>
 	
-		<div th:replace="fragments/headerusuario :: header"></div>
+		<div th:replace="fragments/header :: header"></div>
 		
 		<div class="container">
 			<form th:action="@{/seguro/registrar}" method="post" th:object="${seguro}">
 				<div class="form-group">
 					
 					<label for="idseguro">ID:</label> 
-					<input type="text" class="form-control" th:field="*{idSeguro}"></input>
+					<input type="text" class="form-control" th:field="*{idSeguro}"
+					placeholder="Ingrese el ID del Seguro"
+						required minlength="11" maxlength="11"
+									title="Ingresar ID del Seguro"></input>
 					
 					<div class="form-group">
 					
@@ -57,7 +60,11 @@
 					</select>
 						
 						<label 	for="monto">MONTO:</label> 
-						<input type="text" th:field="*{montoSeguro}" class="form-control" id="monto"></input>
+						<input type="text" th:field="*{montoSeguro}" class="form-control" id="monto"
+						placeholder="Ingrese el monto de la prima del Seguro"
+						required minlength="2" maxlength="3"
+									title="Ingresar la prima del seguro">
+						</input>
 	
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('montoSeguro')}" 
 							th:errors="*{montoSeguro}">
@@ -65,19 +72,15 @@
 						
 						<label for="fechaExpedicion">EXPEDICION:</label> <input
 						type="date" th:field="*{expedicionSeguro}" class="form-control"
-						id="fechaExpedicion"></input>
-						<!-- th:errors Se encarga del manejo de errores -->
-					<div class="alert alert-danger"
-						th:if="${#fields.hasErrors('expedicionSeguro')}"
-						th:errors="*{expedicionSeguro}"></div>
+						placeholder="Ingrese el año de expedicion" th:classappend="${#fields.hasErrors('expedicionSeguro')} ? 'is-invalid' : ''"
+						></input>
+						<div class="invalid-feedback" th:errors="*{expedicionSeguro}"></div>
 						
 						<label for="fechaExpiracion">EXPIRACION:</label> <input
 						type="date" th:field="*{expiracionSeguro}" class="form-control"
-						id="fechaExpiracion"></input>
-						<!-- th:errors Se encarga del manejo de errores -->
-					<div class="alert alert-danger"
-						th:if="${#fields.hasErrors('expiracionSeguro')}"
-						th:errors="*{expiracionSeguro}"></div>
+						placeholder="Ingrese el año de expedicion" th:classappend="${#fields.hasErrors('expiracionSeguro')} ? 'is-invalid' : ''"
+						></input>
+						<div class="invalid-feedback" th:errors="*{expiracionSeguro}"></div>
 
 						
 						

@@ -33,7 +33,11 @@
 					<div class="form-group">
 					
 						<label 	for="nombre">NOMBRE:</label> 
-						<input type="text" th:field="*{nameCarModel}" class="form-control" id="nombre"></input>
+						<input type="text" th:field="*{nameCarModel}" class="form-control" id="nombre"
+						placeholder="Ingrese el nombre del Modelo de Carro"
+						required minlength="3" maxlength="30" 
+									title="Ingresar nombre del Modelo de Carro">
+						</input>
 	
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('nameCarModel')}" 
 							th:errors="*{nameCarModel}">

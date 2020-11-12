@@ -26,6 +26,11 @@
 	</head>
 
 	<body>
+	<STYLE type="text/css">
+  				td { text-align: center}
+  				td { text-align: center}
+		</STYLE>
+	
 	
 		<div th:replace="fragments/header :: header"></div>
 
@@ -60,10 +65,10 @@
 									<td th:text="${dep.idDepartment}"></td>
 									<td th:text="${dep.nameDepartment}"></td>
 									<td><a style="border-bottom-color: red" th:href="@{/department/eliminar?id=}+${dep.idDepartment}"
-									class="btn btn-danger btn-sm center-block"> <span
+									class="btn btn-danger btn-sm center"> <span
 							class="glyphicon glyphicon-remove" ></span> Eliminar </a></td> 
 									<td><a style="border-bottom-color: red" th:href="@{'/department/modificar/' + ${dep.idDepartment}}"
-									class="btn btn-primary btn-sm center-block"> <span
+									class="btn btn-primary btn-sm center"> <span
 							class="glyphicon glyphicon-pencil" ></span> Modificar </a></td> 
 								</tr>
 							</tbody>

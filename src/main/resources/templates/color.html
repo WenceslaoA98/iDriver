@@ -35,7 +35,11 @@
 					<div class="form-group">
 					
 						<label 	for="nombre">NOMBRE:</label> 
-						<input type="text" th:field="*{nameColor}" class="form-control" id="nombre"></input>
+						<input type="text" th:field="*{nameColor}" class="form-control" id="nombre"
+						placeholder="Ingrese el nombre del Color"
+						required minlength="3" maxlength="20"  
+									title="Ingresar nombre del Color">
+						</input>
 	
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('nameColor')}" 
 							th:errors="*{nameColor}">

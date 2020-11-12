@@ -26,7 +26,10 @@
 	</head>
 
 	<body>
-	
+		<STYLE type="text/css">
+  				td { text-align: center}
+  				td { text-align: center}
+		</STYLE>
 		<div th:replace="fragments/header :: header"></div>
 
 		<div class="container">
@@ -59,9 +62,9 @@
 								<tr th:each="bra: ${listaMarcas}">
 									<td th:text="${bra.idBrand}"></td>
 									<td th:text="${bra.nameBrand}"></td>
-									<td><a th:href="@{/brand/eliminar?id=}+${bra.idBrand}" class="btn btn-danger btn-sm center-block"> <span
+									<td><a th:href="@{/brand/eliminar?id=}+${bra.idBrand}" class="btn btn-danger btn-sm center"> <span
 							class="glyphicon glyphicon-remove" ></span> Eliminar </a></td> 
-									<td><a th:href="@{'/brand/modificar/' + ${bra.idBrand}}"class="btn btn-primary btn-sm center-block"> <span
+									<td><a th:href="@{'/brand/modificar/' + ${bra.idBrand}}"class="btn btn-primary btn-sm center"> <span
 							class="glyphicon glyphicon-pencil" ></span> Modificar </a></td> 
 								</tr>
 							</tbody>

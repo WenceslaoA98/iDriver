@@ -21,14 +21,17 @@
 	
 	<body>
 	
-		<div th:replace="fragments/headerusuario :: header"></div>
+		<div th:replace="fragments/header :: header"></div>
 		
 		<div class="container">
 			<form th:action="@{/polarizado/registrar}" method="post" th:object="${polarizado}">
 				<div class="form-group">
 					
 					<label for="idpolarizado">ID:</label> 
-					<input type="text" class="form-control" th:field="*{idPolarizado}"></input>
+					<input type="text" class="form-control" th:field="*{idPolarizado}"
+					placeholder="Ingrese el ID del Polarizado"
+						required minlength="11" maxlength="11"
+									title="Ingresar ID del Polarizado"></input>
 					
 					<div class="form-group">
 					
@@ -45,14 +48,22 @@
 					</select>
 						
 						<label 	for="motor">MOTOR:</label> 
-						<input type="text" th:field="*{motorPolarizado}" class="form-control" id="motor"></input>
+						<input type="text" th:field="*{motorPolarizado}" class="form-control" id="motor"
+						placeholder="Ingrese el motor del Polarizado"
+						required minlength="10" maxlength="10"
+									title="Ingresar motor del Polarizado">
+						</input>
 	
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('motorPolarizado')}" 
 							th:errors="*{motorPolarizado}">
 						</div>
 						
 						<label 	for="serie">SERIE:</label> 
-						<input type="text" th:field="*{seriePolarizado}" class="form-control" id="serie"></input>
+						<input type="text" th:field="*{seriePolarizado}" class="form-control" id="serie"
+						placeholder="Ingrese la serie del Polarizado"
+						required minlength="10" maxlength="10"
+									title="Ingresar la serie del Polarizado">
+						</input>
 	
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('seriePolarizado')}" 
 							th:errors="*{seriePolarizado}">
@@ -60,19 +71,15 @@
 						
 						<label for="fechaExpedicion">EXPEDICION:</label> <input
 						type="date" th:field="*{expedicionPolarizado}" class="form-control"
-						id="fechaExpedicion"></input>
-						<!-- th:errors Se encarga del manejo de errores -->
-					<div class="alert alert-danger"
-						th:if="${#fields.hasErrors('expedicionPolarizado')}"
-						th:errors="*{expedicionPolarizado}"></div>
+						placeholder="Ingrese el año de expedicion" th:classappend="${#fields.hasErrors('expedicionPolarizado')} ? 'is-invalid' : ''"
+						></input>
+						<div class="invalid-feedback" th:errors="*{expedicionPolarizado}"></div>
 						
 						<label for="fechaExpiracion">EXPIRACION:</label> <input
 						type="date" th:field="*{expiracionPolarizado}" class="form-control"
-						id="fechaExpiracion"></input>
-						<!-- th:errors Se encarga del manejo de errores -->
-					<div class="alert alert-danger"
-						th:if="${#fields.hasErrors('expiracionPolarizado')}"
-						th:errors="*{expiracionPolarizado}"></div>
+						placeholder="Ingrese el año de expedicion" th:classappend="${#fields.hasErrors('expiracionPolarizado')} ? 'is-invalid' : ''"
+						></input>
+						<div class="invalid-feedback" th:errors="*{expiracionPolarizado}"></div>
 
 						
 						

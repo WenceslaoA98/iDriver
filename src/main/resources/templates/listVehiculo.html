@@ -26,8 +26,11 @@
 	</head>
 
 	<body>
-	
-		<div th:replace="fragments/headerusuario :: header"></div>
+		<STYLE type="text/css">
+  				td { text-align: center}
+  				td { text-align: center}
+		</STYLE>
+		<div th:replace="fragments/header :: header"></div>
 
 		<div class="container">
 			<form id="myform">
@@ -67,9 +70,9 @@
 									<td th:text="${v.carmodel.brand.nameBrand}"></td>
 									<td th:text="${v.color.nameColor}"></td>								
 									<td th:text="${#dates.format(v.DateVehiculo,'yyyy')}"></td>
-									<td><a th:href="@{/vehiculo/eliminar?id=}+${v.idVehiculo}"class="btn btn-danger btn-sm center-block"> <span
+									<td><a th:href="@{/vehiculo/eliminar?id=}+${v.idVehiculo}"class="btn btn-danger btn-sm center"> <span
 							class="glyphicon glyphicon-remove" ></span> Eliminar </a></td> 
-									<td><a th:href="@{'/vehiculo/modificar/' + ${v.idVehiculo}}"class="btn btn-primary btn-sm center-block"> <span
+									<td><a th:href="@{'/vehiculo/modificar/' + ${v.idVehiculo}}"class="btn btn-primary btn-sm center"> <span
 							class="glyphicon glyphicon-pencil" ></span> Modificar </a></td> 
 								</tr>
 							</tbody>

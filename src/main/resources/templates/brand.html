@@ -35,7 +35,11 @@
 					<div class="form-group">
 					
 						<label 	for="nombre">NOMBRE:</label> 
-						<input type="text" th:field="*{nameBrand}" class="form-control" id="nombre"></input>
+						<input type="text" th:field="*{nameBrand}" class="form-control" id="nombre" 
+						placeholder="Ingrese el nombre de la Marca"
+						required minlength="3" maxlength="30" 
+									title="Ingresar nombre de la Marca">
+						</input>
 	
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('nameBrand')}" 
 							th:errors="*{nameBrand}">

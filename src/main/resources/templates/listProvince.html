@@ -26,7 +26,10 @@
 	</head>
 
 	<body>
-	
+		<STYLE type="text/css">
+  				td { text-align: center}
+  				td { text-align: center}
+		</STYLE>
 		<div th:replace="fragments/header :: header"></div>
 
 		<div class="container">
@@ -61,9 +64,9 @@
 									<td th:text="${p.idProvince}"></td>
 									<td th:text="${p.nameProvince}"></td>
 									<td th:text="${p.department.nameDepartment}"></td>
-									<td><a th:href="@{/province/eliminar?id=}+${p.idProvince}"class="btn btn-danger btn-sm center-block"> <span
+									<td><a th:href="@{/province/eliminar?id=}+${p.idProvince}"class="btn btn-danger btn-sm center"> <span
 							class="glyphicon glyphicon-remove" ></span> Eliminar </a></td> 
-									<td><a th:href="@{'/province/modificar/' + ${p.idProvince}}"class="btn btn-primary btn-sm center-block"> <span
+									<td><a th:href="@{'/province/modificar/' + ${p.idProvince}}"class="btn btn-primary btn-sm center"> <span
 							class="glyphicon glyphicon-pencil" ></span> Modificar </a></td> 
 								</tr>
 							</tbody>

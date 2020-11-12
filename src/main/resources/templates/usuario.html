@@ -21,48 +21,67 @@
 	
 	<body>
 	
-		<div th:replace="fragments/headerusuario :: header"></div>
+		<div th:replace="fragments/header :: header"></div>
 		
 		<div class="container">
 			<form th:action="@{/usuario/registrar}" method="post" th:object="${usuario}">
 				<div class="form-group">
 					
 					<label for="idusuario">ID:</label> 
-					<input type="text" class="form-control" th:field="*{idUsuario}"></input>
+					<input type="text" class="form-control" th:field="*{idUsuario}"
+					placeholder="Ingrese el DNI del Usuario"
+						required minlength="8" maxlength="8"
+									title="Ingresar DNI del Usuario">
+					</input>
 					
 					<div class="form-group">
 					
 						<label 	for="nombre">NOMBRES:</label> 
-						<input type="text" th:field="*{nameUsuario}" class="form-control" id="nombre"></input>
+						<input type="text" th:field="*{nameUsuario}" class="form-control" id="nombre"
+						placeholder="Ingrese el nombre del Usuario"
+						required minlength="3" maxlength="30"
+									title="Ingresar nombre del Usuario">
+						</input>
 	
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('nameUsuario')}" 
 							th:errors="*{nameUsuario}">
 						</div>
 						
 						<label 	for="apellido">APELLIDOS:</label> 
-						<input type="text" th:field="*{lastnameUsuario}" class="form-control" id="nombre"></input>
+						<input type="text" th:field="*{lastnameUsuario}" class="form-control" id="nombre"
+						placeholder="Ingrese el apellido del Usuario"
+						required minlength="3" maxlength="20" 
+									title="Ingresar el apellido del Usuario">
+						</input>
 	
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('lastnameUsuario')}" 
 							th:errors="*{lastnameUsuario}">
 						</div>
 						
 						<label 	for="correo">CORREO:</label> 
-						<input type="text" th:field="*{emailUsuario}" class="form-control" id="nombre"></input>
+						<input type="text" th:field="*{emailUsuario}" class="form-control" id="nombre"
+						placeholder="Ingrese un correo electronico"
+						required minlength="3" maxlength="50"  pattern="[A-Za-z0-9]+@+[a-z]+.+com" 
+									title="Ingresar un correo electronico">
+						
+						</input>
 	
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('emailUsuario')}" 
 							th:errors="*{emailUsuario}">
 						</div>
 						
-						<label for="fechaNacimiento">FECHA DE NACIMIENTO:</label> <input
-						type="date" th:field="*{birthDateUsuario}" class="form-control"
-						id="fechaNacimiento"></input>
-						<!-- th:errors Se encarga del manejo de errores -->
-					<div class="alert alert-danger"
-						th:if="${#fields.hasErrors('birthDateUsuario')}"
-						th:errors="*{birthDateUsuario}"></div>
+						<label for="fechaNacUsuario">FECHA DE NACIMIENTO:</label> 
+						<input type="date" class="form-control " th:field="*{birthDateUsuario}"
+						placeholder="Ingrese la fecha de nacimiento" th:classappend="${#fields.hasErrors('birthDateUsuario')} ? 'is-invalid' : ''"
+						></input>
+						<div class="invalid-feedback" th:errors="*{birthDateUsuario}"></div>
 						
 						<label 	for="direccion">DIRECCION:</label> 
-						<input type="text" th:field="*{addressUsuario}" class="form-control" id="nombre"></input>
+						<input type="text" th:field="*{addressUsuario}" class="form-control" id="nombre"
+						placeholder="Ingrese la direccion del Usuario"
+						required minlength="3" maxlength="30"
+									title="Ingresar la direccion del Usuario">
+						</input>
 	
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('addressUsuario')}" 
 							th:errors="*{addressUsuario}">

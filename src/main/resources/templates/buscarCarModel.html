@@ -4,7 +4,7 @@
 
 <meta charset="ISO-8859-1"></meta>
 
-<title>Distrito</title>
+<title>Modelo</title>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
@@ -34,18 +34,18 @@ form {
 </head>
 
 <body>
-	<h2>Encontrar Distrito</h2>
+	<h2>Encontrar Modelo</h2>
 
-	<form th:object="${department}" th:action="@{/district/buscar}"
+	<form th:object="${brand}" th:action="@{/carmodel/buscar}"
 		method="get" class="form-inline" id="search-owner-form">
 		<div class="form-group mb-2">
 
-			<label for="nombre">DEPARTAMENTO:</label> <input type="text"
-				th:field="*{nameDepartment}" class="form-group mx-sm-3 mb-2" id="nombre"></input>
+			<label for="nombre">MARCA:</label> <input type="text"
+				th:field="*{nameBrand}" class="form-group mx-sm-3 mb-2" id="nombre"></input>
 
 			<div class="alert alert-danger"
-				th:if="${#fields.hasErrors('nameDepartment')}"
-				th:errors="*{nameDepartment}"></div>
+				th:if="${#fields.hasErrors('nameBrand')}"
+				th:errors="*{nameBrand}"></div>
 
 			<button type="submit" class="btn btn-success"> <span
 							class="glyphicon glyphicon-search" ></span>  Buscar</button>

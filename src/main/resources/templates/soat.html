@@ -21,14 +21,18 @@
 	
 	<body>
 	
-		<div th:replace="fragments/headerusuario :: header"></div>
+		<div th:replace="fragments/header :: header"></div>
 		
 		<div class="container">
 			<form th:action="@{/soat/registrar}" method="post" th:object="${soat}">
 				<div class="form-group">
 					
 					<label for="idsoat">ID:</label> 
-					<input type="text" class="form-control" th:field="*{idSoat}"></input>
+					<input type="text" class="form-control" th:field="*{idSoat}"
+					placeholder="Ingrese el ID del SOAT"
+						required minlength="9" maxlength="9"
+									title="Ingresar ID del SOAT">
+					</input>
 					
 					<div class="form-group">
 					
@@ -58,19 +62,15 @@
 						
 						<label for="fechaExpedicion">EXPEDICION:</label> <input
 						type="date" th:field="*{expedicionSoat}" class="form-control"
-						id="fechaExpedicion"></input>
-						<!-- th:errors Se encarga del manejo de errores -->
-					<div class="alert alert-danger"
-						th:if="${#fields.hasErrors('expedicionSoat')}"
-						th:errors="*{expedicionSoat}"></div>
+						placeholder="Ingrese el año de expedicion" th:classappend="${#fields.hasErrors('expedicionSoat')} ? 'is-invalid' : ''"
+						></input>
+						<div class="invalid-feedback" th:errors="*{expedicionSoat}"></div>
 						
 						<label for="fechaExpiracion">EXPIRACION:</label> <input
 						type="date" th:field="*{expiracionSoat}" class="form-control"
-						id="fechaExpiracion"></input>
-						<!-- th:errors Se encarga del manejo de errores -->
-					<div class="alert alert-danger"
-						th:if="${#fields.hasErrors('expiracionSoat')}"
-						th:errors="*{expiracionSoat}"></div>
+						placeholder="Ingrese el año de expedicion" th:classappend="${#fields.hasErrors('expiracionSoat')} ? 'is-invalid' : ''"
+						></input>
+						<div class="invalid-feedback" th:errors="*{expiracionSoat}"></div>
 
 						
 						

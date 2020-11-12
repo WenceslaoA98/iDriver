@@ -26,8 +26,11 @@
 	</head>
 
 	<body>
-	
-		<div th:replace="fragments/headerusuario :: header"></div>
+		<STYLE type="text/css">
+  				td { text-align: center}
+  				td { text-align: center}
+		</STYLE>
+		<div th:replace="fragments/header :: header"></div>
 
 		<div class="container">
 			<form id="myform">
@@ -40,7 +43,7 @@
 							class="glyphicon glyphicon-plus" ></span> Soat
 						</a>
 						
-						<a  style="border-bottom-color: green" th:href="@{/soat/irBuscar}" id="add-row" 
+						<a  style="border-bottom-color: green" th:href="@{/soat/comoBuscar}" id="add-row" 
 							type="button"
 							class="btn btn-primary btn-md left-block"> <span
 							class="glyphicon glyphicon-search" ></span> 
@@ -67,9 +70,9 @@
 									<td th:text="${#dates.format(s.expiracionSoat,'dd/MM/yyyy')}"></td>
 									
 									
-									<td><a th:href="@{/soat/eliminar?id=}+${s.idSoat}"class="btn btn-danger btn-sm center-block"> <span
+									<td><a th:href="@{/soat/eliminar?id=}+${s.idSoat}"class="btn btn-danger btn-sm center"> <span
 							class="glyphicon glyphicon-remove" ></span> Eliminar </a></td> 
-									<td><a th:href="@{'/soat/modificar/' + ${s.idSoat}}"class="btn btn-primary btn-sm center-block"> <span
+									<td><a th:href="@{'/soat/modificar/' + ${s.idSoat}}"class="btn btn-primary btn-sm center"> <span
 							class="glyphicon glyphicon-pencil" ></span> Modificar </a></td> 
 								</tr>
 							</tbody>

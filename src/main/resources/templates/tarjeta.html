@@ -21,14 +21,18 @@
 	
 	<body>
 	
-		<div th:replace="fragments/headerusuario :: header"></div>
+		<div th:replace="fragments/header :: header"></div>
 		
 		<div class="container">
 			<form th:action="@{/tarjeta/registrar}" method="post" th:object="${tarjeta}">
 				<div class="form-group">
 					
 					<label for="idtarjeta">ID:</label> 
-					<input type="text" class="form-control" th:field="*{idTarjeta}"></input>
+					<input type="text" class="form-control" th:field="*{idTarjeta}"
+					placeholder="Ingrese el ID de la Tarjeta"
+						required minlength="11" maxlength="11"
+									title="Ingresar ID de la Tarjeta">
+					</input>
 					
 					<div class="form-group">
 					
@@ -45,7 +49,11 @@
 					</select>
 						
 						<label 	for="partida">PARTIDA:</label> 
-						<input type="text" th:field="*{partidaTarjeta}" class="form-control" id="partida"></input>
+						<input type="text" th:field="*{partidaTarjeta}" class="form-control" id="partida"
+						placeholder="Ingrese la partida de la Tarjeta"
+						required minlength="11" maxlength="11"
+									title="Ingresar la partida de la Tarjeta">
+						</input>
 	
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('partidaTarjeta')}" 
 							th:errors="*{partidaTarjeta}">
@@ -53,19 +61,15 @@
 						
 						<label for="fechaExpedicion">EXPEDICION:</label> <input
 						type="date" th:field="*{expedicionTarjeta}" class="form-control"
-						id="fechaExpedicion"></input>
-						<!-- th:errors Se encarga del manejo de errores -->
-					<div class="alert alert-danger"
-						th:if="${#fields.hasErrors('expedicionTarjeta')}"
-						th:errors="*{expedicionTarjeta}"></div>
+						placeholder="Ingrese el año de expedicion" th:classappend="${#fields.hasErrors('expedicionTarjeta')} ? 'is-invalid' : ''"
+						></input>
+						<div class="invalid-feedback" th:errors="*{expedicionTarjeta}"></div>
 						
 						<label for="fechaExpiracion">EXPIRACION:</label> <input
 						type="date" th:field="*{expiracionTarjeta}" class="form-control"
-						id="fechaExpiracion"></input>
-						<!-- th:errors Se encarga del manejo de errores -->
-					<div class="alert alert-danger"
-						th:if="${#fields.hasErrors('expiracionTarjeta')}"
-						th:errors="*{expiracionTarjeta}"></div>
+						placeholder="Ingrese el año de expiracion" th:classappend="${#fields.hasErrors('expiracionTarjeta')} ? 'is-invalid' : ''"
+						></input>
+						<div class="invalid-feedback" th:errors="*{expiracionTarjeta}"></div>
 
 						
 						

@@ -26,8 +26,11 @@
 	</head>
 
 	<body>
-	
-		<div th:replace="fragments/headeradmin :: header"></div>
+		<STYLE type="text/css">
+  				td { text-align: center}
+  				td { text-align: center}
+		</STYLE>
+		<div th:replace="fragments/header :: header"></div>
 
 		<div class="container">
 			<form id="myform">
@@ -40,7 +43,7 @@
 							class="glyphicon glyphicon-plus" ></span> Documento
 						</a>
 						
-						<a  style="border-bottom-color: green" th:href="@{/documento/irBuscar}" id="add-row" 
+						<a  style="border-bottom-color: green" th:href="@{/documento/comoBuscar}" id="add-row" 
 							type="button"
 							class="btn btn-primary btn-md left-block"> <span
 							class="glyphicon glyphicon-search" ></span> 
@@ -73,9 +76,9 @@
 									<td th:text="${do.tarjeta.idTarjeta}"></td>
 									<td th:text="${do.polarizado.idPolarizado}"></td>						
 									<td th:text="${#dates.format(do.DateDocumento,'dd/MM/yyyy')}"></td>
-									<td><a th:href="@{/documento/eliminar?id=}+${do.idDocumento}"class="btn btn-danger btn-sm center-block"> <span
+									<td><a th:href="@{/documento/eliminar?id=}+${do.idDocumento}"class="btn btn-danger btn-sm center"> <span
 							class="glyphicon glyphicon-remove" ></span> Eliminar </a></td> 
-									<td><a th:href="@{'/documento/modificar/' + ${do.idDocumento}}"class="btn btn-primary btn-sm center-block"> <span
+									<td><a th:href="@{'/documento/modificar/' + ${do.idDocumento}}"class="btn btn-primary btn-sm center"> <span
 							class="glyphicon glyphicon-pencil" ></span> Modificar </a></td> 
 								</tr>
 							</tbody>

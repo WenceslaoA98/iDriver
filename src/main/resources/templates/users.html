@@ -23,33 +23,54 @@
 		</script>
 		
 	</head>
-	
-	<body>
-	
-		<body>
-		
-		<STYLE type="text/css">
-				h1 { text-align: center}
-				h1 { font-size: 40px}
-				h1 { color:red;}
-				h2 { text-align: center}
-				h2 { font-style: italic}
-  				a { text-align: center}
-		</STYLE>
-		
-    <h1>Elige una opción para ingresar</h1>
-    <h2>Usuario o Administrador</h2>
 
-    <div id="main" class="container">     
-      <a href="/home/bienvenido" class="btn btn-outline-primary center-block "> <img width="300" height="300" th:src="@{/imagenes/usuario.png}">  </a>
-      
-      <a href="/home/bienvenidoadmin" class="btn btn-outline-success center-block "> <img width="300" height="300" th:src="@{/imagenes/admin.png}">  </a>
-      
-    </div>
+<body>
 
-  </body>
-		<div th:replace="fragments/footer :: footer"></div>
+<body>
 
-	</body>
+	<STYLE type="text/css">
+h1 {
+	text-align: center
+}
+
+h1 {
+	font-size: 40px
+}
+
+h1 {
+	color: red;
+}
+
+h2 {
+	text-align: center
+}
+
+h2 {
+	font-style: italic
+}
+
+a {
+	text-align: center
+}
+</STYLE>
+
+	<h1>Elige una opción para ingresar</h1>
+	<h2>Usuario o Administrador</h2>
+
+	<div id="main" class="container">
+		<a href="/home/bienvenido"
+			class="btn btn-outline-primary center-block "> <img width="300"
+			height="300" th:src="@{/imagenes/usuario.png}">
+		</a> <a href="/home/bienvenidoadmin"
+			class="btn btn-outline-success center-block "> <img width="300"
+			height="300" th:src="@{/imagenes/admin.png}">
+		</a>
+
+	</div>
+
+</body>
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
 
 </html>

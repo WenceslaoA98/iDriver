@@ -33,7 +33,10 @@
 					<div class="form-group">
 					
 						<label 	for="nombre">NOMBRE:</label> 
-						<input type="text" th:field="*{nameDistrict}" class="form-control" id="nombre"></input>
+						<input type="text" th:field="*{nameDistrict}" class="form-control" id="nombre" 
+						placeholder="Ingrese el nombre del Distrito"
+						required minlength="3" maxlength="30" 
+									title="Ingresar nombre del Distrito"></input>
 	
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('nameDistrict')}" 
 							th:errors="*{nameDistrict}">
