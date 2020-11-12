@@ -10,8 +10,8 @@ public interface IVehiculoService {
 	
 	public boolean insertar(Vehiculo vehiculo);
 	public boolean modificar(Vehiculo vehiculo);
-	public void eliminar(int idVehiculo);
-	public Optional<Vehiculo> listarId(int idVehiculo);
+	public void eliminar(String idVehiculo);
+	public Optional<Vehiculo> listarId(String idVehiculo);
 	List<Vehiculo> listar();
 	List<Vehiculo> findByName(String placaVehiculo);
 
