@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layout/layout :: head">
+
+<meta charset="ISO-8859-1"></meta>
+
+<title>Color</title>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+</link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+
+</head>
+<style type="text/css">
+
+body {
+	text-align: center
+}
+
+h1 {
+	text-align: center
+}
+
+div {
+	text-align: center
+}
+
+form {
+	text-align: center
+}
+label {
+	text-align: center
+}
+button {
+	text-align: center
+}
+</style>
+<body>
+	
+	
+	<header th:replace="layout/layout :: header"></header>
+		<br>
+		
+		<br /> 
+		
+		<h1> Iniciar Sesion </h1>
+		<div class="form-group">
+			<form th:action="@{/signin}" class="form-signin" 
+				method="post">
+				<div class="form-group mb-2">
+				<div th:if="${param.error}" class="alert alert-danger">Usuario
+					y Contrasena invalidos</div>
+				<div th:if="${param.logout}" class="alert alert-success">Haz
+					salido de forma correcta</div>
+
+					<div class="form-group mb-2">
+					<label for="nombre">Usuario:</label> <input type="text" id="inputUsername" name="inputUsername"
+						class="form-group mx-sm-3 mb-2" placeholder="Usuario"
+						aria-describedby="basic-addon1" required autofocus></input>
+					</div>
+					<div class="form-group mb-2">
+					<label for="nombre">Contrasena:</label> <input type="password" id="inputPassword" name="inputPassword"
+						class="form-group mx-sm-3 mb-2" placeholder="Contrasena"
+						aria-describedby="basic-addon2" required></input>
+					</div>
+					<button class="btn btn-lg btn-dark" type="submit"> Login </button>
+				<p class="mt-5 mb-3 text-muted">iDriver 2020</p>
+				</div>
+			</form>
+			
+		</div>
+				
+
+		
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

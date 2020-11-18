@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-	<head>
+	<head th:replace="layout/layout :: head">
 		
 		<meta charset="UTF-8"></meta>
 		
@@ -32,7 +32,7 @@
 		</STYLE>
 	
 	
-		<div th:replace="fragments/header :: header"></div>
+		<header th:replace="layout/layout :: header"></header>
 
 		<div class="container">
 			<form id="myform">
@@ -41,8 +41,7 @@
 						
 						<a  style="border-bottom-color: red " th:href="@{/department/irRegistrar}" id="add-row" 
 							type="button"
-							class="btn btn-primary btn-md left-block"> <span
-							class="glyphicon glyphicon-plus" ></span> Departamento
+							class="btn btn-primary btn-md left-block"> <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Departamento
 						</a>
 						
 						<a  style="border-bottom-color: red" th:href="@{/department/irBuscar}" id="add-row" 

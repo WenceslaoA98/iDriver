@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:replace="layout/layout :: head">
+		
+		<meta charset="UTF-8"></meta>
+		
+		<title>Usuarios</title>
+		
+		<script type="text/javascript"
+			src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js">
+		</script>
+		
+		<link
+			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+			rel="stylesheet" id="bootstrap-css">
+		</link>
+		
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+		
+		<script src="//code.jquery.com/jquery-1.11.1.min.js">
+		</script>
+
+	</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<main role="main">
+		<section class="container">
+			<div class="card text-center"> 
+				<div class="card-header">People</div>
+				<div class="card-body">
+					<table class="table table-borderless table-dark">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Address</th>
+								<th scope="col">District</th>
+								<th scope="col">Dni</th>
+								<th scope="col">Last Name</th>
+								<th scope="col">Name</th>
+								<th scope="col">Number Phone</th>
+								<th scope="col"></th>
+						      
+							</tr>
+						</thead>
+						<tbody th:each="person: ${persons}">
+							<tr>
+								<th scope="row" th:text="${person.id}">1</th>
+								<td th:text = "${person.address}">.</td>
+								<td th:text = "${person.district}">.</td>
+								<td th:text = "${person.dni}">.</td>
+								<td th:text = "${person.lastName}">.</td>
+								<td th:text = "${person.name}">.</td>
+								<td th:text = "${person.numberPhone}">.</td>
+
+							    <td>
+							      <a href="" class="btn btn-info"> <i class="fas fa-info"></i> </a>
+							      <a th:href="@{'/idriver/person/edit/' + ${person.id}}" class="btn btn-warning"> <i class="fas fa-edit"></i> </a>
+							      <a th:href="@{'/idriver/person/del/' + ${person.id}}" class="btn btn-danger"> <i class="fas fa-trash"></i> </a>
+							    </td>
+							</tr> 
+							
+						</tbody>
+					</table>
+				</div>
+				<div class="card-footer text-center">
+				<a th:href="@{/idriver/person/new}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> New Person</a>
+				</div>
+			</div>
+
+		</section>
+	</main>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

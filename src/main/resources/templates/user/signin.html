@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:replace="layout/layout :: head">
+		
+		<meta charset="UTF-8"></meta>
+		
+		<title>Usuarios</title>
+		
+		<script type="text/javascript"
+			src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js">
+		</script>
+		
+		<link
+			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+			rel="stylesheet" id="bootstrap-css">
+		</link>
+		
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+		
+		<script src="//code.jquery.com/jquery-1.11.1.min.js">
+		</script>
+
+	</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<section class="container">
+		<div class="card text-center">
+			<div class="card-header">Registrarse</div>
+			<div class="card-body text-left">
+
+				<form th:action="@{/idriver/signin/save}" th:object="${user}"
+					method="post">
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="username">Username</label> <input type="text"
+								class="form-control" th:field="*{username}"
+								placeholder="Ingrese un nombre de usuario">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="password">Contraseña</label> <input type="password"
+								class="form-control" th:field="*{password}"
+								placeholder="Ingrese una contraseña">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="name">Nombre</label> <input type="text" class="form-control" th:field="*{person.name}"
+								placeholder="Ingrese su nombre">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="lastName">Apellido</label> <input type="text" class="form-control" th:field="*{person.lastName}"
+								placeholder="Ingrese su apellido">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="dni">DNI</label> <input type="text"
+								class="form-control" th:field="*{person.dni}"
+								placeholder="Ingrese un dni">
+						</div>
+				
+						<div class="form-group col-md-6">
+							<label for="numberPhone"> Celular</label><input type="text"
+								class="form-control" th:field="*{person.numberPhone}"
+								placeholder="Ingrese su numero de celular">
+						</div>
+					</div>
+					<br>
+					<div class="text-center">
+						<button type="submit" class="btn btn-success">
+							<i class="fas fa-save"></i> Grabar
+						</button>
+						<a th:href="@{/idriver/login}" class="btn btn-danger"> Cancelar</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="head">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>iDriver</title>
+
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/chosen.min.css}">
+<link rel="stylesheet" th:href="@{/css/fontawesome.min.css}">
+<link rel="stylesheet" th:href="@{/css/solid.min.css}">
+
+</head>
+<body>
+	<header th:fragment="header">
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="#"><i class="fas fa-car"></i>
+				iDriver</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNav" aria-controls="navbarNav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a
+							class="nav-link" th:href="@{/department/listar}">Departamento</a></li>
+							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/province/listar}">Provincia</a></li>
+							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/district/listar}">Distrito</a></li>
+							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/brand/listar}">Marca</a></li>
+							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/carmodel/listar}">Modelo</a></li>
+							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/color/listar}">Color</a></li>
+							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/usuario/listar}">Usuario</a></li>
+							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/vehiculo/listar}">Vehiculo</a></li>
+							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/licencia/listar}">Licencia</a></li>
+							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/soat/listar}">Soat</a></li>
+							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/seguro/listar}">Seguro</a></li>
+							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/tarjeta/listar}">Tarjeta</a></li>
+							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/polarizado/listar}">Polarizado</a></li>
+							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/documento/listar}">Documento</a></li>
+							
+							<li sec:authorize="hasRole('ROLE_DRIVER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/usuario/listar}">Usuario</a></li>
+							<li sec:authorize="hasRole('ROLE_DRIVER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/vehiculo/listar}">Vehiculo</a></li>
+							<li sec:authorize="hasRole('ROLE_DRIVER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/licencia/listar}">Licencia</a></li>
+							<li sec:authorize="hasRole('ROLE_DRIVER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/soat/listar}">Soat</a></li>
+							<li sec:authorize="hasRole('ROLE_DRIVER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/seguro/listar}">Seguro</a></li>
+							<li sec:authorize="hasRole('ROLE_DRIVER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/tarjeta/listar}">Tarjeta</a></li>
+							<li sec:authorize="hasRole('ROLE_DRIVER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/polarizado/listar}">Polarizado</a></li>
+							<li sec:authorize="hasRole('ROLE_DRIVER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/documento/listar}">Documento</a></li>
+
+				</ul>
+			</div>
+			<span class="navbar-text">
+				<ul class="navbar-nav">
+					<li sec:authorize="isAnonymous()" class="nav-item"><a
+						class="btn btn-warning" th:href="@{/idriver/signin/driver}"
+						aria-disabled="true">Nuevo Conductor</a> <a
+						class="btn btn-info" th:href="@{/idriver/signin/manager}"
+						aria-disabled="true">Nuevo Administrador</a> <a
+						class="btn btn-success" th:href="@{/idriver/login}"
+						aria-disabled="true">Iniciar Sesión</a></li>
+				</ul>
+			</span>
+			<div sec:authorize="isAuthenticated()" class="btn-group dropleft">
+				<button type="button" class="btn btn-danger dropdown-toggle"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="fas fa-user"></i><br> <span
+						sec:authentication="name"> Username</span>
+				</button>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" th:href="@{logout}">Cerrar Sesión</a>
+					<!-- Dropdown menu links -->
+				</div>
+			</div>
+		</nav>
+
+	</header>
+	<footer th:fragment="footer">
+
+			<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+		<script th:src="@{/js/popper.min.js}"></script>
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+		<script th:src="@{/js/chosen.jquery.min.js}"></script>
+		<script th:src="@{/js/fontawesome.min.js}"></script>
+		<script th:src="@{/js/sweetalert.min.js}"></script>
+			
+			
+			<div class="container">
+				<STYLE type="text/css">
+  				footer { text-align: center}
+  				footer { text-shadow: 7px 4px 5px pink;}
+ 				</STYLE>
+				<footer>
+					<!-- this is footer -->			
+					©️ iDriver Forever 2020-02
+					🙂 Wenceslao Arrascue
+					🙂 Valeria Collazos
+				</footer>
+				
+			</div>
+
+		</div>
+	</footer>
+</body>
+</html>
