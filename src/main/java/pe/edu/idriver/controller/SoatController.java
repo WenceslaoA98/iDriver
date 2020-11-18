@@ -1,4 +1,4 @@
-package pe.edu.idriver.controller;
+package pe.edu.login.idriver.controller;
 
 import java.text.ParseException;
 import java.util.List;
@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import pe.edu.idriver.entity.Soat;
-import pe.edu.idriver.entity.Usuario;
-import pe.edu.idriver.entity.Vehiculo;
-import pe.edu.idriver.service.ISoatService;
-import pe.edu.idriver.service.IUsuarioService;
-import pe.edu.idriver.service.IVehiculoService;
+import pe.edu.login.idriver.entity.Soat;
+import pe.edu.login.idriver.entity.Usuario;
+import pe.edu.login.idriver.entity.Vehiculo;
+import pe.edu.login.idriver.service.ISoatService;
+import pe.edu.login.idriver.service.IUsuarioService;
+import pe.edu.login.idriver.service.IVehiculoService;
 
 @Controller
 @RequestMapping("/soat")

@@ -1,9 +1,9 @@
-package pe.edu.idriver.service;
+package pe.edu.login.idriver.service;
 
 import java.util.List;
 import java.util.Optional;
 
-import pe.edu.idriver.entity.Department;
+import pe.edu.login.idriver.entity.Department;
 
 public interface IDepartmentService {
 	

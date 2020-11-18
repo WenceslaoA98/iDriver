@@ -1,4 +1,4 @@
-package pe.edu.idriver.controller;
+package pe.edu.login.idriver.controller;
 
 import java.text.ParseException;
 import java.util.List;
@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import pe.edu.idriver.entity.District;
-import pe.edu.idriver.entity.Usuario;
-import pe.edu.idriver.service.IDistrictService;
-import pe.edu.idriver.service.IUsuarioService;
+import pe.edu.login.idriver.entity.District;
+import pe.edu.login.idriver.entity.Usuario;
+import pe.edu.login.idriver.service.IDistrictService;
+import pe.edu.login.idriver.service.IUsuarioService;
 
 @Controller
 @RequestMapping("/usuario")

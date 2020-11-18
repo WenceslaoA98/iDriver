@@ -1,4 +1,4 @@
-package pe.edu.idriver.entity;
+package pe.edu.login.idriver.entity;
 
 import java.util.Date;
 

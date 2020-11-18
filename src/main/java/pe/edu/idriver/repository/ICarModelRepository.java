@@ -1,4 +1,4 @@
-package pe.edu.idriver.repository;
+package pe.edu.login.idriver.repository;
 
 import java.util.List;
 
@@ -7,7 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import pe.edu.idriver.entity.CarModel;
+import pe.edu.login.idriver.entity.CarModel;
+
 
 @Repository
 public interface ICarModelRepository extends JpaRepository<CarModel, Integer>{

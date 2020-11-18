@@ -1,4 +1,4 @@
-package pe.edu.idriver.serviceimpl;
+package pe.edu.login.idriver.serviceimpl;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import pe.edu.idriver.entity.District;
-import pe.edu.idriver.repository.IDistrictRepository;
-import pe.edu.idriver.service.IDistrictService;
+import pe.edu.login.idriver.entity.District;
+import pe.edu.login.idriver.repository.IDistrictRepository;
+import pe.edu.login.idriver.service.IDistrictService;
 
 @Service
 public class DistrictServiceImpl implements IDistrictService {

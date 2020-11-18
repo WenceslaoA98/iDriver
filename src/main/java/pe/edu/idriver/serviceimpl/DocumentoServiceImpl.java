@@ -1,4 +1,4 @@
-package pe.edu.idriver.serviceimpl;
+package pe.edu.login.idriver.serviceimpl;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import pe.edu.idriver.entity.Documento;
-import pe.edu.idriver.repository.IDocumentoRepository;
-import pe.edu.idriver.service.IDocumentoService;
+import pe.edu.login.idriver.entity.Documento;
+import pe.edu.login.idriver.repository.IDocumentoRepository;
+import pe.edu.login.idriver.service.IDocumentoService;
 
 @Service
 public class DocumentoServiceImpl implements IDocumentoService {

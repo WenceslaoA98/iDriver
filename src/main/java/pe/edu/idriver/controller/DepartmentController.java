@@ -1,4 +1,4 @@
-package pe.edu.idriver.controller;
+package pe.edu.login.idriver.controller;
 
 import java.text.ParseException;
 import java.util.List;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import pe.edu.idriver.entity.Department;
-import pe.edu.idriver.service.IDepartmentService;
+import pe.edu.login.idriver.entity.Department;
+import pe.edu.login.idriver.service.IDepartmentService;
 
 @Controller
 @RequestMapping("/department")

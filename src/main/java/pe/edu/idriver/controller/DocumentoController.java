@@ -1,4 +1,4 @@
-package pe.edu.idriver.controller;
+package pe.edu.login.idriver.controller;
 
 import java.text.ParseException;
 import java.util.List;
@@ -15,22 +15,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import pe.edu.idriver.entity.Documento;
-import pe.edu.idriver.entity.Licencia;
-import pe.edu.idriver.entity.Polarizado;
-import pe.edu.idriver.entity.Seguro;
-import pe.edu.idriver.entity.Soat;
-import pe.edu.idriver.entity.Tarjeta;
-import pe.edu.idriver.entity.Usuario;
-import pe.edu.idriver.entity.Vehiculo;
-import pe.edu.idriver.service.IDocumentoService;
-import pe.edu.idriver.service.ILicenciaService;
-import pe.edu.idriver.service.IPolarizadoService;
-import pe.edu.idriver.service.ISeguroService;
-import pe.edu.idriver.service.ISoatService;
-import pe.edu.idriver.service.ITarjetaService;
-import pe.edu.idriver.service.IUsuarioService;
-import pe.edu.idriver.service.IVehiculoService;
+import pe.edu.login.idriver.entity.Documento;
+import pe.edu.login.idriver.entity.Licencia;
+import pe.edu.login.idriver.entity.Polarizado;
+import pe.edu.login.idriver.entity.Seguro;
+import pe.edu.login.idriver.entity.Soat;
+import pe.edu.login.idriver.entity.Tarjeta;
+import pe.edu.login.idriver.entity.Usuario;
+import pe.edu.login.idriver.entity.Vehiculo;
+import pe.edu.login.idriver.service.IDocumentoService;
+import pe.edu.login.idriver.service.ILicenciaService;
+import pe.edu.login.idriver.service.IPolarizadoService;
+import pe.edu.login.idriver.service.ISeguroService;
+import pe.edu.login.idriver.service.ISoatService;
+import pe.edu.login.idriver.service.ITarjetaService;
+import pe.edu.login.idriver.service.IUsuarioService;
+import pe.edu.login.idriver.service.IVehiculoService;
 
 
 @Controller

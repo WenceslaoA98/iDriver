@@ -1,4 +1,4 @@
-package pe.edu.idriver.serviceimpl;
+package pe.edu.login.idriver.serviceimpl;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import pe.edu.idriver.entity.Tarjeta;
-import pe.edu.idriver.repository.ITarjetaRepository;
-import pe.edu.idriver.service.ITarjetaService;
+import pe.edu.login.idriver.entity.Tarjeta;
+import pe.edu.login.idriver.repository.ITarjetaRepository;
+import pe.edu.login.idriver.service.ITarjetaService;
 
 @Service
 public class TarjetaServiceImpl implements ITarjetaService {

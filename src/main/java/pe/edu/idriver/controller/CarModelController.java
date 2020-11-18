@@ -1,4 +1,4 @@
-package pe.edu.idriver.controller;
+package pe.edu.login.idriver.controller;
 
 import java.text.ParseException;
 import java.util.List;
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import pe.edu.idriver.entity.Brand;
-import pe.edu.idriver.entity.CarModel;
-import pe.edu.idriver.service.IBrandService;
-import pe.edu.idriver.service.ICarModelService;
+import pe.edu.login.idriver.entity.Brand;
+import pe.edu.login.idriver.entity.CarModel;
+import pe.edu.login.idriver.service.IBrandService;
+import pe.edu.login.idriver.service.ICarModelService;
 
 @Controller
 @RequestMapping("/carmodel")

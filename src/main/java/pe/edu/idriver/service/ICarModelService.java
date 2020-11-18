@@ -1,9 +1,10 @@
-package pe.edu.idriver.service;
+package pe.edu.login.idriver.service;
 
 import java.util.List;
 import java.util.Optional;
 
-import pe.edu.idriver.entity.CarModel;
+import pe.edu.login.idriver.entity.CarModel;
+
 
 public interface ICarModelService {
 	

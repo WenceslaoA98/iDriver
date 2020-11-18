@@ -1,4 +1,4 @@
-package pe.edu.idriver.entity;
+package pe.edu.login.idriver.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

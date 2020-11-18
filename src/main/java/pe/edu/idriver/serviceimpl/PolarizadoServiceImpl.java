@@ -1,4 +1,4 @@
-package pe.edu.idriver.serviceimpl;
+package pe.edu.login.idriver.serviceimpl;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import pe.edu.idriver.entity.Polarizado;
-import pe.edu.idriver.repository.IPolarizadoRepository;
-import pe.edu.idriver.service.IPolarizadoService;
+import pe.edu.login.idriver.entity.Polarizado;
+import pe.edu.login.idriver.repository.IPolarizadoRepository;
+import pe.edu.login.idriver.service.IPolarizadoService;
 
 @Service
 public class PolarizadoServiceImpl implements IPolarizadoService {
