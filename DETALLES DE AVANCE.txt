@@ -29,3 +29,15 @@ Login propio
 *********
 Tenemos todas las búsquedas.
 OJO: CAMBIAR MANY TO ONE -> ONE TO ONE
+
+TB04:
+COMPLETO.
+LOGIN CONDUCTOR, ADMIN, POLICIA
+LOGOUT CONDUCTOR, ADMIN, POLICIA
+REGISTRAR
+FUNCIONES:
+	registrar, listar, buscar, eliminar, modificar
+VALIDACIONES:
+	fecha, valores input
+LANDINGPAGE
+VISUALIZACIONES...
