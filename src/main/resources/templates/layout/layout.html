@@ -27,50 +27,99 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
-					<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a
-							class="nav-link" th:href="@{/department/listar}">Departamento</a></li>
-							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
-							class="nav-link" th:href="@{/province/listar}">Provincia</a></li>
-							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
-							class="nav-link" th:href="@{/district/listar}">Distrito</a></li>
-							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
-							class="nav-link" th:href="@{/brand/listar}">Marca</a></li>
-							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
-							class="nav-link" th:href="@{/carmodel/listar}">Modelo</a></li>
-							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
-							class="nav-link" th:href="@{/color/listar}">Color</a></li>
+					<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item dropdown"><a
+											class="nav-link dropdown-toggle " href="#"
+											id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false">Regiones</a>
+											<div class="dropdown-menu"
+												aria-labelledby="navbarDropdownMenuLink">
+												<a class="dropdown-item" th:href="@{/department/listar}">Departamento</a> 
+												<a class="dropdown-item" th:href="@{/province/listar}">Provincia</a>
+												<a class="dropdown-item" th:href="@{/district/listar}">Distrito</a>
+											</div></li>
+					<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item dropdown"><a
+											class="nav-link dropdown-toggle " href="#"
+											id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false">Vehiculos</a>
+											<div class="dropdown-menu"
+												aria-labelledby="navbarDropdownMenuLink">
+												<a class="dropdown-item" th:href="@{/brand/listar}">Marca</a> 
+												<a class="dropdown-item" th:href="@{/carmodel/listar}">Modelo</a>
+												<a class="dropdown-item" th:href="@{/color/listar}">Color</a>
+											</div></li>
+		
 							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
 							class="nav-link" th:href="@{/usuario/listar}">Usuario</a></li>
 							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
 							class="nav-link" th:href="@{/vehiculo/listar}">Vehiculo</a></li>
-							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
-							class="nav-link" th:href="@{/licencia/listar}">Licencia</a></li>
-							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
-							class="nav-link" th:href="@{/soat/listar}">Soat</a></li>
-							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
-							class="nav-link" th:href="@{/seguro/listar}">Seguro</a></li>
-							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
-							class="nav-link" th:href="@{/tarjeta/listar}">Tarjeta</a></li>
-							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
-							class="nav-link" th:href="@{/polarizado/listar}">Polarizado</a></li>
+							
+					<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item dropdown"><a
+											class="nav-link dropdown-toggle " href="#"
+											id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false">Documentos</a>
+											<div class="dropdown-menu"
+												aria-labelledby="navbarDropdownMenuLink">
+												<a class="dropdown-item" th:href="@{/licencia/listar}">Licencia</a> 
+												<a class="dropdown-item" th:href="@{/soat/listar}">Soat</a>
+												<a class="dropdown-item" th:href="@{/seguro/listar}">Seguro</a>
+												<a class="dropdown-item" th:href="@{/tarjeta/listar}">Tarjeta</a>
+												<a class="dropdown-item" th:href="@{/polarizado/listar}">Polarizado</a>
+											</div></li>
+											
 							<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a 
 							class="nav-link" th:href="@{/documento/listar}">Documento</a></li>
+							
+							
+							
 							
 							<li sec:authorize="hasRole('ROLE_DRIVER')" class="nav-item"><a 
 							class="nav-link" th:href="@{/usuario/listar}">Usuario</a></li>
 							<li sec:authorize="hasRole('ROLE_DRIVER')" class="nav-item"><a 
 							class="nav-link" th:href="@{/vehiculo/listar}">Vehiculo</a></li>
+							
+					<li sec:authorize="hasRole('ROLE_DRIVER')" class="nav-item dropdown"><a
+											class="nav-link dropdown-toggle " href="#"
+											id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false">Documentos</a>
+											<div class="dropdown-menu"
+												aria-labelledby="navbarDropdownMenuLink">
+												<a class="dropdown-item" th:href="@{/licencia/listar}">Licencia</a> 
+												<a class="dropdown-item" th:href="@{/soat/listar}">Soat</a>
+												<a class="dropdown-item" th:href="@{/seguro/listar}">Seguro</a>
+												<a class="dropdown-item" th:href="@{/tarjeta/listar}">Tarjeta</a>
+												<a class="dropdown-item" th:href="@{/polarizado/listar}">Polarizado</a>
+											</div></li>
+		
 							<li sec:authorize="hasRole('ROLE_DRIVER')" class="nav-item"><a 
-							class="nav-link" th:href="@{/licencia/listar}">Licencia</a></li>
-							<li sec:authorize="hasRole('ROLE_DRIVER')" class="nav-item"><a 
-							class="nav-link" th:href="@{/soat/listar}">Soat</a></li>
-							<li sec:authorize="hasRole('ROLE_DRIVER')" class="nav-item"><a 
-							class="nav-link" th:href="@{/seguro/listar}">Seguro</a></li>
-							<li sec:authorize="hasRole('ROLE_DRIVER')" class="nav-item"><a 
-							class="nav-link" th:href="@{/tarjeta/listar}">Tarjeta</a></li>
-							<li sec:authorize="hasRole('ROLE_DRIVER')" class="nav-item"><a 
-							class="nav-link" th:href="@{/polarizado/listar}">Polarizado</a></li>
-							<li sec:authorize="hasRole('ROLE_DRIVER')" class="nav-item"><a 
+							class="nav-link" th:href="@{/documento/listar}">Documento</a></li>
+					
+					<li sec:authorize="hasRole('ROLE_DRIVER')" class="nav-item dropdown"><a
+											class="nav-link dropdown-toggle " href="#"
+											id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false">Información</a>
+											<div class="dropdown-menu"
+												aria-labelledby="navbarDropdownMenuLink">
+												<a class="dropdown-item" th:href="@{/visualizar/permisos}">Permisos</a> 
+												<a class="dropdown-item" th:href="@{/visualizar/centrossoat}">Centros de Soat</a>
+												<a class="dropdown-item" th:href="@{/visualizar/centrosseguros}">Centros de Seguros</a>
+												<a class="dropdown-item" th:href="@{/visualizar/permisosespeciales}">Permisos Especiales</a>
+											</div></li>
+					
+					
+					<li sec:authorize="hasRole('ROLE_POLICE')" class="nav-item dropdown"><a
+											class="nav-link dropdown-toggle " href="#"
+											id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false">Documentos</a>
+											<div class="dropdown-menu"
+												aria-labelledby="navbarDropdownMenuLink">
+												<a class="dropdown-item" th:href="@{/licencia/listar}">Licencia</a> 
+												<a class="dropdown-item" th:href="@{/soat/listar}">Soat</a>
+												<a class="dropdown-item" th:href="@{/seguro/listar}">Seguro</a>
+												<a class="dropdown-item" th:href="@{/tarjeta/listar}">Tarjeta</a>
+												<a class="dropdown-item" th:href="@{/polarizado/listar}">Polarizado</a>
+											</div></li>
+		
+							<li sec:authorize="hasRole('ROLE_POLICE')" class="nav-item"><a 
 							class="nav-link" th:href="@{/documento/listar}">Documento</a></li>
 
 				</ul>
@@ -82,6 +131,8 @@
 						aria-disabled="true">Nuevo Conductor</a> <a
 						class="btn btn-info" th:href="@{/idriver/signin/manager}"
 						aria-disabled="true">Nuevo Administrador</a> <a
+						class="btn btn-danger" th:href="@{/idriver/signin/police}"
+						aria-disabled="true">Nuevo Policia</a> <a
 						class="btn btn-success" th:href="@{/idriver/login}"
 						aria-disabled="true">Iniciar Sesión</a></li>
 				</ul>
@@ -93,7 +144,7 @@
 						sec:authentication="name"> Username</span>
 				</button>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" th:href="@{logout}">Cerrar Sesión</a>
+					<a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a>
 					<!-- Dropdown menu links -->
 				</div>
 			</div>

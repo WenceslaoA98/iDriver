@@ -1,52 +1,30 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
-	<head th:replace="layout/layout :: head">
-		
-		<meta charset="UTF-8"></meta>
-		
-		<title>Vehiculo</title>
-		
-		<script type="text/javascript"
-			src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js">
-		</script>
-		
-		<link
-			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
-			rel="stylesheet" id="bootstrap-css">
-		</link>
-		
-		<script
-			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
-		</script>
-		
-		<script src="//code.jquery.com/jquery-1.11.1.min.js">
-		</script>
-
-	</head>
-
-	<body>
+<html lang="es" xmlns:th="http://www.thymeLeaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<main role="main">
 		<STYLE type="text/css">
   				td { text-align: center}
   				td { text-align: center}
 		</STYLE>
-		<header th:replace="layout/layout :: header"></header>
 
 		<div class="container">
 			<form id="myform">
 				<div class="row clearfix">
 					<div class="col-md-12 column" >
 						
-						<a  style="border-bottom-color: green" th:href="@{/vehiculo/irRegistrar}" id="add-row" 
+						<a  sec:authorize="hasRole('ROLE_MANAGER') or hasRole('ROLE_DRIVER')" style="border-bottom-color: green" th:href="@{/vehiculo/irRegistrar}" id="add-row" 
 							type="button"
 							class="btn btn-primary btn-md left-block"> <span
 							class="glyphicon glyphicon-plus" ></span> Vehiculo
 						</a>
 						
-						<a  style="border-bottom-color: green" th:href="@{/vehiculo/irBuscar}" id="add-row" 
+						<a  sec:authorize="hasRole('ROLE_MANAGER') or hasRole('ROLE_POLICE')" style="border-bottom-color: green" th:href="@{/vehiculo/irBuscar}" id="add-row" 
 							type="button"
 							class="btn btn-primary btn-md left-block"> <span
-							class="glyphicon glyphicon-search" ></span> 
+							class="glyphicon glyphicon-search" ></span> Buscar
 						</a>
 						
 						<table class="table table-bordered table-hover table-striped" id="tab_logic">
@@ -57,9 +35,9 @@
 									<th class="text-center">MODELO</th>
 									<th class="text-center">MARCA</th>
 									<th class="text-center">COLOR</th>
-									<th class="text-center">AÃ‘O DEL VEHICULO</th>
-									<th class="text-center">OPERACIÃ“N</th>
-									<th class="text-center">OPERACIÃ“N</th>
+									<th class="text-center">AÑO DEL VEHICULO</th>
+									<th sec:authorize="hasRole('ROLE_MANAGER') or hasRole('ROLE_DRIVER')" class="text-center">OPERACIÓN</th>
+									<th sec:authorize="hasRole('ROLE_MANAGER')" class="text-center">OPERACIÓN</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -70,10 +48,12 @@
 									<td th:text="${v.carmodel.brand.nameBrand}"></td>
 									<td th:text="${v.color.nameColor}"></td>								
 									<td th:text="${#dates.format(v.DateVehiculo,'yyyy')}"></td>
-									<td><a th:href="@{/vehiculo/eliminar?id=}+${v.idVehiculo}"class="btn btn-danger btn-sm center"> <span
-							class="glyphicon glyphicon-remove" ></span> Eliminar </a></td> 
-									<td><a th:href="@{'/vehiculo/modificar/' + ${v.idVehiculo}}"class="btn btn-primary btn-sm center"> <span
+									
+									<td><a sec:authorize="hasRole('ROLE_MANAGER') or hasRole('ROLE_DRIVER')" th:href="@{'/vehiculo/modificar/' + ${v.idVehiculo}}"class="btn btn-primary btn-sm center"> <span
 							class="glyphicon glyphicon-pencil" ></span> Modificar </a></td> 
+									<td><a sec:authorize="hasRole('ROLE_MANAGER')" th:href="@{/vehiculo/eliminar?id=}+${v.idVehiculo}"class="btn btn-danger btn-sm center"> <span
+							class="glyphicon glyphicon-remove" ></span> Eliminar </a></td> 
+									
 								</tr>
 							</tbody>
 						</table>
@@ -85,8 +65,7 @@
 			</div>
 		</form>
 	</div>
-	
-	<div th:replace="fragments/footer :: footer"></div>
-
+	</main>
+	<footer th:replace="layout/layout :: footer"></footer>
 	</body>
 </html>

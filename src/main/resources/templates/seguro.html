@@ -1,27 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
-	<head th:replace="layout/layout :: head">
-		
-		<meta charset="ISO-8859-1"></meta>
-		
-		<title>Seguro</title>
-		
-		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-		
-		<link 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
-				rel="stylesheet" id="bootstrap-css">
-		</link>
-
-		<script
-			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
-		</script>
-
-	</head>
-	
-	<body>
-	
-		<header th:replace="layout/layout :: header"></header>
+<html lang="es" xmlns:th="http://www.thymeLeaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<main role="main">
 		
 		<div class="container">
 			<form th:action="@{/seguro/registrar}" method="post" th:object="${seguro}">
@@ -62,7 +45,7 @@
 						<label 	for="monto">MONTO:</label> 
 						<input type="text" th:field="*{montoSeguro}" class="form-control" id="monto"
 						placeholder="Ingrese el monto de la prima del Seguro"
-						required minlength="2" maxlength="3"
+						required minlength="2" maxlength="3" pattern="[0-9]"
 									title="Ingresar la prima del seguro">
 						</input>
 	
@@ -95,9 +78,8 @@
 							class="glyphicon glyphicon-floppy-remove" ></span>  Cancelar</a>
 			</form>
 		</div>
-	
-		<div th:replace="fragments/footer :: footer"></div>
-
+	</main>
+	<footer th:replace="layout/layout :: footer"></footer>
 	</body>
 	
 </html>

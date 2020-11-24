@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<main role="main">
+		<section class="jumbotron text-center">
+			<div sec:authorize="isAuthenticated()" class="container">
+				<div
+					class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+					<div class="col-md-15 p-lg-15 mx-auto my-15">
+						<h1 style="color: Red">
+							<p style="font-size: 110px">PERMISOS
+						</h1>
+						</p>
+						<img
+							src="https://elcomercio.pe/resizer/g9STfYqGiwzoJR7gUX1cZNsTtTQ=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/4FPEJY7PZRGN5NZHI44C6ZYCKA.jpg">
+						<h1 style="color: Black">
+							<p style="font-size: 50px">
+							<p style="font-family: verdana">¿TE INTERVIENEN Y NO ENCUENTRAS TU SOAT?¿OLVIDASTE QUE TENIAS QUE RENOVARLO? </p>
+							</p>
+						</h1>
+					</div>
+
+					<div class="product-device shadow-sm d-none d-md-block">
+						<img
+							src="https://d31dn7nfpuwjnm.cloudfront.net/images/valoraciones/0034/2174/mejores-aseguradoras-peru.png?1559818646"
+							width="1000" height="600">
+						<p class="lead font-weight-normal">Si eres sorprendido/a manejando sin contar con el SOAT o sin tenerlo vigente, 
+						corresponderá una multa de S/516.00. Ademas, se retendra el vehiculo y el conductor acumulará 50 puntos.Esta infraccion 
+						corresponde al propietario. Igualmente, este ano el Ministerio de Transporte y Comunicaciones indico a traves del decreto
+						 N°019-2020 que quienes manejen un vehiculo de transporte publico y no tengan el Seguro Obligatorio de Accidentes de Transito 
+						 (SOAT), y tampoco el Certificado de Inspeccion Técnica Vehicular, se les impondra una pena privativa de libertad de 1 a 3 años 
+						 e inhabilitacion.</p>
+					</div>
+					<div
+						class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+				</div>
+				
+			</div>	
+			</section>	
+		</main>	
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

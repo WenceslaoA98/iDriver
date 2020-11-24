@@ -1,38 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
 
-	<head th:replace="layout/layout :: head">
-		
-		<meta charset="UTF-8"></meta>
-		
-		<title>Departamentos</title>
-		
-		<script type="text/javascript"
-			src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js">
-		</script>
-		
-		<link
-			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
-			rel="stylesheet" id="bootstrap-css">
-		</link>
-		
-		<script
-			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
-		</script>
-		
-		<script src="//code.jquery.com/jquery-1.11.1.min.js">
-		</script>
-
-	</head>
-
-	<body>
+<html lang="es" xmlns:th="http://www.thymeLeaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<main role="main">
 	<STYLE type="text/css">
   				td { text-align: center}
   				td { text-align: center}
 		</STYLE>
-	
-	
-		<header th:replace="layout/layout :: header"></header>
 
 		<div class="container">
 			<form id="myform">
@@ -40,14 +17,14 @@
 					<div class="col-md-12 column" >
 						
 						<a  style="border-bottom-color: red " th:href="@{/department/irRegistrar}" id="add-row" 
-							type="button"
+							type="button" sec:authorize="hasRole('ROLE_MANAGER')"
 							class="btn btn-primary btn-md left-block"> <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Departamento
 						</a>
 						
 						<a  style="border-bottom-color: red" th:href="@{/department/irBuscar}" id="add-row" 
-							type="button"
+							type="button" sec:authorize="hasRole('ROLE_MANAGER')"
 							class="btn btn-primary btn-md left-block"> <span
-							class="glyphicon glyphicon-search" ></span> 
+							class="glyphicon glyphicon-search" ></span> Buscar
 						</a>
 						
 						<table class="table table-bordered table-hover table-striped" id="tab_logic">
@@ -55,18 +32,18 @@
 								<tr>
 									<th class="text-center">CODIGO</th>
 									<th class="text-center">DEPARTAMENTO</th>
-									<th class="text-center">OPERACIÃ“N</th>
-									<th class="text-center">OPERACIÃ“N</th>
+									<th class="text-center">OPERACIÓN</th>
+									<th class="text-center">OPERACIÓN</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr th:each="dep: ${listaDepartamentos}">
 									<td th:text="${dep.idDepartment}"></td>
 									<td th:text="${dep.nameDepartment}"></td>
-									<td><a style="border-bottom-color: red" th:href="@{/department/eliminar?id=}+${dep.idDepartment}"
+									<td><a style="border-bottom-color: red" sec:authorize="hasRole('ROLE_MANAGER')" th:href="@{/department/eliminar?id=}+${dep.idDepartment}"
 									class="btn btn-danger btn-sm center"> <span
 							class="glyphicon glyphicon-remove" ></span> Eliminar </a></td> 
-									<td><a style="border-bottom-color: red" th:href="@{'/department/modificar/' + ${dep.idDepartment}}"
+									<td><a style="border-bottom-color: red" sec:authorize="hasRole('ROLE_MANAGER')" th:href="@{'/department/modificar/' + ${dep.idDepartment}}"
 									class="btn btn-primary btn-sm center"> <span
 							class="glyphicon glyphicon-pencil" ></span> Modificar </a></td> 
 								</tr>
@@ -80,8 +57,8 @@
 			</div>
 		</form>
 	</div>
-	
-	<div th:replace="fragments/footer :: footer"></div>
+	</main>
+	<footer th:replace="layout/layout :: footer"></footer>
 
 	</body>
 </html>

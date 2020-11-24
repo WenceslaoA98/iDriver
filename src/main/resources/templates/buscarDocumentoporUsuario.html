@@ -43,11 +43,11 @@ form {
 		<div class="form-group mb-2">
 
 			<label for="nombre">USUARIO:</label> <input type="text"
-				th:field="*{nameUsuario}" class="form-group mx-sm-3 mb-2" id="nombre"></input>
+				th:field="*{lastnameUsuario}" class="form-group mx-sm-3 mb-2" id="nombre"></input>
 
 			<div class="alert alert-danger"
-				th:if="${#fields.hasErrors('nameUsuario')}"
-				th:errors="*{nameUsuario}"></div>
+				th:if="${#fields.hasErrors('lastnameUsuario')}"
+				th:errors="*{lastnameUsuario}"></div>
 
 			<button type="submit" class="btn btn-success"> <span
 							class="glyphicon glyphicon-search" ></span>  Buscar</button>

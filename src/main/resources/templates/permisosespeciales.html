@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<main role="main">
+		<section class="jumbotron text-center">
+			<div sec:authorize="isAuthenticated()" class="container">
+			
+			
+			
+				<div
+					class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+					<div class="col-md-15 p-lg-15 mx-auto my-15">
+						<h1 style="color: Red">
+							<p style="font-size: 110px">Permiso especial
+						</h1>
+						</p>
+						<img
+							src="https://i2.wp.com/www.somosdocentes.net/wp-content/uploads/2020/03/Tramite-pase-de-tr%C3%A1nsito-1.jpg?fit=975%2C546&ssl=1">
+						<h1 style="color: Black">
+							<p style="font-size: 50px">
+							<p style="font-family: verdana">Solicita tu permiso especial de transito</p>
+							</p>
+						</h1>
+					</div>
+
+					<div class="product-device shadow-sm d-none d-md-block">
+						<img
+							src="https://peru.as.com/peru/imagenes/2020/05/25/tikitakas/1590420946_222181_1590421134_noticia_normal.jpg"
+							width="1000" height="600">
+						<p class="lead font-weight-normal">https://www.gob.pe/8783-solicitar-pase-especial-laboral .</p>
+					</div>
+					<div
+						class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+				</div>
+				
+				
+				
+			</div>
+
+		</section>
+	</main>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

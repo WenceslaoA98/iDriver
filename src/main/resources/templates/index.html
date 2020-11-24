@@ -1,125 +1,182 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
-	<head th:replace="layout/layout :: head">
-		<meta charset="UTF-8"></meta>
-		
-		<title>iDriver</title>
-		
-		<script type="text/javascript"
-			src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js">
-		</script>
-		
-		<link
-			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
-			rel="stylesheet" id="bootstrap-css">
-		</link>
-		
-		<script
-			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
-		</script>
-		
-		<script src="//code.jquery.com/jquery-1.11.1.min.js">
-		</script>
-
-	</head>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+</head>
 <body>
 	<header th:replace="layout/layout :: header"></header>
 
-	<div class="row">
-		<STYLE type="text/css">
-h1 {
-	text-align: center
-}
+	<main role="main">
+		<section class="jumbotron text-center">
+			<div sec:authorize="isAuthenticated()" class="container">
+			
+			
+			
+				<div
+					class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+					<div class="col-md-15 p-lg-15 mx-auto my-15">
+						<h1 style="color: Red">
+							<p style="font-size: 110px">iDriver
+						</h1>
+						</p>
+						<img
+							src="https://riouruguayseguros.com/site/wp-content/uploads/2016/05/manejar-de-dia-o-de-noche.jpg">
+						<h1 style="color: Black">
+							<p style="font-size: 50px">
+							<p style="font-family: verdana">TUS DOCUMENTOS SIEMPRE A TU LADO</p>
+							</p>
+						</h1>
+					</div>
 
-h1 {
-	font-size: 40px
-}
-
-h1 {
-	color: red;
-}
-
-h2 {
-	text-align: center
-}
-
-h2 {
-	font-style: italic
-}
-
-h4 {
-	text-align: center
-}
-
-p {
-	text-align: center
-}
-
-a {
-	text-align: center
-}
-
-img {
-	align-content: center;
-}
-
-img {
-	align-items: center;
-}
-
-img {
-	align-self: center;
-}
-
-div {
-	align-content: center;
-}
-
-div {
-	align-items: center;
-}
-
-div {
-	align-self: center;
-}
-</STYLE>
-		<h1>iDriver</h1>
-		<h2>Todos tus documentos seguros y al alcance de tu celular</h2>
-		<div class="col-md-4">
-			<div class="card">
-				<img class="card-img-top" th:src="@{imagenes/DNI.png}" width="300"
-					height="300" alt="DNI">
-				<div class="card-body">
-					<h4 class="card-title">DNI</h4>
-					<p class="card-text">Nunca olvides tu DNI</p>
+					<div class="product-device shadow-sm d-none d-md-block">
+						<img
+							src="https://segurarse.com.ar/blog/wp-content/uploads/2017/10/why-kei-51455.jpg"
+							width="1000" height="600">
+						<p class="lead font-weight-normal">iDriver es una aplicacion web dedicada a ayudar en la seguridad, 
+						rapidez, tranquilidad y responsabilidad a las personas que anadieron la conduccion de un carro a su dia a dia. 
+						En esta aplicacion web podras tener al alcance informacion personal y del vehiculo como el DNI, Soat, brevete y 
+						seguros, tanto de la persona como del vehiculo, de manera rapida, comoda y legitima. iDriver no solo le asegura 
+						al usuario que tendra todos sus documentos disponibles a cualquier hora, sino que tambien facilita el labor de un 
+						oficial al momento de alguna intervencion policial.</p>
+					</div>
+					<div
+						class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
 				</div>
+				
+				
+				
 			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card">
-				<img class="card-img-top" th:src="@{/imagenes/DRIVERLICENCE.png}"
-					width="300" height="300" alt="Licencia">
-				<div class="card-body">
-					<h4 class="card-title">Licencia</h4>
-					<p class="card-text">Nunca olvides tu Licencia</p>
+			<div sec:authorize="isAnonymous()" class="container">
+				<div
+					class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+					<div class="col-md-15 p-lg-15 mx-auto my-15">
+						<h1 style="color: Red">
+							<p style="font-size: 110px">iDriver
+						</h1>
+						</p>
+						<img
+							src="https://riouruguayseguros.com/site/wp-content/uploads/2016/05/manejar-de-dia-o-de-noche.jpg">
+						<h1 style="color: Black">
+							<p style="font-size: 50px">
+							<p style="font-family: verdana">TUS DOCUMENTOS SIEMPRE A TU LADO</p>
+							</p>
+						</h1>
+					</div>
+
+					<div class="product-device shadow-sm d-none d-md-block">
+						<img
+							src="https://segurarse.com.ar/blog/wp-content/uploads/2017/10/why-kei-51455.jpg"
+							width="1000" height="600">
+						<p class="lead font-weight-normal">iDriver es una aplicacion web dedicada a ayudar en la seguridad, 
+						rapidez, tranquilidad y responsabilidad a las personas que anadieron la conduccion de un carro a su dia a dia. 
+						En esta aplicacion web podras tener al alcance informacion personal y del vehiculo como el DNI, Soat, brevete y 
+						seguros, tanto de la persona como del vehiculo, de manera rapida, comoda y legitima. iDriver no solo le asegura 
+						al usuario que tendra todos sus documentos disponibles a cualquier hora, sino que tambien facilita el labor de un 
+						oficial al momento de alguna intervencion policial.</p>
+					</div>
+					<div
+						class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
 				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card">
-				<img class="card-img-top" th:src="@{/imagenes/SOAT.png}" width="300"
-					height="300" alt="SOAT">
-				<div class="card-body">
-					<h4 class="card-title">SOAT</h4>
-					<p class="card-text">Nunca olvides tu SOAT</p>
+
+				<h1 style="color: Black">
+					<p style="font-size: 50px">
+					<p style="font-family: verdana">-----------------------CREADORES----------------------
+
+					
+				</h1>
+				</p>
+				</p>
+				<div class="d-flex justify-content-center">
+					<div
+						class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-white overflow-hidden">
+						<div class="my-3 p-3">
+							<h2 class="display-5">WENCESLAO ARRASCUE</h2>
+
+							<img
+								th:src="@{/imagenes/wences.png}"
+								width="180" height="270">
+
+						</div>
+
+					</div>
+					<div
+						class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+						<div class="my-3 p-3">
+							<h2 class="display-5">VALERIA COLLAZOS</h2>
+
+							<img
+								th:src="@{/imagenes/vale.jpeg}"
+								width="180" height="270">
+						</div>
+
+					</div>
+					
+				</div>
+				<h1 style="color: highlight;">
+					<p style="font-size: 50px">
+					<p style="font-family: verdana">Documentos
+				</h1>
+				</p>
+				</p>
+
+				<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+					<div
+						class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-white overflow-hidden">
+						<div class="my-3 p-3">
+							<h2 class="display-5">Licencia</h2>
+
+							<img
+								th:src="@{/imagenes/DRIVERLICENCE.png}"
+								width="250" height="250">
+							<h2 class="display-5"><p style="font-size: 20px"> La licencia de conducir es uno de los documentos mas importantes para 
+							el conductor, al tramitarla obtienes el permiso oficial de conducir un auto, sirve como una 
+							identificacion personal, en caso de un accidente automovilistico el seguro pide la licencia para
+							 poder dar tramite al servicio de reparaciones o gastos</h2>
+							
+						</div>
+
+					</div>
+
+					<div
+						class="bg-ligth mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-dark overflow-hidden">
+						<div class="my-3 p-3">
+							<h2 class="display-5">Soat</h2>
+
+							<img
+								th:src="@{/imagenes/SOAT.png}"
+								width="250" height="260">
+
+							<h2 class="display-5"><p style="font-size: 20px"> Seguro obligatorio establecido por Ley con un fin netamente social. Su objetivo es 
+							asegurar la atencion, de manera inmediata e incondicional, de las victimas de accidentes de transito que 
+							sufren lesiones corporales y muerte.</h2>
+
+						</div>
+
+					</div>
+
+					<div
+						class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-white overflow-hidden">
+						<div class="my-3 p-3">
+							<h2 class="display-5">DNI</h2>
+							<img
+								th:src="@{/imagenes/DNI.png}"
+								width="250" height="250">
+
+							<h2 class="display-5"><p style="font-size: 20px"> El documento que todo ciudadano peruano debe tener obligatoriamente. 
+							Este es tu principal documento de identificacion y es necesario para acceder a todos los 
+							servicios y beneficios del Estado.</h2>
+
+						</div>
+
+					</div>
 
 				</div>
-			</div>
-		</div>
-	</div>
 
-	</div>
+
+			</div>
+
+		</section>
+	</main>
 
 	<footer th:replace="layout/layout :: footer"></footer>
 </body>
