@@ -144,8 +144,8 @@ public class SeguroController {
 	throws ParseException 
 	{
 		List<Seguro> listaSeguros;
-		usuario.setNameUsuario(usuario.getNameUsuario());
-		listaSeguros = seService.findByNombreUsuario(usuario.getNameUsuario());
+		usuario.setLastnameUsuario(usuario.getLastnameUsuario());
+		listaSeguros = seService.findByNombreUsuario(usuario.getLastnameUsuario());
 		
 		if(listaSeguros.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{

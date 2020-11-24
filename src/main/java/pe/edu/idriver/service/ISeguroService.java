@@ -13,6 +13,6 @@ public interface ISeguroService {
 	public Optional<Seguro> listarId(String idSeguro);
 	List<Seguro> listar();
 	List<Seguro> findById(String idSeguro);
-	List<Seguro> findByNombreUsuario(String nameUsuario);
+	List<Seguro> findByNombreUsuario(String lastnameUsuario);
 	List<Seguro> findByPlacaVehiculo(String placaVehiculo);
 }

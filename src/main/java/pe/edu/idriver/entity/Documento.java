@@ -50,7 +50,7 @@ public class Documento {
 	private Tarjeta tarjeta;
 	
 	@ManyToOne
-	@JoinColumn(name="idPolarizado", nullable = false)
+	@JoinColumn(name="idPolarizado")
 	private Polarizado polarizado;
 	
 	@Temporal(TemporalType.DATE)

@@ -71,9 +71,9 @@ public class DocumentoServiceImpl implements IDocumentoService {
 	
 	@Override
 	@Transactional
-	public List<Documento> findByNameUsuario(String nameUsuario) {
+	public List<Documento> findByNameUsuario(String lastnameUsuario) {
 
-		return dDocumento.buscarNombreUsuario(nameUsuario);
+		return dDocumento.buscarNombreUsuario(lastnameUsuario);
 	}
 	
 	@Override

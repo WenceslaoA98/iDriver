@@ -16,7 +16,7 @@ public interface ILicenciaRepository extends JpaRepository<Licencia, String>{
 	@Query("from Licencia l where l.idLicencia like %:idLicencia%")
 	List<Licencia> buscarId(@Param("idLicencia") String idLicencia);
 	
-	@Query("from Licencia l where l.usuario.nameUsuario like %:nameUsuario%")
-	List<Licencia> buscarNombreUsuario(@Param("nameUsuario") String nameUsuario);
+	@Query("from Licencia l where l.usuario.lastnameUsuario like %:lastnameUsuario%")
+	List<Licencia> buscarNombreUsuario(@Param("lastnameUsuario") String lastnameUsuario);
 	
 }

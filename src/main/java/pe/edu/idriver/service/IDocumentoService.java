@@ -13,7 +13,7 @@ public interface IDocumentoService {
 	public Optional<Documento> listarId(int idDocumento);
 	List<Documento> listar();
 	List<Documento> findById(int idDocumento);
-	List<Documento> findByNameUsuario(String nameUsuario);
+	List<Documento> findByNameUsuario(String lastnameUsuario);
 	List<Documento> findByPlacaVehiculo(String placaVehiculo);
 	List<Documento> findByIdLicencia(String idLicencia);
 	List<Documento> findByIdSeguro(String idSeguro);

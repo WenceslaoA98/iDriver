@@ -71,9 +71,9 @@ public class SoatServiceImpl implements ISoatService {
 	
 	@Override
 	@Transactional
-	public List<Soat> findByNombreUsuario(String nameUsuario) {
+	public List<Soat> findByNombreUsuario(String lastnameUsuario) {
 
-		return dSoat.buscarNombreUsuario(nameUsuario);
+		return dSoat.buscarNombreUsuario(lastnameUsuario);
 	}
 	
 	@Override

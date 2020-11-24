@@ -71,8 +71,8 @@ public class LicenciaServiceImpl implements ILicenciaService {
 	
 	@Override
 	@Transactional
-	public List<Licencia> findByNameUsuario(String nameUsuario) {
+	public List<Licencia> findByNameUsuario(String lastnameUsuario) {
 		
-		return dLicencia.buscarNombreUsuario(nameUsuario);
+		return dLicencia.buscarNombreUsuario(lastnameUsuario);
 	}
 }

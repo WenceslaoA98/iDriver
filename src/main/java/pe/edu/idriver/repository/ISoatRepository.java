@@ -16,8 +16,8 @@ public interface ISoatRepository extends JpaRepository<Soat, String>{
 	@Query("from Soat s where s.idSoat like %:idSoat%")
 	List<Soat> buscarId(@Param("idSoat") String idSoat);
 	
-	@Query("from Soat s where s.usuario.nameUsuario like %:nameUsuario%")
-	List<Soat> buscarNombreUsuario(@Param("nameUsuario") String nameUsuario);
+	@Query("from Soat s where s.usuario.lastnameUsuario like %:lastnameUsuario%")
+	List<Soat> buscarNombreUsuario(@Param("lastnameUsuario") String lastnameUsuario);
 	
 	@Query("from Soat s where s.vehiculo.placaVehiculo like %:placaVehiculo%")
 	List<Soat> buscarPlacaVehiculo(@Param("placaVehiculo") String placaVehiculo);

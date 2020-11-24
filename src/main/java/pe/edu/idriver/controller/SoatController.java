@@ -144,8 +144,8 @@ public class SoatController {
 	throws ParseException 
 	{
 		List<Soat> listaSoats;
-		usuario.setNameUsuario(usuario.getNameUsuario());
-		listaSoats = sService.findByNombreUsuario(usuario.getNameUsuario());
+		usuario.setLastnameUsuario(usuario.getLastnameUsuario());
+		listaSoats = sService.findByNombreUsuario(usuario.getLastnameUsuario());
 		
 		if(listaSoats.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{

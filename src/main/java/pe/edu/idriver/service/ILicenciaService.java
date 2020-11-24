@@ -13,5 +13,5 @@ public interface ILicenciaService {
 	public Optional<Licencia> listarId(String idLicencia);
 	List<Licencia> listar();
 	List<Licencia> findById(String idLicencia);
-	List<Licencia> findByNameUsuario(String nameUsuario);
+	List<Licencia> findByNameUsuario(String lastnameUsuario);
 }

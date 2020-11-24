@@ -13,6 +13,6 @@ public interface ISoatService {
 	public Optional<Soat> listarId(String idSoat);
 	List<Soat> listar();
 	List<Soat> findById(String idSoat);
-	List<Soat> findByNombreUsuario(String nameUsuario);
+	List<Soat> findByNombreUsuario(String lastnameUsuario);
 	List<Soat> findByPlacaVehiculo(String placaVehiculo);
 }

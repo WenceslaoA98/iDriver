@@ -15,8 +15,8 @@ public interface IDocumentoRepository extends JpaRepository<Documento, Integer>{
 	@Query("from Documento do where do.idDocumento like %:idDocumento%")
 	List<Documento> buscarId(@Param("idDocumento") int idDocumento);
 	
-	@Query("from Documento do where do.usuario.nameUsuario like %:nameUsuario%")
-	List<Documento> buscarNombreUsuario(@Param("nameUsuario") String nameUsuario);
+	@Query("from Documento do where do.usuario.lastnameUsuario like %:lastnameUsuario%")
+	List<Documento> buscarNombreUsuario(@Param("lastnameUsuario") String lastnameUsuario);
 	
 	@Query("from Documento do where do.vehiculo.placaVehiculo like %:placaVehiculo%")
 	List<Documento> buscarPlacaVehiculo(@Param("placaVehiculo") String placaVehiculo);

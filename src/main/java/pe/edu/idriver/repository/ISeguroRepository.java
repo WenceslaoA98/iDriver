@@ -16,8 +16,8 @@ public interface ISeguroRepository extends JpaRepository<Seguro, String>{
 	@Query("from Seguro se where se.idSeguro like %:idSeguro%")
 	List<Seguro> buscarId(@Param("idSeguro") String idSeguro);
 	
-	@Query("from Seguro se where se.usuario.nameUsuario like %:nameUsuario%")
-	List<Seguro> buscarNombreUsuario(@Param("nameUsuario") String nameUsuario);
+	@Query("from Seguro se where se.usuario.lastnameUsuario like %:lastnameUsuario%")
+	List<Seguro> buscarNombreUsuario(@Param("lastnameUsuario") String lastnameUsuario);
 	
 	@Query("from Seguro se where se.vehiculo.placaVehiculo like %:placaVehiculo%")
 	List<Seguro> buscarPlacaVehiculo(@Param("placaVehiculo") String placaVehiculo);

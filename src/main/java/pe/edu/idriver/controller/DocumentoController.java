@@ -188,8 +188,8 @@ public class DocumentoController {
 	throws ParseException 
 	{
 		List<Documento> listaDocumentos;
-		usuario.setNameUsuario(usuario.getNameUsuario());
-		listaDocumentos = doService.findByNameUsuario(usuario.getNameUsuario());
+		usuario.setLastnameUsuario(usuario.getLastnameUsuario());
+		listaDocumentos = doService.findByNameUsuario(usuario.getLastnameUsuario());
 		
 		if(listaDocumentos.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{

@@ -26,7 +26,7 @@ public class Polarizado {
 	@NotEmpty(message = "El campo no puede estar vacío")
 	@NotBlank(message = "Ingrese el Polarizado")
 	@Size(min=11,max=11,message = "El Polarizado debe tener 11 digitos")
-	@Column(name = "idPolarizado", nullable = false, length = 11)
+	@Column(name = "idPolarizado", length = 11)
 	private String idPolarizado;
 	
 	@ManyToOne

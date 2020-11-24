@@ -57,6 +57,17 @@ public class SignInController {
 		model.addAttribute("user", user);
 		return "/user/signin";
 	}
+	
+	@GetMapping("/police")
+	public String signInPolice(Model model) {
+		User user = new User();
+		Person person = new Person();
+		user.addRoles("ROLE_POLICE");
+		user.setEnable(true);
+		user.setPerson(person);
+		model.addAttribute("user", user);
+		return "/user/signin";
+	}
 
 	@PostMapping("/save")
 	public String saveManager(@ModelAttribute("user") User user, Model model,

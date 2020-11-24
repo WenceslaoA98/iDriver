@@ -135,8 +135,8 @@ public class LicenciaController {
 	throws ParseException 
 	{
 		List<Licencia> listaLicencias;
-		usuario.setNameUsuario(usuario.getNameUsuario());
-		listaLicencias = lService.findByNameUsuario(usuario.getNameUsuario());
+		usuario.setLastnameUsuario(usuario.getLastnameUsuario());
+		listaLicencias = lService.findByNameUsuario(usuario.getLastnameUsuario());
 		
 		if(listaLicencias.isEmpty()) /*si no encuentro es empty, y me devuelve el mensaje, sino me devuelve la lista con los valores cargados*/ 
 		{

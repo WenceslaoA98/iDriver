@@ -71,9 +71,9 @@ public class SeguroServiceImpl implements ISeguroService {
 	
 	@Override
 	@Transactional
-	public List<Seguro> findByNombreUsuario(String nameUsuario) {
+	public List<Seguro> findByNombreUsuario(String lastnameUsuario) {
 
-		return dSeguro.buscarNombreUsuario(nameUsuario);
+		return dSeguro.buscarNombreUsuario(lastnameUsuario);
 	}
 	
 	@Override
